@@ -5,6 +5,8 @@ using UnityEngine;
 public class FlamethrowerBulletBehaviour : FireElementClass
 {
     public float projectileLifetime;
+
+    public int addedBurnStack = 5;
     
     void Start()
     {
@@ -20,7 +22,7 @@ public class FlamethrowerBulletBehaviour : FireElementClass
         if (col.gameObject.GetComponent<HealthBehaviour>() != null) {
             // print("burned");
             // col.gameObject.GetComponent<HealthBehaviour>().health += -10;
-            ApplyBurn(col.gameObject);
+            ApplyBurn(col.gameObject, addedBurnStack);
         } else {
             // print("no health script");
         }

@@ -36,6 +36,8 @@ public class WeaponFlamethrower : MonoBehaviour
 
         if (readyToShoot && isShooting && !reloading && shotsInMagazine > 0) {
             Shoot();
+        } else if (readyToShoot && !isShooting && !reloading && shotsInMagazine <= 0) {
+            Reload();
         }
     }
 
@@ -74,5 +76,13 @@ public class WeaponFlamethrower : MonoBehaviour
         allowInvoke = true;
     }
 
+    private void Reload() {
+        reloading = true;
+        Invoke(nameof(ReloadFinished), reloadRate);
+    }
+    private void ReloadFinished() {
+        shotsInMagazine = magazineSize;
+        reloading = false;
+    }
 
 }
