@@ -21,12 +21,6 @@ public class FireballBulletBehaviour : FireElementClass
         Gizmos.DrawSphere(transform.position, explosionRadius);
     }
 
-    // We should only need OnCollisionEnter, because without both the Bullet passes through enemies (just like the Flamethrower bullet does, because this is a copy of it)
-    void OnTriggerEnter(Collider col) {
-        Explode();
-
-        DestroyProjectile();
-    }
     void OnCollisionEnter(Collision col) {
         Explode();
 

@@ -51,7 +51,7 @@ public class WeaponCandle : MonoBehaviour
 
                 candle.transform.forward = aimDirection.normalized; // point the projectile at the Aim Position
                 candle.GetComponent<Rigidbody>().AddForce(aimDirection.normalized * shootForce, ForceMode.Impulse);
-                // candle.GetComponent<FireCandleBulletBehaviour>().StartFlying();
+                candle.GetComponent<FireCandleBulletBehaviour>().StartFlying();
             }
 
             candlesSpawned.Clear();
