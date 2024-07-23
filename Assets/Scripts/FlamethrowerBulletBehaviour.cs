@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Callbacks;
 using UnityEngine;
 
 public class FlamethrowerBulletBehaviour : FireElementClass
@@ -7,14 +8,19 @@ public class FlamethrowerBulletBehaviour : FireElementClass
     public float projectileLifetime;
 
     public int addedBurnStack = 5;
+    public float antiGravity;
+
+    private Rigidbody rb;
     
     void Start()
     {
         Invoke(nameof(DestroyProjectile), projectileLifetime);
+        rb = GetComponent<Rigidbody>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
+        rb.AddForce(transform.up * antiGravity, ForceMode.Acceleration); // no idea why antiGravity doesn't have to be negated, it just works?
     }
 
     void OnTriggerEnter(Collider col) {

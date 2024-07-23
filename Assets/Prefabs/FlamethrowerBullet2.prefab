@@ -201,3 +201,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileLifetime: 1
+  addedBurnStack: 5
+  antiGravity: 5

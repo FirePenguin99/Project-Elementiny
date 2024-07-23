@@ -36,7 +36,7 @@ public class WeaponFlamethrower : MonoBehaviour
 
         if (readyToShoot && isShooting && !reloading && shotsInMagazine > 0) {
             Shoot();
-        } else if (readyToShoot && !isShooting && !reloading && shotsInMagazine <= 0) {
+        } else if (readyToShoot && !reloading && shotsInMagazine <= 0) {
             Reload();
         }
     }
