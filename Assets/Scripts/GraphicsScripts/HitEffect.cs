@@ -5,14 +5,13 @@ using UnityEngine;
 
 public class HitEffect : EffectState
 {
-    private Material ShaderMat;
-    private void Awake()
-    {
-        ShaderMat = GetComponent<Material>();
-    }
+    private static readonly int Property = Shader.PropertyToID("_CurrentRadius");
 
-    public override void Main()
+
+    public override void Main(Material ShaderMat)
     {
-        
+       
+        var temp =ShaderMat.GetFloat(Property);
+        ShaderMat.SetFloat(Property,(temp + Time.deltaTime) %1);
     }
 }

@@ -5,18 +5,25 @@ Shader "Unlit/EnemyHitFx"
         _MainTex ("Texture", 2D) = "white" {}
         
         [ShowAsVector2] _CentreCoords("Hit Centre" ,Vector ) = (0.5,0.5,0,0)
-        _CurrentRadius ("Current Radius", float) = 0
+        _CurrentRadius ("CurrentRadius", range(0,1)) = 0
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags { "RenderType"="Transparent"
+                "Queue" = "Transparent"}
         
-
+        zwrite off 
+        blend one one
+        cull off 
+        
+        
         Pass
         {
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
+
+            
 
             #include "UnityCG.cginc"
 
@@ -58,7 +65,7 @@ Shader "Unlit/EnemyHitFx"
 
                 //fixed4 col = float4 ((i.uv.yyy),1) ;
 
-                fixed4 radialMask = float4 ((distance(i.uv.x,_CentreCoords.x)+ distance(i.uv.y,_CentreCoords.y)).xxx/2,1)*3;
+                fixed4 radialMask = float4 ((distance(i.uv.x,_CentreCoords.x)+ distance(i.uv.y,_CentreCoords.y)).xxx/2,0)*3;
                 
                 fixed4 col = step(radialMask,_CurrentRadius/2);
                 col *= 1-step(radialMask,ParametricBlend(_CurrentRadius/2-0.1));

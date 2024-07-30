@@ -4,7 +4,7 @@ using UnityEngine;
 public class EffectState : MonoBehaviour
 {
 
-    public virtual void Main()
+    public virtual void Main(Material ShaderMat)
     {
 
     }
