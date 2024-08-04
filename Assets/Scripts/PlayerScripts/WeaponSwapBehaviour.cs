@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class WeaponSwapBehaviour : MonoBehaviour
 {
+    public static WeaponSwapBehaviour instance;
+    
     // [SerializeField]
     // public static List<GameObject> weaponObjects = new List<GameObject>();
     public GameObject[] weaponObjects;
@@ -13,6 +15,7 @@ public class WeaponSwapBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        instance = this;
         SwitchWeapon();
     }
 

@@ -65,11 +65,10 @@ public class WeaponCandle : MonoBehaviour
 
     private Vector3 CalculateAimDirection() {
         Ray ray = playerCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); // spawns a ray in the middle of the screen
-        RaycastHit hit;
 
         Vector3 aimPosition;
 
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, projectileLayerMask)) {
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, projectileLayerMask)) {
             aimPosition = hit.point;
         } else {
             aimPosition = ray.GetPoint(100); // if the ray hasnt hit anything, just point if far away from the player

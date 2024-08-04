@@ -13,8 +13,8 @@ public class WeaponFlamethrower : MonoBehaviour
     public float fireRate, spread, reloadRate; 
     public int magazineSize, shotsInMagazine;
 
-    bool isShooting, readyToShoot, reloading;
-    bool allowInvoke = true; //this stops multiple Invokes from being played at the same time
+    protected  bool isShooting, readyToShoot, reloading;
+    protected  bool allowInvoke = true; //this stops multiple Invokes from being played at the same time
 
     public Camera playerCam;
     public Transform shootPoint;
@@ -31,7 +31,7 @@ public class WeaponFlamethrower : MonoBehaviour
         PlayerInput();
     }
 
-    private void PlayerInput() {
+    protected void PlayerInput() {
         isShooting = Input.GetKey(KeyCode.Mouse0);
 
         if (readyToShoot && isShooting && !reloading && shotsInMagazine > 0) {
@@ -41,29 +41,17 @@ public class WeaponFlamethrower : MonoBehaviour
         }
     }
 
-    private void Shoot() {
+    public virtual void Shoot() { // not confident in this use of virtual as Polymorphism
+        print("dur");
         readyToShoot = false;
         shotsInMagazine--;
 
-        Ray ray = playerCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); // spawns a ray in the middle of the screen
-        RaycastHit hit;
-
-        Vector3 aimPosition;
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, projectileLayerMask)) {
-            // print("hit a " + hit.transform.gameObject.name);
-            aimPosition = hit.point;
-        } else {
-            aimPosition = ray.GetPoint(100); // if the ray hasnt hit anything, just point if far away from the player
-        }
-
-        Vector3 aimDirection = aimPosition - shootPoint.position;
-
+        Vector3 aimDirection = CalculateAimDirection() - shootPoint.position;
 
         GameObject currentBullet = Instantiate(bullet, shootPoint.position, Quaternion.identity);
 
         currentBullet.transform.forward = aimDirection.normalized; // point the projectile at the Aim Position
         currentBullet.GetComponent<Rigidbody>().AddForce(aimDirection.normalized * shootForce, ForceMode.Impulse);
-
 
         if (allowInvoke) {
             Invoke(nameof(ResetShot), fireRate);
@@ -71,18 +59,31 @@ public class WeaponFlamethrower : MonoBehaviour
         }
     }
 
-    private void ResetShot() {
+    protected void ResetShot() {
         readyToShoot = true;
         allowInvoke = true;
     }
 
-    private void Reload() {
+    protected void Reload() {
         reloading = true;
         Invoke(nameof(ReloadFinished), reloadRate);
     }
-    private void ReloadFinished() {
+    protected void ReloadFinished() {
         shotsInMagazine = magazineSize;
         reloading = false;
     }
 
+    private Vector3 CalculateAimDirection() {
+        Ray ray = playerCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); // spawns a ray in the middle of the screen
+
+        Vector3 aimPosition;
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, projectileLayerMask)) {
+            // print("hit a " + hit.transform.gameObject.name);
+            aimPosition = hit.point;
+        } else {
+            aimPosition = ray.GetPoint(100); // if the ray hasnt hit anything, just point if far away from the player
+        }
+
+        return aimPosition;
+    }
 }
