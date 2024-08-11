@@ -42,7 +42,6 @@ public class WeaponFlamethrower : MonoBehaviour
     }
 
     public virtual void Shoot() { // not confident in this use of virtual as Polymorphism
-        print("dur");
         readyToShoot = false;
         shotsInMagazine--;
 
