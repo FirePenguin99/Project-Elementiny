@@ -8,6 +8,7 @@ using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour
 {
     public Transform playerTransform;
+    public GameObject lungeHitbox;
     private NavMeshAgent agent;
     private Rigidbody rb;
 
@@ -16,6 +17,7 @@ public class EnemyMovement : MonoBehaviour
 
     public bool isFollowing = true;
 
+    public float lungeMeleeDamage = 20;
     [SerializeField] private float lungeWaitTime = 1;
     [SerializeField] private float lungeForce = 1;
     [SerializeField] private float lungeHeightOffset = 1;
@@ -31,17 +33,9 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if (Input.GetKeyDown(KeyCode.Q)) {
-        //     isFollowing = !isFollowing;
-        // }
-
-        // if (isFollowing) {
-        //     MoveToPlayer();
-        // } else {
-        //     agent.ResetPath();
-        // }
         if (!isLunging){
-            if ((Vector3.Distance(transform.position, playerTransform.position) <= agent.stoppingDistance)) { // if in range for lunge. Range is defined as stoppingDistance in the NavMeshAgent Component. the isLunging flag is to prevent calling the Coroutine more than once
+            // if in range for lunge. Range is defined as stoppingDistance in the NavMeshAgent Component. the isLunging flag is to prevent calling the Coroutine more than once
+            if (Vector3.Distance(transform.position, playerTransform.position) <= agent.stoppingDistance) {
                 StartCoroutine("enemyLunge");
             } else {
                 MoveToPlayer();
@@ -72,20 +66,29 @@ public class EnemyMovement : MonoBehaviour
         Vector3 aimDirection = aimPosition - transform.position;
         aimDirection.y = aimDirection.y + lungeHeightOffset;
 
-        // lunge at player
+        // stop aiming for a bit
         yield return new WaitForSeconds(lungeWaitTime * 0.25f);
         
-
+        // lunge at player
+        EnableLungeHitbox();
         rb.isKinematic = false;
         rb.AddForce(aimDirection * lungeForce, ForceMode.Impulse);
         
         // assume it takes a second/s to land. It would be better to raycast the floor to check if its landed
         yield return new WaitForSeconds(lungeWaitTime * 2);
 
+        DisableLungeHitbox();
         rb.isKinematic = true;
         isLunging = false;
         agent.enabled = true;
     }
 
+    void EnableLungeHitbox() {
+        lungeHitbox.SetActive(true);
+        lungeHitbox.GetComponent<MeleeHitbox>().meleeDamage = lungeMeleeDamage;
+    }
 
+    void DisableLungeHitbox() {
+        lungeHitbox.SetActive(false);
+    }
 }
