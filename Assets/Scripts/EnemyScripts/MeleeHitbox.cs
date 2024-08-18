@@ -21,8 +21,8 @@ public class MeleeHitbox : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider col) {
-        if (col.gameObject.GetComponent<HealthBehaviour>() != null) {
-            col.gameObject.GetComponent<HealthBehaviour>().health += -meleeDamage;
+        if (col.gameObject.GetComponent<PlayerHealthBehaviour>() != null) {
+            col.gameObject.GetComponent<PlayerHealthBehaviour>().health += -meleeDamage;
             print("Oof");
         } else {
             // print("no health script");
