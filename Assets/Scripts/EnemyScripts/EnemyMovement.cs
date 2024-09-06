@@ -11,6 +11,8 @@ public class EnemyMovement : MonoBehaviour
     public GameObject lungeHitbox;
     private NavMeshAgent agent;
     private Rigidbody rb;
+    public LayerMask groundLayer;
+    public float enemyHeight = 0.5f;
 
     [SerializeField] private float pathUpdateRate = 0.2f;
     private float pathUpdateTimer = 0;
@@ -74,8 +76,14 @@ public class EnemyMovement : MonoBehaviour
         rb.isKinematic = false;
         rb.AddForce(aimDirection * lungeForce, ForceMode.Impulse);
         
-        // assume it takes a second/s to land. It would be better to raycast the floor to check if its landed
+        // wait for lunge to finish
         yield return new WaitForSeconds(lungeWaitTime * 2);
+
+        // continue with re-enabling NPC movement only if the NPC is on the floor. while loop is a bit dangerous, but so is everything if you use it wrong. This one is just more likely to be used wrong
+        while (!Physics.Raycast(transform.position, Vector3.down, enemyHeight * 0.5f + 0.2f, groundLayer)) {
+            print("frame yielded");
+            yield return null; // wait a frame
+        }
 
         DisableLungeHitbox();
         rb.isKinematic = true;
