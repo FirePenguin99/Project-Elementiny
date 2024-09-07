@@ -11,7 +11,7 @@ public class FireElementClass : MonoBehaviour
 
         foreach (Collider enemy in enemiesInRange)
         {
-            if (enemy.gameObject.name != this.gameObject.name) {
+            if (enemy.gameObject.name != this.gameObject.name) { // dont apply to itself
                 ApplyBurn(enemy.gameObject, defaultAddStackCount);
                 // print("applied spread to " + enemy.gameObject.name + " from " + this.gameObject.name);
             }
