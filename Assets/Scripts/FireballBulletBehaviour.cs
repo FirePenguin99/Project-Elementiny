@@ -7,6 +7,7 @@ public class FireballBulletBehaviour : FireElementClass
     public float projectileLifetime;
     public float explosionRadius;
     private LayerMask explosionLayerMask;
+    public int addStackAmount = 25;
     
     void Start()
     {
@@ -33,7 +34,7 @@ public class FireballBulletBehaviour : FireElementClass
         foreach (Collider enemy in enemiesInRange)
         {
             if (enemy.gameObject.name != this.gameObject.name) {
-                ApplyBurn(enemy.gameObject, 25);
+                ApplyBurn(enemy.gameObject, addStackAmount);
                 // print("applied spread to " + enemy.gameObject.name + " from " + this.gameObject.name);
             }
         }

@@ -9761,3 +9761,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   burningParticleSystem: {fileID: 6755857101870714876}
+  spreadingParticleSystem: {fileID: 3386986409719445261}

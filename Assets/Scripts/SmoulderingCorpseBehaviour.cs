@@ -16,8 +16,6 @@ public class SmoulderingCorpseBehaviour : FireElementClass
     LayerMask spreadLayerMask;
 
     public Collider[] enemiesInRange;
-
-    // GameObject spreadParticlesPrefab;
     
     void OnDrawGizmos() {
         Gizmos.color = new Color(1f,0f,0f,0.1f);
@@ -40,7 +38,6 @@ public class SmoulderingCorpseBehaviour : FireElementClass
         
             if (burnTimer <= 0) {
                 // spreadParticlesPrefab.GetComponent<FlameParticleBehaviour>().EndFlame();
-
                 Destroy(this.gameObject);
             }
             burnTimer -= 1;

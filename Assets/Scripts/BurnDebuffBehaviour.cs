@@ -46,9 +46,7 @@ public class BurnDebuffBehaviour : FireElementClass
             Invoke(nameof(BurnDamageTick), tickRate);
         
             if (burnTimer <= 0) {
-                fireParticlesPrefab.GetComponent<FlameParticleBehaviour>().EndFlame();
-
-                Destroy(this);
+                ExtinguishBurn();
             }
             burnTimer -= 1;
         
@@ -67,6 +65,11 @@ public class BurnDebuffBehaviour : FireElementClass
 
     private void InvokeSpreadBurn() {
         SpreadBurn(spreadRadius, spreadLayerMask);
+    }
+
+    public void ExtinguishBurn() {
+        fireParticlesPrefab.GetComponent<FlameParticleBehaviour>().EndFlame();
+        Destroy(this);
     }
 }
 

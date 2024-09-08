@@ -5,9 +5,7 @@ using UnityEngine;
 
 public class LightningReleaseBehaviour : MonoBehaviour
 {
-    // GameObject[] chargedEnemies;
     public static List<GameObject> chargedEnemies = new List<GameObject>();
-    // public int highestChargeStackCount = 0;
     public ChargeDebuffBehaviour highestChargeStackComponent = null;
 
 
@@ -26,7 +24,6 @@ public class LightningReleaseBehaviour : MonoBehaviour
             FindAllChargedEnemies();
             ReleaseAllChargedEnemies();
         }
-
     }
 
     public void FindAllChargedEnemies() {
@@ -37,9 +34,6 @@ public class LightningReleaseBehaviour : MonoBehaviour
             if (enemy.GetComponent<ChargeDebuffBehaviour>() != null) {
                 chargedEnemies.Add(enemy);
                 
-                // if (enemy.GetComponent<ChargeDebuffBehaviour>().chargeStackCount > highestChargeStackCount) {
-                //     highestChargeStackCount = enemy.GetComponent<ChargeDebuffBehaviour>().chargeStackCount;
-                // }
                 if (highestChargeStackComponent == null) {
                     highestChargeStackComponent = enemy.GetComponent<ChargeDebuffBehaviour>();
                 } else if(enemy.GetComponent<ChargeDebuffBehaviour>().chargeStackCount > highestChargeStackComponent.chargeStackCount) {
@@ -53,7 +47,6 @@ public class LightningReleaseBehaviour : MonoBehaviour
         foreach (GameObject enemy in chargedEnemies)
         {
             ChargeDebuffBehaviour chargeDebuff = enemy.GetComponent<ChargeDebuffBehaviour>();
-            // chargeDebuff.ReleaseCharge(highestChargeStackCount);
             highestChargeStackComponent.entityHealth.health -= chargeDebuff.ReleaseCharge(highestChargeStackComponent.chargeStackCount);
         }
         chargedEnemies.Clear();
