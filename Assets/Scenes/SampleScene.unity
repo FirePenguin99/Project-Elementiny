@@ -1056,6 +1056,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 103031142}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &863161319
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 863161320}
+  - component: {fileID: 863161322}
+  m_Layer: 0
+  m_Name: IcethrowerWeapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &863161320
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863161319}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 963194228}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &863161322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863161319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ea675d081fe9d45adef8995c44124c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 3278076545063331158, guid: 073c6d7055067c6468a03cf59d05e507, type: 3}
+  projectileLayerMask:
+    serializedVersion: 2
+    m_Bits: 193
+  shootForce: 50
+  upwardForce: 0
+  fireRate: 0.1
+  spread: 0
+  reloadRate: 2
+  magazineSize: 100
+  shotsInMagazine: 10
+  playerCam: {fileID: 963194227}
+  shootPoint: {fileID: 2051159745}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,6 +1208,7 @@ Transform:
   m_Children:
   - {fileID: 1864082711}
   - {fileID: 176614557}
+  - {fileID: 863161320}
   - {fileID: 1432402965}
   - {fileID: 4340989}
   - {fileID: 1017236805}
@@ -1204,6 +1262,7 @@ MonoBehaviour:
   - {fileID: 1017236804}
   - {fileID: 1432402964}
   - {fileID: 1062672719}
+  - {fileID: 863161319}
   weaponArrayPointer: 0
 --- !u!1 &985399410
 GameObject:
@@ -2942,7 +3001,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7766798373440434560, guid: 9acfaf8c63e61b541a68f793743cf3d0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

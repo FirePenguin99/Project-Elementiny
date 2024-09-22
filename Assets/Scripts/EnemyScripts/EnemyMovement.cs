@@ -25,11 +25,17 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float lungeHeightOffset = 1;
     public bool isLunging = false;
 
+    public float defaultSpeed;
+    public float defaultAngularSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
+
+        defaultSpeed = agent.speed;
+        defaultAngularSpeed = agent.angularSpeed;
     }
 
     // Update is called once per frame
@@ -81,7 +87,6 @@ public class EnemyMovement : MonoBehaviour
 
         // continue with re-enabling NPC movement only if the NPC is on the floor. while loop is a bit dangerous, but so is everything if you use it wrong. This one is just more likely to be used wrong
         while (!Physics.Raycast(transform.position, Vector3.down, enemyHeight * 0.5f + 0.2f, groundLayer)) {
-            print("frame yielded");
             yield return null; // wait a frame
         }
 
@@ -98,5 +103,10 @@ public class EnemyMovement : MonoBehaviour
 
     void DisableLungeHitbox() {
         lungeHitbox.SetActive(false);
+    }
+
+    public void UpdateSpeeds(float multiplier) {
+        agent.speed = defaultSpeed * multiplier;
+        agent.angularSpeed = defaultAngularSpeed * multiplier;
     }
 }

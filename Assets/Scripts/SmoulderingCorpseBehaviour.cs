@@ -8,7 +8,7 @@ public class SmoulderingCorpseBehaviour : FireElementClass
     public int burnStackCount = 0;
     public float tickRate = 1f;
 
-    public int burnTimer;
+    public float burnTimer;
 
     bool allowSpreadInvoke = true; //this stops multiple Invokes from being played at the same time
 

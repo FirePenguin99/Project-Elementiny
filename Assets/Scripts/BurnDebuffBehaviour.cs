@@ -8,19 +8,16 @@ public class BurnDebuffBehaviour : FireElementClass
 {
     public int burnStackCount = 0;
     public float burnStackDamage = 5f;
-    public float tickRate = 1f;
 
-    public int burnTimer;
-
-    HealthBehaviour entityHealth;
-
-    bool allowBurnInvoke = true; //this stops multiple Invokes from being played at the same time
-
-    public float spreadRadius = 10f;
+    public float burnTimer;
+    [SerializeField] private float tickRate = 1f;
+    bool allowTickInvoke = true; //this stops multiple Invokes from being played at the same time
+    
+    [SerializeField] private Collider[] enemiesInRange;
+    [SerializeField] private float spreadRadius = 10f;
     LayerMask spreadLayerMask;
 
-    public Collider[] enemiesInRange;
-
+    HealthBehaviour entityHealth;
     GameObject fireParticlesPrefab;
 
     void OnDrawGizmos() {
@@ -42,15 +39,15 @@ public class BurnDebuffBehaviour : FireElementClass
     // Update is called once per frame
     void Update()
     {
-        if (allowBurnInvoke) {
+        if (allowTickInvoke) {
             Invoke(nameof(BurnDamageTick), tickRate);
         
             if (burnTimer <= 0) {
                 ExtinguishBurn();
             }
-            burnTimer -= 1;
+            burnTimer -= tickRate;
         
-            allowBurnInvoke = false;
+            allowTickInvoke = false;
         }
     }
 
@@ -60,7 +57,7 @@ public class BurnDebuffBehaviour : FireElementClass
         
         Invoke(nameof(InvokeSpreadBurn), tickRate);
 
-        allowBurnInvoke = true;
+        allowTickInvoke = true;
     }
 
     private void InvokeSpreadBurn() {
