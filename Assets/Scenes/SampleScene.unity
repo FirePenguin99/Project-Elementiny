@@ -1066,6 +1066,7 @@ GameObject:
   m_Component:
   - component: {fileID: 863161320}
   - component: {fileID: 863161322}
+  - component: {fileID: 863161323}
   m_Layer: 0
   m_Name: IcethrowerWeapon
   m_TagString: Untagged
@@ -1113,6 +1114,22 @@ MonoBehaviour:
   shotsInMagazine: 10
   playerCam: {fileID: 963194227}
   shootPoint: {fileID: 2051159745}
+--- !u!114 &863161323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863161319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72a90f9f5fc9c5a4cac4e2033db5f970, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCam: {fileID: 963194227}
+  projectileLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

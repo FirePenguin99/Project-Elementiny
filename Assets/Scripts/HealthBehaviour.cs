@@ -26,6 +26,7 @@ public class HealthBehaviour : MonoBehaviour
             
             Destroy(this.gameObject);
         } else {
+            print("i dead a hell");
             Destroy(this.gameObject);
         }
     }

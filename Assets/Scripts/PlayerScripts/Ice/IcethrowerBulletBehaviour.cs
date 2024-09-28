@@ -37,22 +37,22 @@ public class IcethrowerBulletBehaviour : MonoBehaviour
     }
 
     public void ApplyCold(GameObject targetGameObject, float addedStackCount) {
+        // all the code blocks should really be in the ColdDebuffBehaviour class as a method, not here
         if (targetGameObject.GetComponent<ColdDebuffBehaviour>() == null && targetGameObject.GetComponent<HealthBehaviour>() != null) // if there is no ColdDebuffBehaviour, add one
         {
             ColdDebuffBehaviour coldDebuff = targetGameObject.AddComponent<ColdDebuffBehaviour>();
             coldDebuff.coldStackCount = addedStackCount;
             coldDebuff.thawTimer = 10;
-            coldDebuff.CheckIsFrozen();
             coldDebuff.ApplySlow();
         } else 
         {
             ColdDebuffBehaviour coldDebuff = targetGameObject.GetComponent<ColdDebuffBehaviour>();
             if (coldDebuff.coldStackCount >= 100) {
                 coldDebuff.coldStackCount = 100;
+                coldDebuff.isFrozen = true;
             } else {
                 coldDebuff.coldStackCount += addedStackCount;
             }
-            coldDebuff.coldStackCount += addedStackCount;
             coldDebuff.thawTimer = 10;
             coldDebuff.ApplySlow();
         }

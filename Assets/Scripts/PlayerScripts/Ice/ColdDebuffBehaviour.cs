@@ -13,7 +13,7 @@ public class ColdDebuffBehaviour : MonoBehaviour
     [SerializeField] private float tickRate = 0.25f;
     bool allowTickInvoke = true; //this stops multiple Invokes from being played at the same time
     
-    public float shatterDamage = 1000;
+    public float shatterDamage = 10000;
     [SerializeField] private float shatteredCount = 0;
 
     HealthBehaviour entityHealth;
@@ -80,11 +80,13 @@ public class ColdDebuffBehaviour : MonoBehaviour
     }
 
     public void ShatterFrozen() {
-        if (!isFrozen) { return; }
+        if (!isFrozen) { return; } // if is not frozen yet, return
 
-        Gizmos.color = new Color(1f,0f,0f,0.1f);
+        print("shattered myself, ow");
 
-        entityHealth.health =- shatterDamage;
+        isFrozen = false; // immediately set isFrozen to false to avoid recalling this ShatterFrozen function when calling other enemies' ShatterFrozen functions
+
+        entityHealth.health -= shatterDamage;
         shatteredCount += 1;
 
         Collider[] enemiesInRange = Physics.OverlapSphere(transform.position, spreadRadius, spreadLayerMask);
@@ -92,18 +94,19 @@ public class ColdDebuffBehaviour : MonoBehaviour
         foreach (Collider enemy in enemiesInRange)
         {
             if (enemy.gameObject.name != this.gameObject.name) { // dont apply to itself
-                ShatterFrozen();
+                print("shattered another poor sod");
+                enemy.gameObject.GetComponent<ColdDebuffBehaviour>().ShatterFrozen();
             }
         }
 
         // set coldStacks to 50, 75, 87.5, etc...
         coldStackCount = 0;
-        for (int i = 0; i < shatteredCount; i++)
+        for (int i = 1; i < shatteredCount+1; i++)
         {
             coldStackCount += (freezeLimit / 2) / i;
         }
 
-        Gizmos.color = new Color(1f,0f,0f,0.0f);
+        ApplySlow();
     }
 
     public void EndCold() {
