@@ -5,20 +5,28 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float movementSpeed;
+    // -- speed stats --
+    public float movementSpeedMax;
+    public float defaultMovementSpeed; // constant
+    [SerializeField] private float speedDropOffRate = 15;
 
-    public Transform orientation;
+    [SerializeField] float currentPhysicsSpeed; // for debugging
 
+    // -- input --
     float xInput, yInput;
     Vector3 moveDirection;
 
+    // -- Component initialisations --
     Rigidbody rb;
+    [SerializeField] private Transform orientation;
 
+    // -- jumping --
     bool isGrounded;
     public float playerHeight;
     public LayerMask groundLayer;
-
-    public float jumpForce;
+    
+    // -- jumping stats --
+    [SerializeField] private float jumpForce;
     bool readyToJump = true;
     float jumpCooldown = 0.25f;
     
@@ -27,6 +35,8 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+
+        movementSpeedMax = defaultMovementSpeed;
     }
 
     // Update is called once per frame
@@ -34,6 +44,8 @@ public class PlayerMovement : MonoBehaviour
     {
         PlayerInput();
         CheckIsGrounded();
+
+        currentPhysicsSpeed = new Vector3(rb.velocity.x, 0f, rb.velocity.z).magnitude; // for debugging
     }
 
     void FixedUpdate() {
@@ -55,16 +67,26 @@ public class PlayerMovement : MonoBehaviour
     
     private void MovePlayer() {
         moveDirection = orientation.forward * yInput + orientation.right * xInput;
-
-        rb.AddForce(moveDirection.normalized * movementSpeed * 10f, ForceMode.Force);
+        rb.AddForce(moveDirection.normalized * defaultMovementSpeed * 10f, ForceMode.Force);
     }
     
     private void LimitSpeed() {
         Vector3 playerVelocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
-        if (playerVelocity.magnitude > movementSpeed) {
-            Vector3 limitedVelocity = playerVelocity.normalized * movementSpeed;
+        if (playerVelocity.magnitude > movementSpeedMax) {
+            Vector3 limitedVelocity = playerVelocity.normalized * movementSpeedMax;
             rb.velocity = new Vector3(limitedVelocity.x, rb.velocity.y, limitedVelocity.z);
+        }
+
+        if (movementSpeedMax > defaultMovementSpeed) { // if the speed is above default,
+            movementSpeedMax -= Time.deltaTime * speedDropOffRate; // decrease maxMovementSpeed after it been increased above default (almost a kind of air resistance)
+            
+            // Dont really need the thing below. Theoretically its good but it currently bugs tf out. I'd think I'd have to make it see if the difference between this frame and last frame is 0, if it is set velocity to default (strip extra speed)
+            // if (playerVelocity.magnitude < movementSpeedMax) { // if player walks into a wall, set max speed to their now current speed (most likely 0, but will be capped at defaultMovementSpeed)
+            //     movementSpeedMax = playerVelocity.magnitude;
+            // }
+        } else {
+            movementSpeedMax = defaultMovementSpeed;
         }
     }
 
