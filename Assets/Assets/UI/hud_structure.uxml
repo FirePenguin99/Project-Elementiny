@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement name="ScreenContainer" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+        <ui:VisualElement name="rHand_weapon" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); position: absolute; top: 675px; left: 1272px; width: 634px; height: 392px; align-self: flex-end;">
+            <ui:VisualElement name="ammo" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
