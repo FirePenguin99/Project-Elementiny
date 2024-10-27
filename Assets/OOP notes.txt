@@ -1,0 +1,6 @@
+public and private variables can be inherited without no bullshi
+
+however to USE them (reassign and reference) in scripts that inherit them, they must be protected (for private) or virtual/abstract (for public?)
+
+"both virtual and abstract allows us to declare a function that can be overwritten by a Subclass. The difference is:
+abstract you MUST override to be used in a Subclass, virtual has a default in the Superclass"

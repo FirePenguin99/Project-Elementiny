@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TectonicAreaBehaviour : MonoBehaviour
@@ -8,21 +6,15 @@ public class TectonicAreaBehaviour : MonoBehaviour
     public int quakeThreshold = 100;
 
     public float earthquakeDamage = 1000;
-
-    // public GameObject[] rockWeapons;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
-        // print(rockWeapons);
-        // print(GameObject.FindGameObjectsWithTag("Rock Weapon"));
         foreach (GameObject item in WeaponSwapBehaviour.instance.weaponObjects)
         {
             print(item.name);
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (tectonicValue >= quakeThreshold) {

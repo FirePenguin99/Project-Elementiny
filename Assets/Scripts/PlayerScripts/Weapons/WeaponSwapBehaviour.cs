@@ -5,21 +5,24 @@ using UnityEngine;
 
 public class WeaponSwapBehaviour : MonoBehaviour
 {
+    // this is a Singleton
     public static WeaponSwapBehaviour instance;
     
-    // [SerializeField]
-    // public static List<GameObject> weaponObjects = new List<GameObject>();
     public GameObject[] weaponObjects;
     public int weaponArrayPointer = 0;
     
-    // Start is called before the first frame update
-    void Awake()
-    {
-        instance = this;
+    void Awake() 
+    { 
+        if (instance != null && instance != this) { 
+            Destroy(this); 
+        } 
+        else { 
+            instance = this; 
+        }
+
         SwitchWeapon();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.mouseScrollDelta.y > 0) {
