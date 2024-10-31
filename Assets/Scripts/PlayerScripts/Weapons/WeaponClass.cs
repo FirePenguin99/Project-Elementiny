@@ -17,7 +17,7 @@ public class WeaponClass : MonoBehaviour
     protected bool isShooting, readyToShoot, reloading;
     protected bool allowInvoke = true; //this stops multiple Invokes from being played at the same time
 
-    public Camera playerCam;
+    // public Camera playerCam;
     public Transform shootPoint;
 
     void Awake()
@@ -74,7 +74,7 @@ public class WeaponClass : MonoBehaviour
     }
 
     protected Vector3 CalculateAimDirection() {
-        Ray ray = playerCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); // spawns a ray in the middle of the screen
+        Ray ray = GameStateHandler.instance.playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); // spawns a ray in the middle of the screen
 
         Vector3 aimPosition;
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, projectileLayerMask)) {
