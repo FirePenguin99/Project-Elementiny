@@ -1,10 +1,7 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class WeaponRockthrower : WeaponFlamethrower
+public class WeaponRockthrower : WeaponClass
 {
     public List<GameObject> tectonicAreasInside = new List<GameObject>();
 
@@ -50,20 +47,6 @@ public class WeaponRockthrower : WeaponFlamethrower
             weaponTectonicValue = 0;
         }
         PlayerInput();
-    }
-
-    private Vector3 CalculateAimDirection() {
-        Ray ray = playerCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); // spawns a ray in the middle of the screen
-
-        Vector3 aimPosition;
-        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, projectileLayerMask)) {
-            // print("hit a " + hit.transform.gameObject.name);
-            aimPosition = hit.point;
-        } else {
-            aimPosition = ray.GetPoint(100); // if the ray hasnt hit anything, just point if far away from the player
-        }
-
-        return aimPosition;
     }
 
     private int FindLargestTectonicValue() {
