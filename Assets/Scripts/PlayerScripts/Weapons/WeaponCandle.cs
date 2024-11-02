@@ -1,50 +1,28 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponCandle : MonoBehaviour
+public class WeaponCandle : WeaponClass
 {
-    public float spawnRate;
-    public int maxCandleAmount;
-    public float shootForce;
-    
     public static List<GameObject> candlesSpawned = new List<GameObject>();
     public bool isCharging = false;
     public bool isReadyToSpawnNext = true;
     
-    public GameObject candlePrefab;
-    public Camera playerCam;
-    public LayerMask projectileLayerMask;
-    public Transform shootPoint;
-
-
-    bool allowInvoke = true; //this stops multiple Invokes from being played at the same time
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         isCharging = Input.GetKey(KeyCode.Mouse0);
 
-        if (isCharging && isReadyToSpawnNext && maxCandleAmount > candlesSpawned.Count) {
+        if (isCharging && isReadyToSpawnNext && magazineSize > candlesSpawned.Count && !reloading) {
             isReadyToSpawnNext = false;
             
-            GameObject newCandle = Instantiate(candlePrefab, new Vector3(transform.position.x, transform.position.y + (candlesSpawned.Count * 0f), transform.position.z), Quaternion.identity);
+            GameObject newCandle = Instantiate(bullet, new Vector3(shootPoint.position.x, shootPoint.position.y + (candlesSpawned.Count * 0f), shootPoint.position.z), Quaternion.identity);
             candlesSpawned.Add(newCandle);
 
+            shotsInMagazine -= 1;
 
-            Invoke(nameof(ResetSpawnNextCandleFlag), spawnRate);
+            Invoke(nameof(ResetSpawnNextCandleFlag), fireRate);
         }
 
-        if (Input.GetKeyUp(KeyCode.Mouse0)) {
-            // Vector3 aimDirection = CalculateAimDirection();
-
+        if (Input.GetKeyUp(KeyCode.Mouse0) && !reloading) {
             foreach (GameObject candle in candlesSpawned)
             {
                 Vector3 aimDirection = CalculateAimDirection() - candle.transform.position;
@@ -56,24 +34,12 @@ public class WeaponCandle : MonoBehaviour
 
             candlesSpawned.Clear();
             isCharging = false;
+
+            Reload();
         }
     }
 
     private void ResetSpawnNextCandleFlag() {
         isReadyToSpawnNext = true;
-    }
-
-    private Vector3 CalculateAimDirection() {
-        Ray ray = playerCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); // spawns a ray in the middle of the screen
-
-        Vector3 aimPosition;
-
-        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, projectileLayerMask)) {
-            aimPosition = hit.point;
-        } else {
-            aimPosition = ray.GetPoint(100); // if the ray hasnt hit anything, just point if far away from the player
-        }
-
-        return aimPosition;
     }
 }
