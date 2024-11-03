@@ -35,6 +35,12 @@ public class GameStateHandler : MonoBehaviour
             instance = this; 
         }
     }
+    
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            OpenCharacterSelect();
+        }
+    }
 
     public void SpawnPlayerAsClass(classes classEnum) {
         if (player) {Destroy(player);}
@@ -57,5 +63,18 @@ public class GameStateHandler : MonoBehaviour
         playerCamera.gameObject.GetComponent<CameraFollowPlayer>().cameraPosition = cameraPos;
     
         StartMenuCanvas.SetActive(false);
+    }
+
+    public void OpenCharacterSelect() {
+        if (player) {
+            if (StartMenuCanvas.activeSelf) {
+                Cursor.lockState = CursorLockMode.Locked;
+                StartMenuCanvas.SetActive(false);
+            } else {
+                Cursor.lockState = CursorLockMode.None;
+                StartMenuCanvas.SetActive(true);
+            }
+        }
+        
     }
 }
