@@ -159,7 +159,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9e153472eadc6b54f8f1f20ca5877f36, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -301,7 +301,6 @@ MonoBehaviour:
   reloadRate: 2
   magazineSize: 100
   shotsInMagazine: 10
-  playerCam: {fileID: 0}
   shootPoint: {fileID: 6356353416294499879}
 --- !u!114 &8214725443959735580
 MonoBehaviour:

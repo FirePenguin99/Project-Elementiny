@@ -57,7 +57,6 @@ MonoBehaviour:
   reloadRate: 2
   magazineSize: 5
   shotsInMagazine: 5
-  playerCam: {fileID: 0}
   shootPoint: {fileID: 1746601797095282018}
 --- !u!114 &1371798225813832752
 MonoBehaviour:
@@ -226,7 +225,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9e153472eadc6b54f8f1f20ca5877f36, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -527,7 +526,6 @@ MonoBehaviour:
   reloadRate: 2
   magazineSize: 100
   shotsInMagazine: 10
-  playerCam: {fileID: 0}
   shootPoint: {fileID: 1746601797095282018}
 --- !u!114 &5494429312861550987
 MonoBehaviour:
@@ -606,7 +604,6 @@ MonoBehaviour:
   reloadRate: 2
   magazineSize: 5
   shotsInMagazine: 0
-  playerCam: {fileID: 0}
   shootPoint: {fileID: 1746601797095282018}
   isCharging: 0
   isReadyToSpawnNext: 1
@@ -767,7 +764,6 @@ MonoBehaviour:
   reloadRate: 2
   magazineSize: 15
   shotsInMagazine: 15
-  playerCam: {fileID: 0}
   shootPoint: {fileID: 1746601797095282018}
 --- !u!114 &2323024628609000800
 MonoBehaviour:
