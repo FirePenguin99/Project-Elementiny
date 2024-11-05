@@ -24,6 +24,10 @@ public class GameStateHandler : MonoBehaviour
     }
 
     public GameObject StartMenuCanvas;
+    public GameObject HudCanvas;
+
+    public delegate void OnPlayerSpawn(); // here is the delegate, a collection of functions (like an array of functions)
+    public static event OnPlayerSpawn onPlayerSpawn; // here is the event, which uses the delegate of functions "Onplayer
     
     // Start is called before the first frame update
     void Start()
@@ -63,6 +67,9 @@ public class GameStateHandler : MonoBehaviour
         playerCamera.gameObject.GetComponent<CameraFollowPlayer>().cameraPosition = cameraPos;
     
         StartMenuCanvas.SetActive(false);
+        HudCanvas.SetActive(true);
+
+        onPlayerSpawn?.Invoke();
     }
 
     public void OpenCharacterSelect() {
@@ -70,9 +77,11 @@ public class GameStateHandler : MonoBehaviour
             if (StartMenuCanvas.activeSelf) {
                 Cursor.lockState = CursorLockMode.Locked;
                 StartMenuCanvas.SetActive(false);
+                HudCanvas.SetActive(true);
             } else {
                 Cursor.lockState = CursorLockMode.None;
                 StartMenuCanvas.SetActive(true);
+                HudCanvas.SetActive(false);
             }
         }
         

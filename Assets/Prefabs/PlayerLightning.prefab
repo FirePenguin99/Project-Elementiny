@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8950920483384025966}
-  - component: {fileID: 5980790434607477701}
   m_Layer: 10
   m_Name: WeaponContainer
   m_TagString: Untagged
@@ -34,24 +33,6 @@ Transform:
   - {fileID: 5283700177301049440}
   m_Father: {fileID: 6950647656640753022}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5980790434607477701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3427617639335497454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50fa73d3d130adc42a8af66d732fb9db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponObjects:
-  - {fileID: 6677456138622326240}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  weaponArrayPointer: 0
 --- !u!1 &3749933930908470758
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,6 +316,7 @@ GameObject:
   - component: {fileID: 5719945386328425403}
   - component: {fileID: 4497780682019228574}
   - component: {fileID: 1090147639533008903}
+  - component: {fileID: 3310333750486523640}
   m_Layer: 10
   m_Name: PlayerLightning
   m_TagString: Untagged
@@ -460,6 +442,21 @@ MonoBehaviour:
   dashMaxSpeed: 20
   dashHorizontalForce: 20
   dashVerticalForce: 10
+--- !u!114 &3310333750486523640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8072119424928688173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50fa73d3d130adc42a8af66d732fb9db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponObjects:
+  - {fileID: 6677456138622326240}
+  weaponArrayPointer: 0
 --- !u!1 &8120334838661102362
 GameObject:
   m_ObjectHideFlags: 0

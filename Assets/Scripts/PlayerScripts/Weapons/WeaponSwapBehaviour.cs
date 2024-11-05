@@ -6,19 +6,19 @@ using UnityEngine;
 public class WeaponSwapBehaviour : MonoBehaviour
 {
     // this is a Singleton
-    public static WeaponSwapBehaviour instance;
+    // public static WeaponSwapBehaviour instance;
     
     public GameObject[] weaponObjects;
     public int weaponArrayPointer = 0;
     
     void Awake() 
     { 
-        if (instance != null && instance != this) { 
-            Destroy(this); 
-        } 
-        else { 
-            instance = this; 
-        }
+        // if (instance != null && instance != this) { 
+        //     Destroy(this); 
+        // } 
+        // else { 
+        //     instance = this; 
+        // }
 
         SwitchWeapon();
     }

@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8555687948635303129}
-  - component: {fileID: 8013684344298480589}
   m_Layer: 10
   m_Name: WeaponContainer
   m_TagString: Untagged
@@ -34,21 +33,6 @@ Transform:
   - {fileID: 4301590537427966141}
   m_Father: {fileID: 3284836609968704516}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8013684344298480589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2964133287498282317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50fa73d3d130adc42a8af66d732fb9db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponObjects:
-  - {fileID: 6727616366842001044}
-  weaponArrayPointer: 0
 --- !u!1 &3535047526462886906
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,6 +316,7 @@ GameObject:
   - component: {fileID: 1798155896168094167}
   - component: {fileID: 3895991665217007703}
   - component: {fileID: 5348478631503451904}
+  - component: {fileID: 7920242767493344110}
   m_Layer: 10
   m_Name: PlayerIce
   m_TagString: Untagged
@@ -457,6 +442,21 @@ MonoBehaviour:
   dashMaxSpeed: 20
   dashHorizontalForce: 20
   dashVerticalForce: 10
+--- !u!114 &7920242767493344110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7840126102366828892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50fa73d3d130adc42a8af66d732fb9db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponObjects:
+  - {fileID: 6727616366842001044}
+  weaponArrayPointer: 0
 --- !u!1 &8526785728920407944
 GameObject:
   m_ObjectHideFlags: 0

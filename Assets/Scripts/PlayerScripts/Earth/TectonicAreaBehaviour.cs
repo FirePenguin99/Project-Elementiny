@@ -6,13 +6,15 @@ public class TectonicAreaBehaviour : MonoBehaviour
     public int quakeThreshold = 100;
 
     public float earthquakeDamage = 1000;
+
+    private WeaponSwapBehaviour weaponSwap; 
     
+    void Awake() {
+        weaponSwap = GameStateHandler.instance.player.GetComponent<WeaponSwapBehaviour>();
+    }
+
     void Start()
     {
-        foreach (GameObject item in WeaponSwapBehaviour.instance.weaponObjects)
-        {
-            print(item.name);
-        }
     }
 
     void Update()
@@ -33,7 +35,7 @@ public class TectonicAreaBehaviour : MonoBehaviour
             
         }
 
-        foreach (GameObject weapon in WeaponSwapBehaviour.instance.weaponObjects)
+        foreach (GameObject weapon in weaponSwap.weaponObjects)
         {
             weapon.GetComponent<WeaponRockthrower>()?.tectonicAreasInside.Remove(this.gameObject); // the use of ? means "only run if GetComponent<WeaponRockthrower>() exists
         }
@@ -43,7 +45,7 @@ public class TectonicAreaBehaviour : MonoBehaviour
 
     void OnTriggerEnter(Collider col) {
         if (col.gameObject.layer == LayerMask.NameToLayer("Player")) {
-            foreach (GameObject weapon in WeaponSwapBehaviour.instance.weaponObjects)
+            foreach (GameObject weapon in weaponSwap.weaponObjects)
             {
                 weapon.GetComponent<WeaponRockthrower>()?.tectonicAreasInside.Add(this.gameObject); // the use of ? means "only run if GetComponent<WeaponRockthrower>() exists
             }
@@ -52,7 +54,7 @@ public class TectonicAreaBehaviour : MonoBehaviour
 
     void OnTriggerExit(Collider col) {
         if (col.gameObject.layer == LayerMask.NameToLayer("Player")) {
-            foreach (GameObject weapon in WeaponSwapBehaviour.instance.weaponObjects)
+            foreach (GameObject weapon in weaponSwap.weaponObjects)
             {
                 weapon.GetComponent<WeaponRockthrower>()?.tectonicAreasInside.Remove(this.gameObject); // the use of ? means "only run if GetComponent<WeaponRockthrower>() exists
             }

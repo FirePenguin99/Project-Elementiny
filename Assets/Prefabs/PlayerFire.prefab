@@ -118,7 +118,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1204256574492448327}
-  - component: {fileID: 429928590418146265}
   m_Layer: 10
   m_Name: WeaponContainer
   m_TagString: Untagged
@@ -146,23 +145,6 @@ Transform:
   - {fileID: 3763303636325450303}
   m_Father: {fileID: 4257178320057221283}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &429928590418146265
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4010985237283037511}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50fa73d3d130adc42a8af66d732fb9db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponObjects:
-  - {fileID: 5180195720129996550}
-  - {fileID: 5493080492471326514}
-  - {fileID: 3193128669851330321}
-  weaponArrayPointer: 0
 --- !u!1 &4487473426570383837
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,6 +243,7 @@ GameObject:
   - component: {fileID: 8448484811975928539}
   - component: {fileID: 5007574049106880951}
   - component: {fileID: 1214236053979065752}
+  - component: {fileID: 7239677747311442055}
   m_Layer: 10
   m_Name: PlayerFire
   m_TagString: Untagged
@@ -386,6 +369,23 @@ MonoBehaviour:
   dashMaxSpeed: 20
   dashHorizontalForce: 20
   dashVerticalForce: 10
+--- !u!114 &7239677747311442055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4553043666781668331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50fa73d3d130adc42a8af66d732fb9db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponObjects:
+  - {fileID: 5180195720129996550}
+  - {fileID: 5493080492471326514}
+  - {fileID: 3193128669851330321}
+  weaponArrayPointer: 0
 --- !u!1 &5053127054145061217
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,7 +525,7 @@ MonoBehaviour:
   spread: 0
   reloadRate: 2
   magazineSize: 100
-  shotsInMagazine: 10
+  shotsInMagazine: 100
   shootPoint: {fileID: 1746601797095282018}
 --- !u!114 &5494429312861550987
 MonoBehaviour:

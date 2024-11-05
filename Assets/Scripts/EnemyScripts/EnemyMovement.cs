@@ -7,17 +7,15 @@ using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public Transform playerTransform;
-    public GameObject lungeHitbox;
+    private Transform playerTransform;
+    [SerializeField] GameObject lungeHitbox;
     private NavMeshAgent agent;
     private Rigidbody rb;
-    public LayerMask groundLayer;
-    public float enemyHeight = 0.5f;
+    [SerializeField] LayerMask groundLayer;
+    [SerializeField] float enemyHeight = 0.5f;
 
     [SerializeField] private float pathUpdateRate = 0.2f;
     private float pathUpdateTimer = 0;
-
-    public bool isFollowing = true;
 
     public float lungeMeleeDamage = 20;
     [SerializeField] private float lungeWaitTime = 1;
@@ -38,9 +36,21 @@ public class EnemyMovement : MonoBehaviour
         defaultAngularSpeed = agent.angularSpeed;
     }
 
+    void OnEnable() {
+        GameStateHandler.onPlayerSpawn += SetPlayerTransform;
+    }
+    void OnDisable() {
+        GameStateHandler.onPlayerSpawn -= SetPlayerTransform;
+    }
+
     // Update is called once per frame
     void Update()
     {
+        // very crappy repeat call. This may be an Event or GameStateHandler will call "SetPlayer" method on a EnemyDirector class, which will then call "SetPlayer" to every EnemyMovement script
+        if (GameStateHandler.instance.player == null) {
+            return;
+        }
+
         if (!isLunging){
             // if in range for lunge. Range is defined as stoppingDistance in the NavMeshAgent Component. the isLunging flag is to prevent calling the Coroutine more than once
             if (Vector3.Distance(transform.position, playerTransform.position) <= agent.stoppingDistance) {
@@ -53,6 +63,7 @@ public class EnemyMovement : MonoBehaviour
     }
 
     void MoveToPlayer() {
+        // print("moving to player");
         if (pathUpdateTimer >= pathUpdateRate) {
             agent.destination = playerTransform.position;
             pathUpdateTimer = 0;
@@ -108,5 +119,9 @@ public class EnemyMovement : MonoBehaviour
     public void UpdateSpeeds(float multiplier) {
         agent.speed = defaultSpeed * multiplier;
         agent.angularSpeed = defaultAngularSpeed * multiplier;
+    }
+
+    private void SetPlayerTransform() {
+        playerTransform = GameStateHandler.instance.player.transform;
     }
 }

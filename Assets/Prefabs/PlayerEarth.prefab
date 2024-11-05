@@ -220,6 +220,7 @@ GameObject:
   - component: {fileID: 129575308892109017}
   - component: {fileID: 4411157046102371528}
   - component: {fileID: 1213174171821490070}
+  - component: {fileID: 3840510797852121791}
   m_Layer: 10
   m_Name: PlayerEarth
   m_TagString: Untagged
@@ -345,6 +346,21 @@ MonoBehaviour:
   dashMaxSpeed: 20
   dashHorizontalForce: 20
   dashVerticalForce: 10
+--- !u!114 &3840510797852121791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3102791877151477794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50fa73d3d130adc42a8af66d732fb9db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponObjects:
+  - {fileID: 2541843827581800012}
+  weaponArrayPointer: 0
 --- !u!1 &4615833280781539825
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,7 +517,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8559084178653178530}
-  - component: {fileID: 4401056047573275177}
   m_Layer: 10
   m_Name: WeaponContainer
   m_TagString: Untagged
@@ -526,18 +541,3 @@ Transform:
   - {fileID: 191886494305174521}
   m_Father: {fileID: 3849300127466159119}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4401056047573275177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9122137230959881737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50fa73d3d130adc42a8af66d732fb9db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponObjects:
-  - {fileID: 2541843827581800012}
-  weaponArrayPointer: 0

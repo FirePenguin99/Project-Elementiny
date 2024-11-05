@@ -264,6 +264,7 @@ MonoBehaviour:
   playerIcePrefab: {fileID: 7840126102366828892, guid: e529c841a87c91d46ba39e1bf56caf74, type: 3}
   playerEarthPrefab: {fileID: 3102791877151477794, guid: be447a9698ad6c142832bbbd4256eedc, type: 3}
   StartMenuCanvas: {fileID: 1588435753}
+  HudCanvas: {fileID: 1851014975}
 --- !u!1 &104874559
 GameObject:
   m_ObjectHideFlags: 0
@@ -1338,10 +1339,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7758558897909220322, guid: 9acfaf8c63e61b541a68f793743cf3d0, type: 3}
-      propertyPath: playerTransform
-      value: 
-      objectReference: {fileID: 8316732643563817043}
     - target: {fileID: 7766798373440434560, guid: 9acfaf8c63e61b541a68f793743cf3d0, type: 3}
       propertyPath: m_Name
       value: MovingBaddie (2)
@@ -3044,10 +3041,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7758558897909220322, guid: 9acfaf8c63e61b541a68f793743cf3d0, type: 3}
-      propertyPath: playerTransform
-      value: 
-      objectReference: {fileID: 8316732643563817043}
     - target: {fileID: 7766798373440434560, guid: 9acfaf8c63e61b541a68f793743cf3d0, type: 3}
       propertyPath: m_Name
       value: MovingBaddie (1)
@@ -3093,8 +3086,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9849355561f1856428d5ab58c4088ce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponContainer: {fileID: 8249310251469245436}
-  Player: {fileID: 4004932982132000749}
   AmmoCounter: {fileID: 164452638}
   WeaponCounter: {fileID: 178824004}
   HealthCounter: {fileID: 1216364116}
@@ -4683,17 +4674,13 @@ PrefabInstance:
       propertyPath: m_Speed
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 7758558897909220322, guid: 9acfaf8c63e61b541a68f793743cf3d0, type: 3}
-      propertyPath: playerTransform
-      value: 
-      objectReference: {fileID: 8316732643563817043}
     - target: {fileID: 7766798373440434560, guid: 9acfaf8c63e61b541a68f793743cf3d0, type: 3}
       propertyPath: m_Name
       value: MovingBaddie
       objectReference: {fileID: 0}
     - target: {fileID: 7766798373440434560, guid: 9acfaf8c63e61b541a68f793743cf3d0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
