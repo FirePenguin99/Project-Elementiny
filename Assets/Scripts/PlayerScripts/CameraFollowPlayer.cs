@@ -8,9 +8,7 @@ public class CameraFollowPlayer : MonoBehaviour
 
     public Transform cameraPosition;
 
-    // Update is called once per frame
-    void Update()
-    {
+    public void UpdateCameraPosition() {
         transform.position = cameraPosition.position;
         transform.rotation = cameraPosition.rotation;
     }
