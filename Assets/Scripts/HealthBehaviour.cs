@@ -24,10 +24,20 @@ public class HealthBehaviour : MonoBehaviour
             smoulderingCorpse.GetComponent<SmoulderingCorpseBehaviour>().burnStackCount = GetComponent<BurnDebuffBehaviour>().burnStackCount;
             smoulderingCorpse.GetComponent<SmoulderingCorpseBehaviour>().burnTimer = GetComponent<BurnDebuffBehaviour>().burnTimer;
             
+            RemoveFromWaveList();
             Destroy(this.gameObject);
         } else {
             print("i dead a hell");
+
+            RemoveFromWaveList();
             Destroy(this.gameObject);
+        }
+    }
+
+    private void RemoveFromWaveList() {
+        EnemyWaveLink ewl = this.GetComponent<EnemyWaveLink>();
+        if (ewl != null) {
+            ewl.RemoveFromWave();
         }
     }
 }

@@ -34,6 +34,8 @@ public class EnemyMovement : MonoBehaviour
 
         defaultSpeed = agent.speed;
         defaultAngularSpeed = agent.angularSpeed;
+
+        SetPlayerTransform();
     }
 
     void OnEnable() {
@@ -122,6 +124,8 @@ public class EnemyMovement : MonoBehaviour
     }
 
     private void SetPlayerTransform() {
-        playerTransform = GameStateHandler.instance.player.transform;
+        if (GameStateHandler.instance.player != null) {
+            playerTransform = GameStateHandler.instance.player.transform;
+        }
     }
 }
