@@ -32,4 +32,11 @@ public class FireElementClass : MonoBehaviour
         }
         
     }
+
+    public void ApplyDirectDamage(GameObject targetGameObject, int directDamage) {
+        HealthBehaviour enemyHealth = targetGameObject.GetComponent<HealthBehaviour>();
+        if (enemyHealth != null) {
+            enemyHealth.health -= directDamage;
+        }
+    }
 }

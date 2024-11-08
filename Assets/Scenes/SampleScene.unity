@@ -4213,13 +4213,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   megaFireballPrefab: {fileID: 3278076545063331158, guid: 72da40cb41c815348ade74d05f4d47a8, type: 3}
-  playerCam: {fileID: 963194227}
   projectileLayerMask:
     serializedVersion: 2
     m_Bits: 193
   shootOffset: {x: 0, y: 10, z: 0}
   shootForce: 50
   totalBurnAbsorbed: 0
+  shootPoint: {fileID: 0}
 --- !u!4 &5001781259639881894
 Transform:
   m_ObjectHideFlags: 0
@@ -4288,13 +4288,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   megaFireballPrefab: {fileID: 3278076545063331158, guid: 72da40cb41c815348ade74d05f4d47a8, type: 3}
-  playerCam: {fileID: 963194227}
   projectileLayerMask:
     serializedVersion: 2
     m_Bits: 193
   shootOffset: {x: 0, y: 10, z: 0}
   shootForce: 50
   totalBurnAbsorbed: 0
+  shootPoint: {fileID: 0}
 --- !u!136 &6387907119517962147
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4331,13 +4331,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   megaFireballPrefab: {fileID: 3278076545063331158, guid: 72da40cb41c815348ade74d05f4d47a8, type: 3}
-  playerCam: {fileID: 963194227}
   projectileLayerMask:
     serializedVersion: 2
     m_Bits: 193
   shootOffset: {x: 0, y: 2, z: 0}
   shootForce: 50
   totalBurnAbsorbed: 0
+  shootPoint: {fileID: 0}
 --- !u!23 &6976634691170112098
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4578,13 +4578,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   megaFireballPrefab: {fileID: 3278076545063331158, guid: 72da40cb41c815348ade74d05f4d47a8, type: 3}
-  playerCam: {fileID: 963194227}
   projectileLayerMask:
     serializedVersion: 2
     m_Bits: 193
   shootOffset: {x: 0, y: 10, z: 0}
   shootForce: 50
   totalBurnAbsorbed: 0
+  shootPoint: {fileID: 0}
 --- !u!114 &8027007579198461823
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6837290206206149497}
   - component: {fileID: 5724011445278543267}
-  - component: {fileID: 1371798225813832752}
   m_Layer: 0
   m_Name: FireBallWeapon
   m_TagString: Untagged
@@ -55,29 +54,9 @@ MonoBehaviour:
   fireRate: 0.5
   spread: 0
   reloadRate: 2
-  magazineSize: 5
+  magazineSize: 3
   shotsInMagazine: 5
   shootPoint: {fileID: 1746601797095282018}
---- !u!114 &1371798225813832752
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3193128669851330321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36764af3a4ee2dd49a9adea64bdbc7ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  megaFireballPrefab: {fileID: 3278076545063331158, guid: 72da40cb41c815348ade74d05f4d47a8, type: 3}
-  playerCam: {fileID: 0}
-  projectileLayerMask:
-    serializedVersion: 2
-    m_Bits: 193
-  shootOffset: {x: 0, y: 10, z: 0}
-  shootForce: 50
-  totalBurnAbsorbed: 0
 --- !u!1 &3519494632002405205
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,6 +97,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1204256574492448327}
+  - component: {fileID: 8798725110238001152}
   m_Layer: 10
   m_Name: WeaponContainer
   m_TagString: Untagged
@@ -144,6 +124,26 @@ Transform:
   - {fileID: 344178858423310481}
   m_Father: {fileID: 4257178320057221283}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8798725110238001152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4010985237283037511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36764af3a4ee2dd49a9adea64bdbc7ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  megaFireballPrefab: {fileID: 3278076545063331158, guid: 72da40cb41c815348ade74d05f4d47a8, type: 3}
+  projectileLayerMask:
+    serializedVersion: 2
+    m_Bits: 193
+  shootOffset: {x: 0, y: 3, z: 0}
+  shootForce: 50
+  totalBurnAbsorbed: 0
+  shootPoint: {fileID: 1746601797095282018}
 --- !u!1 &4487473426570383837
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,7 +478,6 @@ GameObject:
   m_Component:
   - component: {fileID: 344178858423310481}
   - component: {fileID: 4941141677578089773}
-  - component: {fileID: 5494429312861550987}
   m_Layer: 0
   m_Name: FlamethrowerWeapon
   m_TagString: Untagged
@@ -523,29 +522,9 @@ MonoBehaviour:
   fireRate: 0.1
   spread: 0
   reloadRate: 2
-  magazineSize: 100
-  shotsInMagazine: 100
+  magazineSize: 30
+  shotsInMagazine: 30
   shootPoint: {fileID: 1746601797095282018}
---- !u!114 &5494429312861550987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5180195720129996550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36764af3a4ee2dd49a9adea64bdbc7ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  megaFireballPrefab: {fileID: 3278076545063331158, guid: 72da40cb41c815348ade74d05f4d47a8, type: 3}
-  playerCam: {fileID: 0}
-  projectileLayerMask:
-    serializedVersion: 2
-    m_Bits: 193
-  shootOffset: {x: 0, y: 2, z: 0}
-  shootForce: 50
-  totalBurnAbsorbed: 0
 --- !u!1 &5493080492471326514
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,7 +535,6 @@ GameObject:
   m_Component:
   - component: {fileID: 18164495068725746}
   - component: {fileID: 2955701874455437652}
-  - component: {fileID: 8267384603101065185}
   m_Layer: 0
   m_Name: CandleWeapon
   m_TagString: Untagged
@@ -598,7 +576,7 @@ MonoBehaviour:
     m_Bits: 193
   shootForce: 50
   upwardForce: 0
-  fireRate: 0.5
+  fireRate: 0.25
   spread: 0
   reloadRate: 2
   magazineSize: 5
@@ -606,26 +584,6 @@ MonoBehaviour:
   shootPoint: {fileID: 1746601797095282018}
   isCharging: 0
   isReadyToSpawnNext: 1
---- !u!114 &8267384603101065185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5493080492471326514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36764af3a4ee2dd49a9adea64bdbc7ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  megaFireballPrefab: {fileID: 3278076545063331158, guid: 72da40cb41c815348ade74d05f4d47a8, type: 3}
-  playerCam: {fileID: 0}
-  projectileLayerMask:
-    serializedVersion: 2
-    m_Bits: 193
-  shootOffset: {x: 0, y: 10, z: 0}
-  shootForce: 50
-  totalBurnAbsorbed: 0
 --- !u!1 &7219536926822233896
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,7 +675,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5738262891116245811}
   - component: {fileID: 5993869944261132987}
-  - component: {fileID: 2323024628609000800}
   m_Layer: 0
   m_Name: FireHelixWeapon
   m_TagString: Untagged
@@ -765,23 +722,3 @@ MonoBehaviour:
   magazineSize: 15
   shotsInMagazine: 15
   shootPoint: {fileID: 1746601797095282018}
---- !u!114 &2323024628609000800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8939053507412454181}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36764af3a4ee2dd49a9adea64bdbc7ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  megaFireballPrefab: {fileID: 3278076545063331158, guid: 72da40cb41c815348ade74d05f4d47a8, type: 3}
-  playerCam: {fileID: 0}
-  projectileLayerMask:
-    serializedVersion: 2
-    m_Bits: 193
-  shootOffset: {x: 0, y: 10, z: 0}
-  shootForce: 50
-  totalBurnAbsorbed: 0

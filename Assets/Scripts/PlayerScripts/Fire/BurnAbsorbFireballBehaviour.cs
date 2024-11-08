@@ -5,14 +5,15 @@ using UnityEngine;
 public class BurnAbsorbFireballBehaviour : MonoBehaviour
 {
     public GameObject megaFireballPrefab;
-    public Camera playerCam;
     public LayerMask projectileLayerMask;
 
-    public Vector3 shootOffset = new Vector3(0, 10, 0);
+    public Vector3 shootOffset = new Vector3(0, 5, 0);
     public float shootForce = 50;
     
     public static List<GameObject> burningEnemies = new List<GameObject>();
     public int totalBurnAbsorbed = 0;
+
+    [SerializeField] private Transform shootPoint;
 
     // Update is called once per frame
     void Update()
@@ -40,21 +41,21 @@ public class BurnAbsorbFireballBehaviour : MonoBehaviour
         }
     }
 
-    public void FireMegaball() {
-        Vector3 shootPoint = transform.position + shootOffset; 
-        Vector3 aimDirection = CalculateAimDirection() - shootPoint;
+    public void FireMegaball() { 
+        Vector3 shootPointWithOffset = shootPoint.position + shootOffset;
+        Vector3 aimDirection = CalculateAimDirection() - shootPointWithOffset;
 
-        GameObject currentBullet = Instantiate(megaFireballPrefab, shootPoint, Quaternion.identity);
+        GameObject currentBullet = Instantiate(megaFireballPrefab, shootPointWithOffset, Quaternion.identity);
 
         currentBullet.transform.forward = aimDirection.normalized; // point the projectile at the Aim Position
         currentBullet.GetComponent<Rigidbody>().AddForce(aimDirection.normalized * shootForce, ForceMode.Impulse);
         // Currently on hit gives enemy's in blast a new Burn with a starting stack value of all the Burn stack values that were absorbed. OP as fuck and then would spread and deal massive Crowd damage. Not the intention.
         // Fix by changing the vast majority of damage in Base Damage, rather than debuff
-        currentBullet.GetComponent<FireballBulletBehaviour>().addStackAmount = totalBurnAbsorbed;
+        currentBullet.GetComponent<MegaFireballBulletBehaviour>().directDamage = totalBurnAbsorbed;
     }
 
     private Vector3 CalculateAimDirection() {
-        Ray ray = playerCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); // spawns a ray in the middle of the screen
+        Ray ray = GameStateHandler.instance.playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); // spawns a ray in the middle of the screen
 
         Vector3 aimPosition;
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, projectileLayerMask)) {

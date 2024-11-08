@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class FireballBulletBehaviour : FireElementClass
 {
-    public float projectileLifetime;
-    public float explosionRadius;
-    private LayerMask explosionLayerMask;
+    [SerializeField] private float projectileLifetime;
+    [SerializeField] protected float explosionRadius;
+    protected LayerMask explosionLayerMask;
     public int addStackAmount = 25;
     
     void Start()
@@ -28,14 +28,13 @@ public class FireballBulletBehaviour : FireElementClass
         DestroyProjectile();
     }
 
-    private void Explode() {
+    public virtual void Explode() {
         Collider[] enemiesInRange = Physics.OverlapSphere(transform.position, explosionRadius, explosionLayerMask);
 
         foreach (Collider enemy in enemiesInRange)
         {
             if (enemy.gameObject.name != this.gameObject.name) {
                 ApplyBurn(enemy.gameObject, addStackAmount);
-                // print("applied spread to " + enemy.gameObject.name + " from " + this.gameObject.name);
             }
         }
     }
