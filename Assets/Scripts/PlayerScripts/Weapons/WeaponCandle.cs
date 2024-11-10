@@ -25,11 +25,12 @@ public class WeaponCandle : WeaponClass
         if (Input.GetKeyUp(KeyCode.Mouse0) && !reloading) {
             foreach (GameObject candle in candlesSpawned)
             {
-                Vector3 aimDirection = CalculateAimDirection() - candle.transform.position;
+                if (candle != null) {
+                    Vector3 aimDirection = CalculateAimDirection() - candle.transform.position;
 
-                candle.transform.forward = aimDirection.normalized; // point the projectile at the Aim Position
-                candle.GetComponent<Rigidbody>().AddForce(aimDirection.normalized * shootForce, ForceMode.Impulse);
-                candle.GetComponent<FireCandleBulletBehaviour>().StartFlying();
+                    candle.transform.forward = aimDirection.normalized; // point the projectile at the Aim Position
+                    candle.GetComponent<FireCandleBulletBehaviour>().StartFlying(aimDirection.normalized, shootForce);
+                }
             }
 
             candlesSpawned.Clear();

@@ -7,7 +7,13 @@ public class FireCandleBulletBehaviour : FireElementClass
     public float projectileLifetime;
 
     public int addedBurnStack = 15;
+
+    private Rigidbody rb;
     
+    void Awake() {
+        rb = GetComponent<Rigidbody>();
+    }
+
     void Start()
     {
     }
@@ -33,7 +39,8 @@ public class FireCandleBulletBehaviour : FireElementClass
         Destroy(this.gameObject);
     }
 
-    public void StartFlying() {
+    public void StartFlying(Vector3 direction, float force) {
+        rb.AddForce(direction * force, ForceMode.Impulse);
         Invoke(nameof(DestroyProjectile), projectileLifetime);
     }
 }
