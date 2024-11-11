@@ -13,8 +13,10 @@ public class WeaponClass : MonoBehaviour
 
     public float fireRate, spread, reloadRate; 
     public int magazineSize, shotsInMagazine;
+
+    public bool reloading, isShooting;
     
-    protected bool isShooting, readyToShoot, reloading;
+    protected bool readyToShoot;
     protected bool allowInvoke = true; //this stops multiple Invokes from being played at the same time
 
     // public Camera playerCam;
@@ -73,7 +75,7 @@ public class WeaponClass : MonoBehaviour
         reloading = false;
     }
 
-    protected Vector3 CalculateAimDirection() {
+    public virtual Vector3 CalculateAimDirection() {
         Ray ray = GameStateHandler.instance.playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); // spawns a ray in the middle of the screen
 
         Vector3 aimPosition;

@@ -17,7 +17,7 @@ public class ColdDebuffBehaviour : MonoBehaviour
     [SerializeField] private float shatteredCount = 0;
 
     HealthBehaviour entityHealth;
-    EnemyMovement enemyMovement;
+    EnemyMovementBehaviour enemyMovement;
 
     [SerializeField] private Collider[] enemiesInRange;
     [SerializeField] private float spreadRadius = 10f;
@@ -34,7 +34,7 @@ public class ColdDebuffBehaviour : MonoBehaviour
     void Awake()
     {
         entityHealth = GetComponent<HealthBehaviour>();
-        enemyMovement = GetComponent<EnemyMovement>();
+        enemyMovement = GetComponent<EnemyMovementBehaviour>();
         spreadLayerMask = LayerMask.GetMask("Enemy");
 
         // fireParticlesPrefab = Instantiate( AssetDatabase.LoadAssetAtPath("Assets/Prefabs/BurningObj.prefab", typeof(GameObject)) ) as GameObject;
