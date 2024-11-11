@@ -4,21 +4,6 @@ using UnityEngine;
 
 public class ShooterWeapon : WeaponClass
 {
-    // [SerializeField] private GameObject bullet;
-
-    // [SerializeField] private float shootForce, upwardForce;
-
-    // [SerializeField] private float fireRate, spread, reloadRate; 
-    // [SerializeField] private int magazineSize, shotsInMagazine;
-    
-    // [SerializeField] private bool readyToShoot, reloading;
-    // [SerializeField] private bool allowInvoke = true; //this stops multiple Invokes from being played at the same time
-
-    // public new bool isShooting;
-
-    // public Camera playerCam;
-    // public Transform shootPoint;
-    
     // Update is called once per frame
     void Update()
     {

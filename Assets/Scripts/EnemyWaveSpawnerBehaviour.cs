@@ -28,8 +28,6 @@ public class EnemyWaveSpawnerBehaviour : MonoBehaviour
             { enemyTypes.Chaser, chaserPrefab },
             { enemyTypes.Shooter, shooterPrefab },
         };
-
-        // waveArray = new int[] {5,6,7,10,15};
     }
 
     // Update is called once per frame

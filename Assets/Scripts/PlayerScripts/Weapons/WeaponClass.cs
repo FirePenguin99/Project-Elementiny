@@ -19,7 +19,6 @@ public class WeaponClass : MonoBehaviour
     protected bool readyToShoot;
     protected bool allowInvoke = true; //this stops multiple Invokes from being played at the same time
 
-    // public Camera playerCam;
     public Transform shootPoint;
 
     void Awake()
@@ -80,7 +79,6 @@ public class WeaponClass : MonoBehaviour
 
         Vector3 aimPosition;
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, projectileLayerMask)) {
-            // print("hit a " + hit.transform.gameObject.name);
             aimPosition = hit.point;
         } else {
             aimPosition = ray.GetPoint(100); // if the ray hasnt hit anything, just point if far away from the player

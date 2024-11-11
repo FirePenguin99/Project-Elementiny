@@ -38,7 +38,7 @@ public class EnemyMovementBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // very crappy repeat call. This may be an Event or GameStateHandler will call "SetPlayer" method on a EnemyDirector class, which will then call "SetPlayer" to every EnemyMovement script
+        // very crappy every-frame call. This may be an Event or GameStateHandler will call "SetPlayer" method on a EnemyDirector class, which will then call "SetPlayer" to every EnemyMovement script
         if (GameStateHandler.instance.player == null) {
             return;
         }
