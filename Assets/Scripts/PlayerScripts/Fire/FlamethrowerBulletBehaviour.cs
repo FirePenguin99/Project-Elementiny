@@ -20,7 +20,7 @@ public class FlamethrowerBulletBehaviour : FireElementClass
 
     void FixedUpdate()
     {
-        rb.AddForce(transform.up * antiGravity, ForceMode.Acceleration); // no idea why antiGravity doesn't have to be negated, it just works?
+        if (rb) {rb.AddForce(Vector3.up * antiGravity, ForceMode.Acceleration);} // no idea why antiGravity doesn't have to be negated, it just works?
     }
 
     void OnTriggerEnter(Collider col) {

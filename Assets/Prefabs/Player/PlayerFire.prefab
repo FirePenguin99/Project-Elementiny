@@ -56,6 +56,8 @@ MonoBehaviour:
   reloadRate: 2
   magazineSize: 3
   shotsInMagazine: 5
+  reloading: 0
+  isShooting: 0
   shootPoint: {fileID: 1746601797095282018}
 --- !u!1 &3519494632002405205
 GameObject:
@@ -88,6 +90,65 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3763303636325450303}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3622982775822353087
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2107862584358778848}
+  - component: {fileID: 5303505543982768199}
+  m_Layer: 0
+  m_Name: BounceBallWeapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2107862584358778848
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3622982775822353087}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.7116585, y: -6.2, z: -8.511998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1204256574492448327}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5303505543982768199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3622982775822353087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ea675d081fe9d45adef8995c44124c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponName: Bounce
+  bullet: {fileID: 3278076545063331158, guid: b49d384f460571149b7d816d0efa803d, type: 3}
+  projectileLayerMask:
+    serializedVersion: 2
+    m_Bits: 193
+  shootForce: 7.5
+  upwardForce: 0
+  fireRate: 0.5
+  spread: 0
+  reloadRate: 2
+  magazineSize: 3
+  shotsInMagazine: 3
+  reloading: 0
+  isShooting: 0
+  shootPoint: {fileID: 1746601797095282018}
 --- !u!1 &4010985237283037511
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,6 +183,7 @@ Transform:
   - {fileID: 6837290206206149497}
   - {fileID: 18164495068725746}
   - {fileID: 344178858423310481}
+  - {fileID: 2107862584358778848}
   m_Father: {fileID: 4257178320057221283}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8798725110238001152
@@ -384,6 +446,7 @@ MonoBehaviour:
   - {fileID: 5180195720129996550}
   - {fileID: 5493080492471326514}
   - {fileID: 3193128669851330321}
+  - {fileID: 3622982775822353087}
   weaponArrayPointer: 0
 --- !u!1 &5053127054145061217
 GameObject:
@@ -524,6 +587,8 @@ MonoBehaviour:
   reloadRate: 2
   magazineSize: 30
   shotsInMagazine: 30
+  reloading: 0
+  isShooting: 0
   shootPoint: {fileID: 1746601797095282018}
 --- !u!1 &5493080492471326514
 GameObject:
@@ -581,6 +646,8 @@ MonoBehaviour:
   reloadRate: 2
   magazineSize: 5
   shotsInMagazine: 0
+  reloading: 0
+  isShooting: 0
   shootPoint: {fileID: 1746601797095282018}
   isCharging: 0
   isReadyToSpawnNext: 1
@@ -710,10 +777,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Helix
-  bullet: {fileID: 3672142364823681576, guid: 9c51af35c83f6754b8e86e1b52df3417, type: 3}
+  bullet: {fileID: 1166673466736524758, guid: fe9688f5502dc324e9a3b15ea946ff01, type: 3}
   projectileLayerMask:
     serializedVersion: 2
-    m_Bits: 247
+    m_Bits: 193
   shootForce: 40
   upwardForce: 0
   fireRate: 0.25
@@ -721,4 +788,6 @@ MonoBehaviour:
   reloadRate: 2
   magazineSize: 15
   shotsInMagazine: 15
+  reloading: 0
+  isShooting: 0
   shootPoint: {fileID: 1746601797095282018}

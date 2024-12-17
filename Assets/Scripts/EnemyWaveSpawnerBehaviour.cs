@@ -33,7 +33,7 @@ public class EnemyWaveSpawnerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentEnemies.Count == 0 && waveNumber < waveArray.GetLength(1)) {
+        if (currentEnemies.Count == 0 && waveNumber < waveArray.GetLength(0)) {
             SpawnWave();
             print("$1500 Cardiac frames");
         } else {

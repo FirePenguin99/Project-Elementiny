@@ -93,7 +93,7 @@ public class ColdDebuffBehaviour : MonoBehaviour
 
         foreach (Collider enemy in enemiesInRange)
         {
-            if (enemy.gameObject.name != this.gameObject.name) { // dont apply to itself
+            if (enemy.gameObject.name != this.gameObject.name && enemy != null) { // dont apply to itself
                 print("shattered another poor sod");
                 enemy.gameObject.GetComponent<ColdDebuffBehaviour>().ShatterFrozen();
             }

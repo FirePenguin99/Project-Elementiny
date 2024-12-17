@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class IceShatterBehaviour : MonoBehaviour
 {
-    public Camera playerCam;
+    private Camera playerCam;
     public LayerMask projectileLayerMask;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerCam = GameStateHandler.instance.playerCamera;
     }
 
     // Update is called once per frame
