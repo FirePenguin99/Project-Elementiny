@@ -1,0 +1,86 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class tryingSinAndCos : MonoBehaviour
+{
+    [SerializeField] private float frequency;
+    [SerializeField] private float amplitude;
+
+    [SerializeField] private float orbNumber;
+    [SerializeField] private float totalOrbsInSystem;
+
+    [SerializeField] private float phase;
+
+    [SerializeField] private float speedFactor;
+
+    [SerializeField] private Transform ReferenceThingy;
+    [SerializeField] private float futhestDistance;
+    [SerializeField] private Vector2 xAndY;
+
+        [SerializeField] private Transform parent;
+
+
+    void Start() {
+        // float phaseUnit = 360/totalOrbsInSystem * Mathf.Deg2Rad;
+        // phase = phaseUnit * orbNumber;
+
+        // float phaseUnit = 360/totalOrbsInSystem * Mathf.Deg2Rad;
+        phase = ((orbNumber * 2) / totalOrbsInSystem) * Mathf.PI;
+
+        // Max amplitude in World Space seems to be (Amplitude / Frequency) * 100 * speedFactor. E.g. (2 / 1) * 10 = 5, which means it will reach 5 in World Space. No idea fucking why though, I feel like I've stumbled across a Wild Rune.
+        
+        float x1 = (Mathf.Asin(orbNumber/totalOrbsInSystem) * Mathf.Rad2Deg);
+        float y1 = (Mathf.Acos(orbNumber/totalOrbsInSystem) * Mathf.Rad2Deg);
+        // float x = Mathf.Sin(x1) * (amplitude/frequency) * 10;
+        print("Orb " +  orbNumber + " : " + x1 + " : " + y1);
+        float x = Mathf.Sin(x1 * Mathf.Deg2Rad) * (amplitude/frequency) * 10;
+        float y = Mathf.Sin(y1 * Mathf.Deg2Rad) * (amplitude/frequency) * 10;
+        // float x = Mathf.Sin(orbNumber/totalOrbsInSystem) * (amplitude/frequency) * 10;
+        // float y = Mathf.Cos(orbNumber/totalOrbsInSystem) * (amplitude/frequency) * 10;
+        print("Orb " +  orbNumber + " : " + x + " : " + y);
+
+        // print(Mathf.Asin(1)* Mathf.Rad2Deg);
+
+
+        Vector3 orbPosition = new Vector3
+        (
+            (Mathf.Sin((180) + phase) * amplitude * 10) / 2, 
+            (Mathf.Cos((180)  + phase) * amplitude * 10) / 2,
+            transform.position.z
+        );
+
+        // transform.position = transform.TransformDirection(orbPosition);
+        // transform.position = Vector3.Cross(orbPosition, transform.forward);
+
+        // transform.Translate(orbPosition, Space.Self);
+    }
+
+    void FixedUpdate()
+    {
+        // Vector3 orbPosition = new Vector3
+        // (
+        //     Mathf.Sin((Time.time * frequency) + phase) * amplitude, 
+        //     Mathf.Cos((Time.time * frequency)  + phase) * amplitude,
+        //     transform.position.z
+        // );
+        Vector3 orbPosition = new Vector3
+        (
+            Mathf.Sin((Time.time * frequency) - phase) * amplitude, 
+            Mathf.Cos((Time.time * frequency) - phase) * amplitude,
+            transform.position.z
+        );
+
+        // transform.position = transform.TransformDirection(orbPosition);
+        // transform.position = Vector3.Cross(orbPosition, transform.forward);
+        transform.position = Vector3.Cross(orbPosition, parent.transform.forward);
+
+        // transform.Translate(orbPosition * speedFactor, Space.Self);
+
+        // if (Vector3.Distance(transform.position, ReferenceThingy.position) > futhestDistance) {
+        //     futhestDistance = Vector3.Distance(transform.position, ReferenceThingy.position);
+        //     xAndY.x = transform.position.x;
+        //     xAndY.y = transform.position.y;
+        // }
+    }
+}
