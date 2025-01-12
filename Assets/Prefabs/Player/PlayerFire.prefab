@@ -56,6 +56,7 @@ MonoBehaviour:
   reloadRate: 2
   magazineSize: 3
   shotsInMagazine: 5
+  noOfShots: 1
   reloading: 0
   isShooting: 0
   shootPoint: {fileID: 1746601797095282018}
@@ -146,6 +147,7 @@ MonoBehaviour:
   reloadRate: 2
   magazineSize: 3
   shotsInMagazine: 3
+  noOfShots: 1
   reloading: 0
   isShooting: 0
   shootPoint: {fileID: 1746601797095282018}
@@ -447,6 +449,7 @@ MonoBehaviour:
   - {fileID: 5493080492471326514}
   - {fileID: 3193128669851330321}
   - {fileID: 3622982775822353087}
+  - {fileID: 8939053507412454181}
   weaponArrayPointer: 0
 --- !u!1 &5053127054145061217
 GameObject:
@@ -587,6 +590,7 @@ MonoBehaviour:
   reloadRate: 2
   magazineSize: 30
   shotsInMagazine: 30
+  noOfShots: 1
   reloading: 0
   isShooting: 0
   shootPoint: {fileID: 1746601797095282018}
@@ -646,6 +650,7 @@ MonoBehaviour:
   reloadRate: 2
   magazineSize: 5
   shotsInMagazine: 0
+  noOfShots: 1
   reloading: 0
   isShooting: 0
   shootPoint: {fileID: 1746601797095282018}
@@ -777,17 +782,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Helix
-  bullet: {fileID: 1166673466736524758, guid: fe9688f5502dc324e9a3b15ea946ff01, type: 3}
+  bullet: {fileID: 8418835564914834960, guid: 34b68c972d8f81748ba5dc0927516851, type: 3}
   projectileLayerMask:
     serializedVersion: 2
     m_Bits: 193
-  shootForce: 40
+  shootForce: 30
   upwardForce: 0
-  fireRate: 0.25
+  fireRate: 0.5
   spread: 0
   reloadRate: 2
-  magazineSize: 15
-  shotsInMagazine: 15
+  magazineSize: 5
+  shotsInMagazine: 5
+  noOfShots: 1
   reloading: 0
   isShooting: 0
   shootPoint: {fileID: 1746601797095282018}

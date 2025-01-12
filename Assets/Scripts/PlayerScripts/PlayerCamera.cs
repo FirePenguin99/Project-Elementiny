@@ -8,11 +8,14 @@ public class PlayerCamera : MonoBehaviour
     float xRotation, yRotation;
 
     public Transform playerOrientation;
+
+    private CameraFollowPlayer playerCam;
     
     // Start is called before the first frame update
     void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        playerCam = GameStateHandler.instance.playerCamera.GetComponent<CameraFollowPlayer>();
     }
 
     // Update is called once per frame
@@ -28,6 +31,6 @@ public class PlayerCamera : MonoBehaviour
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0); //rotates camera GObj
         playerOrientation.rotation = Quaternion.Euler(0, yRotation, 0);
 
-        GameStateHandler.instance.playerCamera.GetComponent<CameraFollowPlayer>().UpdateCameraPosition();
+        playerCam.UpdateCameraPosition();
     }
 }

@@ -8,40 +8,41 @@ public class HelixMovementBehaviour : MonoBehaviour
     [SerializeField] private float frequency;
     [SerializeField] private float amplitude;
     private float currentAmplitude = 0;
+    float interp = 0;
 
-    [SerializeField] private float orbNumber;
-    [SerializeField] private float totalOrbsInSystem;
+    public float orbNumber;
+    public float totalOrbsInSystem;
 
     [SerializeField] private float phase;
 
-    [SerializeField] private float movementSpeed;
+    public float movementSpeed;
     [SerializeField] private float amplitudeIncreaseRate;
 
     [SerializeField] private Vector3 startingPosition;
 
-    float elapsedTime = 0;
+    [SerializeField] private float elapsedTime = 0;
 
     void Start() {
-        phase = ((orbNumber * 2) / totalOrbsInSystem) * Mathf.PI;
+        phase = 2 * (orbNumber / totalOrbsInSystem) * Mathf.PI;
 
         startingPosition = transform.position;
     }
 
     void FixedUpdate()
     {
-        print(currentAmplitude);
-        if (currentAmplitude < amplitude) {
-            currentAmplitude += amplitudeIncreaseRate;
-        }
+        elapsedTime += Time.fixedDeltaTime;
 
-        elapsedTime += Time.deltaTime;
+        interp += amplitudeIncreaseRate;
+        currentAmplitude = Mathf.SmoothStep(0, amplitude, interp);
 
         Vector3 orbPosition = new Vector3
         (
-            Mathf.Sin((Time.time * frequency) + phase) * currentAmplitude, 
-            Mathf.Cos((Time.time * frequency)  + phase) * currentAmplitude,
+            Mathf.Cos((elapsedTime * frequency)  + phase) * currentAmplitude,
+            Mathf.Sin((elapsedTime * frequency)  + phase) * currentAmplitude,
             elapsedTime * movementSpeed
         );
+
+        // print("sin: " + Mathf.Sin((elapsedTime * frequency)  + phase) * currentAmplitude + " | cos: " + Mathf.Cos((elapsedTime * frequency)  + phase) * currentAmplitude);
 
         transform.position = startingPosition + transform.rotation * orbPosition;
     }

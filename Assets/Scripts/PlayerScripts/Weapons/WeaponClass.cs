@@ -6,20 +6,21 @@ public class WeaponClass : MonoBehaviour
 {
     public string weaponName = "weapon";
 
-    public GameObject bullet;
-    public LayerMask projectileLayerMask;
+    [SerializeField] protected GameObject bullet;
+    [SerializeField] protected LayerMask projectileLayerMask;
 
-    public float shootForce, upwardForce;
+    [SerializeField] protected float shootForce, upwardForce;
 
-    public float fireRate, spread, reloadRate; 
-    public int magazineSize, shotsInMagazine;
+    [SerializeField] protected float fireRate, spread, reloadRate; 
+                     public int magazineSize, shotsInMagazine;
+    [SerializeField] protected int noOfShots = 1;
 
-    public bool reloading, isShooting;
+                     public bool reloading, isShooting;
     
     protected bool readyToShoot;
     protected bool allowInvoke = true; //this stops multiple Invokes from being played at the same time
 
-    public Transform shootPoint;
+    [SerializeField] protected Transform shootPoint;
 
     void Awake()
     {

@@ -31,10 +31,11 @@ public class HudBehaviour : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        AmmoCounter.text = weaponSwap.weaponObjects[weaponSwap.weaponArrayPointer].GetComponent<WeaponClass>().shotsInMagazine.ToString();
-        WeaponCounter.text = weaponSwap.weaponObjects[weaponSwap.weaponArrayPointer].GetComponent<WeaponClass>().weaponName.ToString();
-        // AmmoCounter.text = WeaponSwapBehaviour.instance.weaponObjects[WeaponSwapBehaviour.instance.weaponArrayPointer].GetComponent<WeaponClass>().shotsInMagazine.ToString();
-        // WeaponCounter.text = WeaponSwapBehaviour.instance.weaponObjects[WeaponSwapBehaviour.instance.weaponArrayPointer].GetComponent<WeaponClass>().weaponName.ToString();
+        if (weaponSwap.weaponObjects[weaponSwap.weaponArrayPointer]) {
+            AmmoCounter.text = weaponSwap.weaponObjects[weaponSwap.weaponArrayPointer].GetComponent<WeaponClass>().shotsInMagazine.ToString();
+            WeaponCounter.text = weaponSwap.weaponObjects[weaponSwap.weaponArrayPointer].GetComponent<WeaponClass>().weaponName.ToString();
+        }
+        
         HealthCounter.text = playerHealth.health.ToString() + "/100";
     }
 

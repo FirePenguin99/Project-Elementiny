@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class WeaponFlamethrower : WeaponClass
 {
-    public int noOfShots = 1;
-
     public override void Shoot() {
         readyToShoot = false;
         shotsInMagazine--;
@@ -16,6 +14,14 @@ public class WeaponFlamethrower : WeaponClass
 
             currentBullet.transform.forward = aimDirection.normalized; // point the projectile at the Aim Position
             currentBullet.GetComponent<Rigidbody>().AddForce(aimDirection.normalized * shootForce, ForceMode.Impulse);
+
+            HelixMovementBehaviour helixBehaviour = currentBullet.GetComponent<HelixMovementBehaviour>();
+            if (helixBehaviour) {
+                helixBehaviour.orbNumber = i;
+                helixBehaviour.totalOrbsInSystem = noOfShots;
+
+                helixBehaviour.movementSpeed = shootForce / 7.5f;
+            }
         }
         
         if (allowInvoke) {
