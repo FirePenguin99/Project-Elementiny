@@ -13,17 +13,18 @@ public class FireExplosionBehaviour : FireElementClass
     }
 
     void OnCollisionEnter(Collision col) {
-        Explode();
+        Explode(col);
 
         DestroyProjectile();
     }
 
-    public virtual void Explode() {
+    public virtual void Explode(Collision col) {
         Collider[] enemiesInRange = Physics.OverlapSphere(transform.position, explosionRadius, explosionLayerMask);
 
         foreach (Collider enemy in enemiesInRange)
         {
-            if (enemy.gameObject.name != this.gameObject.name) {
+            // if (enemy.gameObject.name != this.gameObject.name) { 
+            if (enemy.gameObject != col.gameObject) { // HAVENT TESTED THE NEW COL. INSTEAD OF THIS.
                 ApplyBurn(enemy.gameObject, addStackAmount);
             }
         }
