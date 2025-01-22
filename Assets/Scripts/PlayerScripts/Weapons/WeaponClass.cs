@@ -15,7 +15,7 @@ public class WeaponClass : MonoBehaviour
                      public int magazineSize, shotsInMagazine;
     [SerializeField] protected int noOfShots = 1;
 
-                     public bool reloading, isShooting;
+                     public bool reloading, isShooting = false;
     
     protected bool readyToShoot;
     protected bool allowInvoke = true; //this stops multiple Invokes from being played at the same time
@@ -35,13 +35,24 @@ public class WeaponClass : MonoBehaviour
     }
 
     protected void PlayerInput() {
-        isShooting = Input.GetKey(KeyCode.Mouse0);
+        if (Input.GetKeyDown(KeyCode.Mouse0)) {
+            isShooting = true;
+        } else if (Input.GetKeyUp(KeyCode.Mouse0)) {
+            isShooting = false;
+            StopShoot();
+        }
 
         if (readyToShoot && isShooting && !reloading && shotsInMagazine > 0) {
             Shoot();
         } else if (readyToShoot && !reloading && shotsInMagazine <= 0) {
             Reload();
         }
+
+        // if (readyToShoot && isShooting && !reloading && shotsInMagazine > 0) {
+        //     Shoot();
+        // } else if (readyToShoot && !reloading && shotsInMagazine <= 0) {
+        //     Reload();
+        // }
     }
 
     public virtual void Shoot() {
@@ -59,6 +70,9 @@ public class WeaponClass : MonoBehaviour
             Invoke(nameof(ResetShot), fireRate);
             allowInvoke = false;
         }
+    }
+
+    public virtual void StopShoot() {
     }
 
     protected void ResetShot() {
