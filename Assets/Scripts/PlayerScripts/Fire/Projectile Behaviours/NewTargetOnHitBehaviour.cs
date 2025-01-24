@@ -12,19 +12,15 @@ public class NewTargetOnHitBehaviour : MonoBehaviour
     public List<GameObject> visitedEnemiesList = new List<GameObject>();
     public GameObject currentEnemy;
 
-    void Start()
-    {
+    void Start() {
         explosionLayerMask = LayerMask.GetMask("Enemy");
     }
 
-    void Update()
-    {
-        
-    }
-
     void OnCollisionEnter(Collision col) {
-        currentEnemy = col.gameObject;
-        BounceToNewTarget(col);
+        if (col.gameObject.layer == LayerMask.NameToLayer("Enemy")) {
+            currentEnemy = col.gameObject;
+            BounceToNewTarget(col);
+        }
     }
 
     GameObject FindNewTarget(Collision col) {
@@ -71,14 +67,9 @@ public class NewTargetOnHitBehaviour : MonoBehaviour
 
     IEnumerator moveToNewTarget(Vector3 endPostion) {    
         this.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-        // float interpolationRatio = 0;
-
-        // Vector3 startingPos = transform.position;
 
         while (Vector3.Distance(transform.position, endPostion) > 0.001f) {
-            // interpolationRatio += Time.deltaTime * movementSpeed;
             transform.position = Vector3.MoveTowards(transform.position, endPostion, Time.deltaTime * movementSpeed);
-
             yield return null; // wait a frame
         }
 

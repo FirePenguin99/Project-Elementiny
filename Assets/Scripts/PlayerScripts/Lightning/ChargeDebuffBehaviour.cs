@@ -5,26 +5,15 @@ using UnityEngine;
 public class ChargeDebuffBehaviour : MonoBehaviour
 {
     public int chargeStackCount = 0;
-    public int releaseDamageMultiplier = 2;
-    
-    public HealthBehaviour entityHealth;
+    public HealthBehaviour entityHealth; // could turn this into a public setter in LightningReleaseBehaviour.cs but thog no care.
 
-    // Start is called before the first frame update
-    void Awake()
-    {
+    void Awake() {
         entityHealth = GetComponent<HealthBehaviour>();
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public int ReleaseCharge(int highestChargeStack) {
+    public float ReleaseCharge(int highestChargeStack, float releaseDamageMultiplier) {
         if (highestChargeStack != chargeStackCount) {
-
             entityHealth.health -= (highestChargeStack - chargeStackCount) * releaseDamageMultiplier;
 
             print("Release Damaged for: " + (highestChargeStack - chargeStackCount) * releaseDamageMultiplier);
@@ -33,6 +22,7 @@ public class ChargeDebuffBehaviour : MonoBehaviour
 
             return (highestChargeStack - chargeStackCount) * releaseDamageMultiplier;
         }
+
         Destroy(this);
         return 0;
     }

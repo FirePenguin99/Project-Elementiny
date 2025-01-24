@@ -8,16 +8,12 @@ public class LightningReleaseBehaviour : MonoBehaviour
     public static List<GameObject> chargedEnemies = new List<GameObject>();
     public ChargeDebuffBehaviour highestChargeStackComponent = null;
 
-
     // Start is called before the first frame update
-    void Start()
-    {
-        
+    void Start() {   
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         if (Input.GetKeyDown(KeyCode.Mouse1)) {
             print("Charge Released!");
 
@@ -29,8 +25,7 @@ public class LightningReleaseBehaviour : MonoBehaviour
     public void FindAllChargedEnemies() {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         
-        foreach (GameObject enemy in enemies)
-        {
+        foreach (GameObject enemy in enemies) {
             if (enemy.GetComponent<ChargeDebuffBehaviour>() != null) {
                 chargedEnemies.Add(enemy);
                 
@@ -44,11 +39,11 @@ public class LightningReleaseBehaviour : MonoBehaviour
     }
 
     public void ReleaseAllChargedEnemies() {
-        foreach (GameObject enemy in chargedEnemies)
-        {
+        foreach (GameObject enemy in chargedEnemies) {
             ChargeDebuffBehaviour chargeDebuff = enemy.GetComponent<ChargeDebuffBehaviour>();
-            highestChargeStackComponent.entityHealth.health -= chargeDebuff.ReleaseCharge(highestChargeStackComponent.chargeStackCount);
+            highestChargeStackComponent.entityHealth.health -= chargeDebuff.ReleaseCharge(highestChargeStackComponent.chargeStackCount, 125);
         }
+
         chargedEnemies.Clear();
         highestChargeStackComponent = null;
     }

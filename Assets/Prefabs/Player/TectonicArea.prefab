@@ -121,3 +121,6 @@ MonoBehaviour:
   tectonicValue: 0
   quakeThreshold: 100
   earthquakeDamage: 1000
+  isIdle: 1
+  decayLimit: 5
+  decayAmount: 0.25

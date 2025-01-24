@@ -5,12 +5,10 @@ public class WeaponRockthrower : WeaponClass
 {
     public List<GameObject> tectonicAreasInside = new List<GameObject>();
 
-    public float weaponBaseRockDamage = 10;
-    public float weaponTectonicValue;
+    [SerializeField] private float weaponBaseRockDamage = 10;
+    [SerializeField] private float weaponTectonicValue;
     
     public float tectonicReductionRate = 1;
-
-    // public GameObject tectonicGameObject;
 
     public override void Shoot() { // not confident in this use of override as Polymorphism
         readyToShoot = false;
@@ -28,6 +26,7 @@ public class WeaponRockthrower : WeaponClass
         
         foreach (GameObject tectonicGameObject in tectonicAreasInside)
         {
+            tectonicGameObject.GetComponent<TectonicAreaBehaviour>().isIdle = false;
             tectonicGameObject.GetComponent<TectonicAreaBehaviour>().tectonicValue += 1;
         }
         
@@ -37,26 +36,34 @@ public class WeaponRockthrower : WeaponClass
         }
     }
 
+    public override void StopShoot() {
+        foreach (GameObject tectonicGameObject in tectonicAreasInside) {
+            tectonicGameObject.GetComponent<TectonicAreaBehaviour>().isIdle = true;
+        } 
+    }
+
     void Update() {
         if (tectonicAreasInside.Count == 0) {
             weaponTectonicValue -= Time.deltaTime * tectonicReductionRate;
         } else {
             weaponTectonicValue = FindLargestTectonicValue();
         }
+        
         if (weaponTectonicValue <= 0) {
             weaponTectonicValue = 0;
         }
+        
         PlayerInput();
     }
 
-    private int FindLargestTectonicValue() {
-        int largestValue = 0;
-        foreach (GameObject tectonicGameObject in tectonicAreasInside)
-        {
+    private float FindLargestTectonicValue() {
+        float largestValue = 0;
+        foreach (GameObject tectonicGameObject in tectonicAreasInside) {
             if (tectonicGameObject.GetComponent<TectonicAreaBehaviour>().tectonicValue > largestValue) {
                 largestValue = tectonicGameObject.GetComponent<TectonicAreaBehaviour>().tectonicValue;
             }
         }
+
         return largestValue;
     }
 }
