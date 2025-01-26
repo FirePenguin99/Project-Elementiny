@@ -15,7 +15,7 @@ public class WeaponClass : MonoBehaviour
                      public int magazineSize, shotsInMagazine;
     [SerializeField] protected int noOfShots = 1;
 
-                     public bool reloading, isShooting = false;
+    public bool reloading, isShooting = false;
     
     protected bool readyToShoot;
     protected bool allowInvoke = true; //this stops multiple Invokes from being played at the same time
@@ -61,10 +61,19 @@ public class WeaponClass : MonoBehaviour
 
         Vector3 aimDirection = CalculateAimDirection() - shootPoint.position;
 
-        GameObject currentBullet = Instantiate(bullet, shootPoint.position, Quaternion.identity);
+        for (int i = 0; i < noOfShots; i++)
+        {
+            GameObject currentBullet = Instantiate(bullet, shootPoint.position, Quaternion.LookRotation(aimDirection));
+            currentBullet.GetComponent<Rigidbody>().AddForce(currentBullet.transform.forward * shootForce, ForceMode.Impulse);
 
-        currentBullet.transform.forward = aimDirection.normalized; // point the projectile at the Aim Position
-        currentBullet.GetComponent<Rigidbody>().AddForce(aimDirection.normalized * shootForce, ForceMode.Impulse);
+            HelixMovementBehaviour helixBehaviour = currentBullet.GetComponent<HelixMovementBehaviour>();
+            if (helixBehaviour) {
+                helixBehaviour.orbNumber = i;
+                helixBehaviour.totalOrbsInSystem = noOfShots;
+
+                helixBehaviour.movementSpeed = shootForce / 7.5f;
+            }
+        }
 
         if (allowInvoke) {
             Invoke(nameof(ResetShot), fireRate);
