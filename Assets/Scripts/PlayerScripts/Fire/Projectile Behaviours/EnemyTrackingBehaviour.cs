@@ -1,15 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 
 public class EnemyTrackingBehaviour : MonoBehaviour
 {
-    [SerializeField] float rotationSpeed;
+    private float rotationSpeed;
+    [SerializeField] float baseRotationSpeed;
+    [SerializeField] float bonusProximityRotationSpeed;
     [SerializeField] float movementSpeed;
     [SerializeField] float enemyMaxDistance;
 
-    private LayerMask explosionLayerMask;
+    private LayerMask detectionLayerMask;
     
     [SerializeField] GameObject closestEnemy;
     [SerializeField] float enemyDistanceCheckInterval = 0.2f;
@@ -18,62 +17,52 @@ public class EnemyTrackingBehaviour : MonoBehaviour
 
     Rigidbody rb;
 
-    // Start is called before the first frame update
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
 
         InvokeRepeating(nameof(EnemyCheck), 0, enemyDistanceCheckInterval);
-        explosionLayerMask = LayerMask.GetMask("Enemy");
+        detectionLayerMask = LayerMask.GetMask("Enemy");
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (closestEnemy) {
             desiredAimPosition = closestEnemy.transform.position - transform.position;
             desiredRotation = Quaternion.LookRotation(desiredAimPosition);
-            rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, desiredRotation, rotationSpeed * Time.deltaTime));
-        }
-
-        rb.velocity = Vector3.forward * movementSpeed;
-
-        /*
-        if (closestEnemy) {
-            desiredAimPosition = closestEnemy.transform.position - transform.position;
-            desiredRotation = Quaternion.LookRotation(desiredAimPosition);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, desiredRotation, rotationSpeed * Time.deltaTime);
+
+            rotationSpeed = baseRotationSpeed + ((Vector3.Distance(transform.position, closestEnemy.transform.position) / enemyMaxDistance) * bonusProximityRotationSpeed);
         }
 
-        transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime); */
+        rb.velocity = Vector3.zero; // rb shi mucks up me movement
+        transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
+
+        // Debug.DrawRay(transform.position, desiredAimPosition, Color.red);
     }
 
     void EnemyCheck() {
-        Collider[] enemiesInRange = Physics.OverlapSphere(transform.position, enemyMaxDistance, explosionLayerMask);
+        Collider[] enemiesInRange = Physics.OverlapSphere(transform.position, enemyMaxDistance, detectionLayerMask);
 
-        closestEnemy = null;
-        float closestEnemyDistance = Mathf.Infinity;
-        foreach (Collider enemy in enemiesInRange) {
-            float distance = Vector3.Distance(enemy.transform.position, transform.position);
-            if (distance < closestEnemyDistance) {
-                closestEnemy = enemy.gameObject;
-                closestEnemyDistance = distance;
-            }
-        }
+        closestEnemy = EnemyMostInFront(enemiesInRange);
     }
 
+    GameObject EnemyMostInFront(Collider[] enemies) {
+        GameObject bestFacingEnemy = null;
+        float bestFacingEnemyDotValue = Mathf.Infinity;
+
+        foreach (Collider enemy in enemies) {
+            Vector3 EnemyToProjectileDirection = Vector3.Normalize(transform.position - enemy.transform.position);
+            float dotValue = Vector3.Dot(EnemyToProjectileDirection, transform.forward);
+
+            print(dotValue);
+            
+            if (dotValue < bestFacingEnemyDotValue) { // if its less than the previous smallest, it means the enemy and projectile are looking at each other more
+                bestFacingEnemy = enemy.gameObject;
+                bestFacingEnemyDotValue = dotValue;
+            }
+        }
+
+        return bestFacingEnemy;
+    }
 }
-
-
-
-// check enemies around it (at an interval?)
-// whatever enemy is closest is _target
-
-// Update
-// desiredAimPosition = Enemy - transform.position
-// rotation = Quaternion.LookRotation(desiredAimPosition)
-// transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, rotationSpeed * Time.deltaTime)
-
-// translate transform.forward * movementSpeed
-
-// https://www.youtube.com/watch?v=Z6qBeuN-H1M&t=23s

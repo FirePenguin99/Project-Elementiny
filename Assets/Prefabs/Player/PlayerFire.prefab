@@ -186,6 +186,7 @@ Transform:
   - {fileID: 18164495068725746}
   - {fileID: 344178858423310481}
   - {fileID: 2772190059209892547}
+  - {fileID: 8992494041717652183}
   - {fileID: 2107862584358778848}
   m_Father: {fileID: 4257178320057221283}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -452,6 +453,7 @@ MonoBehaviour:
   - {fileID: 3622982775822353087}
   - {fileID: 8939053507412454181}
   - {fileID: 4779999850495194518}
+  - {fileID: 4879249060250257421}
   weaponArrayPointer: 0
 --- !u!1 &4779999850495194518
 GameObject:
@@ -497,7 +499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1ea675d081fe9d45adef8995c44124c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponName: Flame
+  weaponName: Ricochet
   bullet: {fileID: 3278076545063331158, guid: 7b832e66e9265b241bc344e2adecf896, type: 3}
   projectileLayerMask:
     serializedVersion: 2
@@ -509,6 +511,66 @@ MonoBehaviour:
   reloadRate: 2
   magazineSize: 30
   shotsInMagazine: 30
+  noOfShots: 1
+  reloading: 0
+  isShooting: 0
+  shootPoint: {fileID: 1746601797095282018}
+--- !u!1 &4879249060250257421
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8992494041717652183}
+  - component: {fileID: 4484818987378774193}
+  m_Layer: 0
+  m_Name: SkullWeapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &8992494041717652183
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4879249060250257421}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.7116585, y: -6.2, z: -8.511998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1204256574492448327}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4484818987378774193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4879249060250257421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ea675d081fe9d45adef8995c44124c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponName: Skull
+  bullet: {fileID: 3278076545063331158, guid: b86315bf113a1d2439ef538f7ff0710e, type: 3}
+  projectileLayerMask:
+    serializedVersion: 2
+    m_Bits: 193
+  shootForce: 0
+  upwardForce: 0
+  fireRate: 0.25
+  spread: 0
+  reloadRate: 2
+  magazineSize: 10
+  shotsInMagazine: 10
   noOfShots: 1
   reloading: 0
   isShooting: 0
