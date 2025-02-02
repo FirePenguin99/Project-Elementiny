@@ -32,7 +32,7 @@ Transform:
   m_Children:
   - {fileID: 8559084178653178530}
   - {fileID: 191886494305174521}
-  m_Father: {fileID: 3817707005699539036}
+  m_Father: {fileID: 914581650109720469}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &353368383406790284
 MonoBehaviour:
@@ -189,6 +189,9 @@ MonoBehaviour:
   reloadRate: 2
   magazineSize: 100
   shotsInMagazine: 100
+  noOfShots: 1
+  reloading: 0
+  isShooting: 0
   shootPoint: {fileID: 4341893722224803566}
   tectonicAreasInside: []
   weaponBaseRockDamage: 10
@@ -243,6 +246,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3843383862040180716}
+  - {fileID: 3849300127466159119}
   - {fileID: 3817707005699539036}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -390,8 +394,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 3849300127466159119}
+  m_Children: []
   m_Father: {fileID: 914581650109720469}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5085166710160699969

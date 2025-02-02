@@ -64,7 +64,7 @@ Transform:
   m_Children:
   - {fileID: 8555687948635303129}
   - {fileID: 4301590537427966141}
-  m_Father: {fileID: 3012495746887349509}
+  m_Father: {fileID: 2896694396385408738}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5770776313169098294
 MonoBehaviour:
@@ -193,8 +193,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 3284836609968704516}
+  m_Children: []
   m_Father: {fileID: 2896694396385408738}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6175307125845497223
@@ -285,6 +284,9 @@ MonoBehaviour:
   reloadRate: 2
   magazineSize: 100
   shotsInMagazine: 10
+  noOfShots: 1
+  reloading: 0
+  isShooting: 0
   shootPoint: {fileID: 6356353416294499879}
 --- !u!114 &8214725443959735580
 MonoBehaviour:
@@ -298,7 +300,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a90f9f5fc9c5a4cac4e2033db5f970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCam: {fileID: 0}
   projectileLayerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -338,6 +339,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2175306775277108759}
+  - {fileID: 3284836609968704516}
   - {fileID: 3012495746887349509}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

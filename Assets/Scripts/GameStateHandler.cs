@@ -27,7 +27,7 @@ public class GameStateHandler : MonoBehaviour
     public GameObject HudCanvas;
 
     public delegate void OnPlayerSpawn(); // here is the delegate, a collection of functions (like an array of functions)
-    public static event OnPlayerSpawn onPlayerSpawn; // here is the event, which uses the delegate of functions "Onplayer
+    public static event OnPlayerSpawn onPlayerSpawn; // here is the event, which uses the delegate of functions "OnplayerSpawn"
     
     // Start is called before the first frame update
     void Start()
@@ -61,11 +61,23 @@ public class GameStateHandler : MonoBehaviour
         player = Instantiate(classToPrefabDict[classEnum], spawnPoint.position, spawnPoint.rotation);
 
         // not the happiest about this use of Find and strings. All object names are subject to change and since there is no reference by object or class, I'd have to *remember* to update these strings
-        Transform cameraPos = player.transform.Find("Orientation").transform.Find("CameraPos");
+        Transform cameraPos = player.transform.Find("CameraPos");
+        Transform playerOrientation = player.transform.Find("Orientation");
         if (cameraPos == null) { print("GameObject by the name of CameraPos not found!"); }
+        if (playerOrientation == null) { print("GameObject by the name of Orientation not found!"); }
         
-        playerCamera.gameObject.GetComponent<CameraFollowPlayer>().cameraPosition = cameraPos;
-    
+
+        CameraFollowPlayer followCamBehaviour = playerCamera.gameObject.GetComponent<CameraFollowPlayer>();
+        followCamBehaviour.cameraPosition = cameraPos;
+        followCamBehaviour.enabled = true;
+
+        PlayerCamera playerCamBehaviour = playerCamera.gameObject.GetComponent<PlayerCamera>();
+        playerCamBehaviour.playerOrientation = playerOrientation;
+        playerCamBehaviour.enabled = true;
+
+        playerCamBehaviour.resetRotation();
+
+
         StartMenuCanvas.SetActive(false);
         HudCanvas.SetActive(true);
 

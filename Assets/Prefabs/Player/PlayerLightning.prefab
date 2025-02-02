@@ -287,6 +287,9 @@ MonoBehaviour:
   reloadRate: 2
   magazineSize: 100
   shotsInMagazine: 100
+  noOfShots: 1
+  reloading: 0
+  isShooting: 0
   shootPoint: {fileID: 2726565219102236208}
 --- !u!114 &3398243179118789433
 MonoBehaviour:
@@ -337,6 +340,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8899806708805772108}
+  - {fileID: 6950647656640753022}
   - {fileID: 9040963472399061063}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -488,7 +492,7 @@ Transform:
   m_Children:
   - {fileID: 8950920483384025966}
   - {fileID: 5283700177301049440}
-  m_Father: {fileID: 9040963472399061063}
+  m_Father: {fileID: 2750280787790166406}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8794357077450238211
 MonoBehaviour:
@@ -533,7 +537,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 6950647656640753022}
+  m_Children: []
   m_Father: {fileID: 2750280787790166406}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
