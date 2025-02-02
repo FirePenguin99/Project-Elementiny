@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 1015218043426267234}
   - component: {fileID: 353332308908038787}
   - component: {fileID: 3839278316613490918}
-  - component: {fileID: 8253112220220345560}
   - component: {fileID: 2496741504563785507}
+  - component: {fileID: -3665124026678071486}
   m_Layer: 11
   m_Name: HelixFireBall
   m_TagString: Untagged
@@ -157,21 +157,6 @@ MonoBehaviour:
   amplitudeIncreaseRate: 0.025
   startingPosition: {x: 0, y: 0, z: 0}
   elapsedTime: 0
---- !u!114 &8253112220220345560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8418835564914834960}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df37147debba5544b863a8f762364a7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectileLifetime: 10
-  addedBurnStack: 15
-  antiGravity: 0
 --- !u!114 &2496741504563785507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,3 +172,19 @@ MonoBehaviour:
   collisionLayers:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &-3665124026678071486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8418835564914834960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3571dfb310b8b0543bcd81d286bbcc04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  addedBurnStack: 10
+  collisionLayers:
+    serializedVersion: 2
+    m_Bits: 64

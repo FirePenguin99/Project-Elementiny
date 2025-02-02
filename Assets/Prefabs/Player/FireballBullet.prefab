@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 4054830481279665707}
   - component: {fileID: 285530377905566437}
   - component: {fileID: 3659416672213150639}
-  - component: {fileID: 1094202395390698472}
+  - component: {fileID: 7386764970633973672}
+  - component: {fileID: -1961325682878681465}
+  - component: {fileID: 3039376999049939125}
   m_Layer: 11
   m_Name: FireballBullet
   m_TagString: Untagged
@@ -101,7 +103,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -134,7 +136,7 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &1094202395390698472
+--- !u!114 &7386764970633973672
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,8 +145,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 3278076545063331158}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edaeac707febe8e428eca77d7aa2b981, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c321c96b6770114883a7d95f6a1451d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileLifetime: 5
   explosionRadius: 5
+  addStackAmount: 25
+  explosionLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!114 &-1961325682878681465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3278076545063331158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6610d08042ab8c744bf1c6a528905d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileLifetime: 10
+  countdownStartsOnStart: 1
+--- !u!114 &3039376999049939125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3278076545063331158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4738d9eaa8b898a47b9e8e52be210457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionLayers:
+    serializedVersion: 2
+    m_Bits: 192
