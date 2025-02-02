@@ -14,7 +14,9 @@ GameObject:
   - component: {fileID: 285530377905566437}
   - component: {fileID: 3659416672213150639}
   - component: {fileID: 6103581944111573096}
-  - component: {fileID: 8596710008861464476}
+  - component: {fileID: -6512182069060354519}
+  - component: {fileID: 5717173201861796978}
+  - component: {fileID: -8983652288238879169}
   m_Layer: 11
   m_Name: RicochetBullet
   m_TagString: Untagged
@@ -94,7 +96,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3278076545063331158}
-  m_Material: {fileID: 13400000, guid: c5fab81b5d267ed448c19e6cbc3a05fe, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -102,7 +104,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -147,25 +149,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25ecc34ac8b6744bbf16a66a2924860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 50
+  movementSpeed: 30
+  inheritRbVelocity: 1
   targetMaxRange: 20
-  explosionLayerMask:
+  detectionLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  visitedEnemiesList: []
-  currentEnemy: {fileID: 0}
---- !u!114 &8596710008861464476
+--- !u!114 &-6512182069060354519
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3278076545063331158}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df37147debba5544b863a8f762364a7c, type: 3}
+  m_Script: {fileID: 11500000, guid: 3571dfb310b8b0543bcd81d286bbcc04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileLifetime: 50
-  addedBurnStack: 5
-  antiGravity: 5
+  addedBurnStack: 10
+  collisionLayers:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!114 &5717173201861796978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3278076545063331158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4738d9eaa8b898a47b9e8e52be210457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionLayers:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!114 &-8983652288238879169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3278076545063331158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6610d08042ab8c744bf1c6a528905d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileLifetime: 20
+  countdownStartsOnStart: 1
