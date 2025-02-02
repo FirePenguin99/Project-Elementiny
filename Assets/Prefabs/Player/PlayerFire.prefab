@@ -917,7 +917,7 @@ MonoBehaviour:
   reloadRate: 2
   magazineSize: 5
   shotsInMagazine: 5
-  noOfShots: 1
+  noOfShots: 2
   reloading: 0
   isShooting: 0
   shootPoint: {fileID: 1746601797095282018}
