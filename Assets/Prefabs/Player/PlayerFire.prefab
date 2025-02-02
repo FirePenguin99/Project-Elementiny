@@ -48,7 +48,7 @@ MonoBehaviour:
   bullet: {fileID: 3278076545063331158, guid: 33323398b59074d49a33b7c715586b20, type: 3}
   projectileLayerMask:
     serializedVersion: 2
-    m_Bits: 247
+    m_Bits: 193
   shootForce: 25
   upwardForce: 0
   fireRate: 0.5
@@ -505,13 +505,13 @@ MonoBehaviour:
   projectileLayerMask:
     serializedVersion: 2
     m_Bits: 193
-  shootForce: 50
+  shootForce: 35
   upwardForce: 0
-  fireRate: 0.1
+  fireRate: 0.2
   spread: 0
   reloadRate: 2
-  magazineSize: 30
-  shotsInMagazine: 30
+  magazineSize: 10
+  shotsInMagazine: 10
   noOfShots: 1
   reloading: 0
   isShooting: 0
