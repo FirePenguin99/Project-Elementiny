@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 285530377905566437}
   - component: {fileID: 3659416672213150639}
   - component: {fileID: 1343451090641916775}
-  - component: {fileID: 8596710008861464476}
+  - component: {fileID: 6252397487371740237}
+  - component: {fileID: 4153692531034256494}
   m_Layer: 11
   m_Name: SkullBullet
   m_TagString: Untagged
@@ -94,7 +95,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3278076545063331158}
-  m_Material: {fileID: 13400000, guid: c5fab81b5d267ed448c19e6cbc3a05fe, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -150,10 +151,10 @@ MonoBehaviour:
   baseRotationSpeed: 50
   bonusProximityRotationSpeed: 100
   movementSpeed: 7.5
-  enemyMaxDistance: 10
+  enemyMaxDistance: 20
   closestEnemy: {fileID: 0}
   enemyDistanceCheckInterval: 0.2
---- !u!114 &8596710008861464476
+--- !u!114 &6252397487371740237
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,9 +163,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 3278076545063331158}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df37147debba5544b863a8f762364a7c, type: 3}
+  m_Script: {fileID: 11500000, guid: 6610d08042ab8c744bf1c6a528905d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectileLifetime: 10
+--- !u!114 &4153692531034256494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3278076545063331158}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3571dfb310b8b0543bcd81d286bbcc04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   addedBurnStack: 10
-  antiGravity: 0
+  collisionLayers:
+    serializedVersion: 2
+    m_Bits: 64

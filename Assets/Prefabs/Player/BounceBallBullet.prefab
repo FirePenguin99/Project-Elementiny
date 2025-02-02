@@ -66,7 +66,9 @@ GameObject:
   - component: {fileID: 4054830481279665707}
   - component: {fileID: 285530377905566437}
   - component: {fileID: 3659416672213150639}
-  - component: {fileID: 8596710008861464476}
+  - component: {fileID: 7542542670409503610}
+  - component: {fileID: -4223656096753296793}
+  - component: {fileID: 2934696000497232040}
   m_Layer: 8
   m_Name: BounceBallBullet
   m_TagString: Untagged
@@ -188,7 +190,7 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &8596710008861464476
+--- !u!114 &7542542670409503610
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -197,9 +199,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 3278076545063331158}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df37147debba5544b863a8f762364a7c, type: 3}
+  m_Script: {fileID: 11500000, guid: 3571dfb310b8b0543bcd81d286bbcc04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  addedBurnStack: 10
+  collisionLayers:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!114 &-4223656096753296793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3278076545063331158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6610d08042ab8c744bf1c6a528905d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectileLifetime: 10
-  addedBurnStack: 5
-  antiGravity: -30
+--- !u!114 &2934696000497232040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3278076545063331158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4738d9eaa8b898a47b9e8e52be210457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionLayers:
+    serializedVersion: 2
+    m_Bits: 0
