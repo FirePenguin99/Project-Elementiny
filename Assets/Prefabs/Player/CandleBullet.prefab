@@ -14,6 +14,10 @@ GameObject:
   - component: {fileID: 7482665836700417682}
   - component: {fileID: 4184070612909979433}
   - component: {fileID: 2902039804145854713}
+  - component: {fileID: 6553356010621212824}
+  - component: {fileID: 4907700761513253007}
+  - component: {fileID: -1298768426525080403}
+  - component: {fileID: -1016074305968267012}
   m_Layer: 11
   m_Name: CandleBullet
   m_TagString: Untagged
@@ -93,7 +97,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5797075515827239827}
-  m_Material: {fileID: 13400000, guid: c5fab81b5d267ed448c19e6cbc3a05fe, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -101,7 +105,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -141,10 +145,67 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5797075515827239827}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b76781da013356444aa0d7d4c4edba25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectileLifetime: 10
   addedBurnStack: 15
+--- !u!114 &6553356010621212824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5797075515827239827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625282219a04730469392f6f72d6555b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4907700761513253007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5797075515827239827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6610d08042ab8c744bf1c6a528905d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileLifetime: 10
+  countdownStartsOnStart: 0
+--- !u!114 &-1298768426525080403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5797075515827239827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3571dfb310b8b0543bcd81d286bbcc04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  addedBurnStack: 10
+  collisionLayers:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!114 &-1016074305968267012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5797075515827239827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4738d9eaa8b898a47b9e8e52be210457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionLayers:
+    serializedVersion: 2
+    m_Bits: 192
