@@ -30,7 +30,7 @@ public class WeaponCandle : WeaponClass
                 Vector3 aimDirection = CalculateAimDirection() - candle.transform.position;
 
                 candle.transform.forward = aimDirection.normalized; // point the projectile at the Aim Position
-                candle.GetComponent<FireCandleBulletBehaviour>().StartFlying(aimDirection.normalized, shootForce);
+                candle.GetComponent<CandleShootingBehaviour>().StartFlying(aimDirection.normalized, shootForce);
             }
         }
 
