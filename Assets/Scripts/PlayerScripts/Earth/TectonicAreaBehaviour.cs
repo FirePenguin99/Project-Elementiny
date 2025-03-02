@@ -48,7 +48,7 @@ public class TectonicAreaBehaviour : MonoBehaviour
         }
 
         foreach (GameObject weapon in weaponSwap.weaponObjects) {
-            weapon.GetComponent<WeaponRockthrower>()?.tectonicAreasInside.Remove(this.gameObject); // the use of ? means "only run if GetComponent<WeaponRockthrower>() exists
+            weapon.GetComponent<TectonicWeaponBehaviour>()?.tectonicAreasInside.Remove(this.gameObject); // the use of ? means "only run if GetComponent<TectonicWeaponBehaviour>() exists
         }
 
         Destroy(this.gameObject);
@@ -57,7 +57,7 @@ public class TectonicAreaBehaviour : MonoBehaviour
     void OnTriggerEnter(Collider col) {
         if (col.gameObject.layer == LayerMask.NameToLayer("Player")) {
             foreach (GameObject weapon in weaponSwap.weaponObjects) {
-                weapon.GetComponent<WeaponRockthrower>()?.tectonicAreasInside.Add(this.gameObject); // the use of ? means "only run if GetComponent<WeaponRockthrower>() exists
+                weapon.GetComponent<TectonicWeaponBehaviour>()?.tectonicAreasInside.Add(this.gameObject); // the use of ? means "only run if GetComponent<TectonicWeaponBehaviour>() exists
             }
         }
     }
@@ -65,7 +65,7 @@ public class TectonicAreaBehaviour : MonoBehaviour
     void OnTriggerExit(Collider col) {
         if (col.gameObject.layer == LayerMask.NameToLayer("Player")) {
             foreach (GameObject weapon in weaponSwap.weaponObjects) {
-                weapon.GetComponent<WeaponRockthrower>()?.tectonicAreasInside.Remove(this.gameObject); // the use of ? means "only run if GetComponent<WeaponRockthrower>() exists
+                weapon.GetComponent<TectonicWeaponBehaviour>()?.tectonicAreasInside.Remove(this.gameObject); // the use of ? means "only run if GetComponent<TectonicWeaponBehaviour>() exists
             }
         }
     }

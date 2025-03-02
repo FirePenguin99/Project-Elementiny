@@ -1,5 +1,80 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2921313857113503323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5956804818352883147}
+  - component: {fileID: 761090272252624180}
+  - component: {fileID: 5513836128323561148}
+  m_Layer: 0
+  m_Name: SpearWeapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &5956804818352883147
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2921313857113503323}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.7116585, y: -6.2, z: -8.511998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1204256574492448327}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &761090272252624180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2921313857113503323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a346a71e2a457954987ca8f017214015, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponName: Spear
+  fireRate: 1
+  spread: 0
+  reloadRate: 2
+  magazineSize: 30
+  shotsInMagazine: 30
+  noOfShots: 1
+  reloading: 0
+  isShooting: 0
+  shootBehaviour: {fileID: 5513836128323561148}
+--- !u!114 &5513836128323561148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2921313857113503323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a757339be37675a45bf8fb42e1fbcaff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 3278076545063331158, guid: dd61c6813ec123647957357589253c10, type: 3}
+  projectileLayerMask:
+    serializedVersion: 2
+    m_Bits: 193
+  shootForce: 50
+  shootPoint: {fileID: 1746601797095282018}
+  shotsInBurst: 3
+  timeBetweenShots: 0.2
 --- !u!1 &3193128669851330321
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,7 +84,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6837290206206149497}
-  - component: {fileID: 5724011445278543267}
+  - component: {fileID: 9191940401977393483}
+  - component: {fileID: 6845605708422605040}
   m_Layer: 0
   m_Name: FireBallWeapon
   m_TagString: Untagged
@@ -32,7 +108,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1204256574492448327}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5724011445278543267
+--- !u!114 &9191940401977393483
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,16 +117,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3193128669851330321}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1ea675d081fe9d45adef8995c44124c, type: 3}
+  m_Script: {fileID: 11500000, guid: a346a71e2a457954987ca8f017214015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Fireball
-  bullet: {fileID: 3278076545063331158, guid: 33323398b59074d49a33b7c715586b20, type: 3}
-  projectileLayerMask:
-    serializedVersion: 2
-    m_Bits: 193
-  shootForce: 25
-  upwardForce: 0
   fireRate: 0.5
   spread: 0
   reloadRate: 2
@@ -59,6 +129,24 @@ MonoBehaviour:
   noOfShots: 1
   reloading: 0
   isShooting: 0
+  shootBehaviour: {fileID: 6845605708422605040}
+--- !u!114 &6845605708422605040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3193128669851330321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f8a2319f5f30ee44bd648add81ee293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 3278076545063331158, guid: 33323398b59074d49a33b7c715586b20, type: 3}
+  projectileLayerMask:
+    serializedVersion: 2
+    m_Bits: 193
+  shootForce: 25
   shootPoint: {fileID: 1746601797095282018}
 --- !u!1 &3519494632002405205
 GameObject:
@@ -100,7 +188,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2107862584358778848}
-  - component: {fileID: 5303505543982768199}
+  - component: {fileID: 1460757367025930669}
+  - component: {fileID: 3996862612704290792}
   m_Layer: 0
   m_Name: BounceBallWeapon
   m_TagString: Untagged
@@ -123,7 +212,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1204256574492448327}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5303505543982768199
+--- !u!114 &1460757367025930669
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,16 +221,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3622982775822353087}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1ea675d081fe9d45adef8995c44124c, type: 3}
+  m_Script: {fileID: 11500000, guid: a346a71e2a457954987ca8f017214015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Bounce
-  bullet: {fileID: 3278076545063331158, guid: b49d384f460571149b7d816d0efa803d, type: 3}
-  projectileLayerMask:
-    serializedVersion: 2
-    m_Bits: 193
-  shootForce: 7.5
-  upwardForce: 0
   fireRate: 0.5
   spread: 0
   reloadRate: 2
@@ -150,6 +233,24 @@ MonoBehaviour:
   noOfShots: 1
   reloading: 0
   isShooting: 0
+  shootBehaviour: {fileID: 3996862612704290792}
+--- !u!114 &3996862612704290792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3622982775822353087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f8a2319f5f30ee44bd648add81ee293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 3278076545063331158, guid: b49d384f460571149b7d816d0efa803d, type: 3}
+  projectileLayerMask:
+    serializedVersion: 2
+    m_Bits: 193
+  shootForce: 7.5
   shootPoint: {fileID: 1746601797095282018}
 --- !u!1 &4010985237283037511
 GameObject:
@@ -183,8 +284,10 @@ Transform:
   m_Children:
   - {fileID: 5738262891116245811}
   - {fileID: 6837290206206149497}
+  - {fileID: 288047964220828611}
   - {fileID: 18164495068725746}
   - {fileID: 344178858423310481}
+  - {fileID: 5956804818352883147}
   - {fileID: 2772190059209892547}
   - {fileID: 8992494041717652183}
   - {fileID: 2107862584358778848}
@@ -448,6 +551,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponObjects:
+  - {fileID: 6855751317041543723}
+  - {fileID: 2921313857113503323}
   - {fileID: 5180195720129996550}
   - {fileID: 5493080492471326514}
   - {fileID: 3193128669851330321}
@@ -465,7 +570,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2772190059209892547}
-  - component: {fileID: 4390756577662634198}
+  - component: {fileID: 439653861409889307}
+  - component: {fileID: 4129074605070726065}
   m_Layer: 0
   m_Name: RicochetWeapon
   m_TagString: Untagged
@@ -488,7 +594,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1204256574492448327}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4390756577662634198
+--- !u!114 &439653861409889307
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -497,16 +603,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4779999850495194518}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1ea675d081fe9d45adef8995c44124c, type: 3}
+  m_Script: {fileID: 11500000, guid: a346a71e2a457954987ca8f017214015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Ricochet
-  bullet: {fileID: 3278076545063331158, guid: 7b832e66e9265b241bc344e2adecf896, type: 3}
-  projectileLayerMask:
-    serializedVersion: 2
-    m_Bits: 193
-  shootForce: 35
-  upwardForce: 0
   fireRate: 0.2
   spread: 0
   reloadRate: 2
@@ -515,6 +615,24 @@ MonoBehaviour:
   noOfShots: 1
   reloading: 0
   isShooting: 0
+  shootBehaviour: {fileID: 4129074605070726065}
+--- !u!114 &4129074605070726065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4779999850495194518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f8a2319f5f30ee44bd648add81ee293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 3278076545063331158, guid: 7b832e66e9265b241bc344e2adecf896, type: 3}
+  projectileLayerMask:
+    serializedVersion: 2
+    m_Bits: 193
+  shootForce: 35
   shootPoint: {fileID: 1746601797095282018}
 --- !u!1 &4879249060250257421
 GameObject:
@@ -525,7 +643,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8992494041717652183}
-  - component: {fileID: 4484818987378774193}
+  - component: {fileID: 2011372707864306981}
+  - component: {fileID: 9188800665621147586}
   m_Layer: 0
   m_Name: SkullWeapon
   m_TagString: Untagged
@@ -548,7 +667,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1204256574492448327}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4484818987378774193
+--- !u!114 &2011372707864306981
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -557,16 +676,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4879249060250257421}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1ea675d081fe9d45adef8995c44124c, type: 3}
+  m_Script: {fileID: 11500000, guid: a346a71e2a457954987ca8f017214015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Skull
-  bullet: {fileID: 3278076545063331158, guid: b86315bf113a1d2439ef538f7ff0710e, type: 3}
-  projectileLayerMask:
-    serializedVersion: 2
-    m_Bits: 193
-  shootForce: 0
-  upwardForce: 0
   fireRate: 0.25
   spread: 0
   reloadRate: 2
@@ -575,6 +688,24 @@ MonoBehaviour:
   noOfShots: 1
   reloading: 0
   isShooting: 0
+  shootBehaviour: {fileID: 9188800665621147586}
+--- !u!114 &9188800665621147586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4879249060250257421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f8a2319f5f30ee44bd648add81ee293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 3278076545063331158, guid: b86315bf113a1d2439ef538f7ff0710e, type: 3}
+  projectileLayerMask:
+    serializedVersion: 2
+    m_Bits: 193
+  shootForce: 0
   shootPoint: {fileID: 1746601797095282018}
 --- !u!1 &5053127054145061217
 GameObject:
@@ -668,7 +799,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 344178858423310481}
-  - component: {fileID: 4941141677578089773}
+  - component: {fileID: 3318582720400192514}
+  - component: {fileID: 7988617074573723271}
   m_Layer: 0
   m_Name: FlamethrowerWeapon
   m_TagString: Untagged
@@ -691,7 +823,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1204256574492448327}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4941141677578089773
+--- !u!114 &3318582720400192514
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -700,16 +832,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5180195720129996550}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1ea675d081fe9d45adef8995c44124c, type: 3}
+  m_Script: {fileID: 11500000, guid: a346a71e2a457954987ca8f017214015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Flame
-  bullet: {fileID: 3278076545063331158, guid: dd61c6813ec123647957357589253c10, type: 3}
-  projectileLayerMask:
-    serializedVersion: 2
-    m_Bits: 193
-  shootForce: 50
-  upwardForce: 0
   fireRate: 0.1
   spread: 0
   reloadRate: 2
@@ -718,6 +844,24 @@ MonoBehaviour:
   noOfShots: 1
   reloading: 0
   isShooting: 0
+  shootBehaviour: {fileID: 7988617074573723271}
+--- !u!114 &7988617074573723271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5180195720129996550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f8a2319f5f30ee44bd648add81ee293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 3278076545063331158, guid: dd61c6813ec123647957357589253c10, type: 3}
+  projectileLayerMask:
+    serializedVersion: 2
+    m_Bits: 193
+  shootForce: 50
   shootPoint: {fileID: 1746601797095282018}
 --- !u!1 &5493080492471326514
 GameObject:
@@ -728,7 +872,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 18164495068725746}
-  - component: {fileID: 2955701874455437652}
+  - component: {fileID: 1421440292132245122}
+  - component: {fileID: 423209283734240296}
   m_Layer: 0
   m_Name: CandleWeapon
   m_TagString: Untagged
@@ -751,7 +896,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1204256574492448327}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2955701874455437652
+--- !u!114 &1421440292132245122
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -760,16 +905,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5493080492471326514}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14a12299c5db07e4fb45b95ca2cac94d, type: 3}
+  m_Script: {fileID: 11500000, guid: e2e4daa401683de47856167b3d60856a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Candles
-  bullet: {fileID: 5797075515827239827, guid: 1da72c280ca9e534aac6827e518601ef, type: 3}
-  projectileLayerMask:
-    serializedVersion: 2
-    m_Bits: 193
-  shootForce: 50
-  upwardForce: 0
   fireRate: 0.25
   spread: 0
   reloadRate: 2
@@ -778,9 +917,106 @@ MonoBehaviour:
   noOfShots: 1
   reloading: 0
   isShooting: 0
-  shootPoint: {fileID: 1746601797095282018}
+  shootBehaviour: {fileID: 423209283734240296}
+  chargeTime: 0.25
+  decayRate: 0.25
   isCharging: 0
-  isReadyToSpawnNext: 1
+  timeCharged: 0
+--- !u!114 &423209283734240296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5493080492471326514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0484ceb9c3fe474fbb8d085bfa784a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 5797075515827239827, guid: 1da72c280ca9e534aac6827e518601ef, type: 3}
+  projectileLayerMask:
+    serializedVersion: 2
+    m_Bits: 193
+  shootForce: 50
+  shootPoint: {fileID: 1746601797095282018}
+--- !u!1 &6855751317041543723
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 288047964220828611}
+  - component: {fileID: 3273010403343313716}
+  - component: {fileID: 6988951109471791086}
+  m_Layer: 0
+  m_Name: ChargeFireBallWeapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &288047964220828611
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6855751317041543723}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.7116585, y: -6.2, z: -8.511998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1204256574492448327}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3273010403343313716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6855751317041543723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2e4daa401683de47856167b3d60856a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponName: Charge Ball
+  fireRate: 1
+  spread: 0
+  reloadRate: 2
+  magazineSize: 5
+  shotsInMagazine: 5
+  noOfShots: 1
+  reloading: 0
+  isShooting: 0
+  shootBehaviour: {fileID: 6988951109471791086}
+  chargeTime: 0.75
+  decayRate: 0.75
+  isCharging: 0
+  timeCharged: 0
+--- !u!114 &6988951109471791086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6855751317041543723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f8a2319f5f30ee44bd648add81ee293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 3278076545063331158, guid: 33323398b59074d49a33b7c715586b20, type: 3}
+  projectileLayerMask:
+    serializedVersion: 2
+    m_Bits: 193
+  shootForce: 25
+  shootPoint: {fileID: 1746601797095282018}
 --- !u!1 &7219536926822233896
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,7 +1106,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5738262891116245811}
-  - component: {fileID: 5993869944261132987}
+  - component: {fileID: 396104914080250506}
+  - component: {fileID: 7364459176294096643}
   m_Layer: 0
   m_Name: FireHelixWeapon
   m_TagString: Untagged
@@ -893,7 +1130,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1204256574492448327}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5993869944261132987
+--- !u!114 &396104914080250506
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -902,22 +1139,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 8939053507412454181}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1ea675d081fe9d45adef8995c44124c, type: 3}
+  m_Script: {fileID: 11500000, guid: a346a71e2a457954987ca8f017214015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Helix
-  bullet: {fileID: 8418835564914834960, guid: 34b68c972d8f81748ba5dc0927516851, type: 3}
-  projectileLayerMask:
-    serializedVersion: 2
-    m_Bits: 193
-  shootForce: 30
-  upwardForce: 0
   fireRate: 0.5
   spread: 0
   reloadRate: 2
   magazineSize: 5
   shotsInMagazine: 5
-  noOfShots: 2
+  noOfShots: 1
   reloading: 0
   isShooting: 0
+  shootBehaviour: {fileID: 7364459176294096643}
+--- !u!114 &7364459176294096643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8939053507412454181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a6b6482a05a5be419eb8248ddc645a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 8418835564914834960, guid: 34b68c972d8f81748ba5dc0927516851, type: 3}
+  projectileLayerMask:
+    serializedVersion: 2
+    m_Bits: 193
+  shootForce: 30
   shootPoint: {fileID: 1746601797095282018}
+  noOfShots: 2

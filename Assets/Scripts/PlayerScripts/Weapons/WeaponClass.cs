@@ -6,11 +6,6 @@ public class WeaponClass : MonoBehaviour
 {
     public string weaponName = "weapon";
 
-    [SerializeField] protected GameObject bullet;
-    [SerializeField] protected LayerMask projectileLayerMask;
-
-    [SerializeField] protected float shootForce, upwardForce;
-
     [SerializeField] protected float fireRate, spread, reloadRate; 
                      public int magazineSize, shotsInMagazine;
     [SerializeField] protected int noOfShots = 1;
@@ -20,17 +15,15 @@ public class WeaponClass : MonoBehaviour
     protected bool readyToShoot;
     protected bool allowInvoke = true; //this stops multiple Invokes from being played at the same time
 
-    [SerializeField] protected Transform shootPoint;
+    [SerializeField] protected ShootBehaviour shootBehaviour;
 
-    void Awake()
-    {
+    void Awake() {
         shotsInMagazine = magazineSize;
         readyToShoot = true;
         reloading = false;
     }
 
-    void Update()
-    {
+    void Update() {
         PlayerInput();
     }
 
@@ -47,32 +40,14 @@ public class WeaponClass : MonoBehaviour
         } else if (readyToShoot && !reloading && shotsInMagazine <= 0) {
             Reload();
         }
-
-        // if (readyToShoot && isShooting && !reloading && shotsInMagazine > 0) {
-        //     Shoot();
-        // } else if (readyToShoot && !reloading && shotsInMagazine <= 0) {
-        //     Reload();
-        // }
     }
 
     public virtual void Shoot() {
         readyToShoot = false;
         shotsInMagazine--;
 
-        Vector3 aimDirection = CalculateAimDirection() - shootPoint.position;
-
-        for (int i = 0; i < noOfShots; i++)
-        {
-            GameObject currentBullet = Instantiate(bullet, shootPoint.position, Quaternion.LookRotation(aimDirection));
-            currentBullet.GetComponent<Rigidbody>().AddForce(currentBullet.transform.forward * shootForce, ForceMode.Impulse);
-
-            HelixMovementBehaviour helixBehaviour = currentBullet.GetComponent<HelixMovementBehaviour>();
-            if (helixBehaviour) {
-                helixBehaviour.orbNumber = i;
-                helixBehaviour.totalOrbsInSystem = noOfShots;
-
-                helixBehaviour.movementSpeed = shootForce / 7.5f;
-            }
+        for (int i = 0; i < noOfShots; i++) {
+            shootBehaviour.Fire();
         }
 
         if (allowInvoke) {
@@ -82,6 +57,7 @@ public class WeaponClass : MonoBehaviour
     }
 
     public virtual void StopShoot() {
+        shootBehaviour.StopFire();
     }
 
     protected void ResetShot() {
@@ -96,19 +72,6 @@ public class WeaponClass : MonoBehaviour
     protected void ReloadFinished() {
         shotsInMagazine = magazineSize;
         reloading = false;
-    }
-
-    public virtual Vector3 CalculateAimDirection() {
-        Ray ray = GameStateHandler.instance.playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); // spawns a ray in the middle of the screen
-
-        Vector3 aimPosition;
-        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, projectileLayerMask)) {
-            aimPosition = hit.point;
-        } else {
-            aimPosition = ray.GetPoint(100); // if the ray hasnt hit anything, just point if far away from the player
-        }
-
-        return aimPosition;
     }
 }
 

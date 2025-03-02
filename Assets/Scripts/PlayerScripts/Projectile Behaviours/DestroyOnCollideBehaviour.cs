@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestoryOnCollideBehaviour : MonoBehaviour
+public class DestroyOnCollideBehaviour : MonoBehaviour
 {
     [SerializeField] private LayerMask collisionLayers;
 

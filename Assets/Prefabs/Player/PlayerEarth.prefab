@@ -141,8 +141,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2160681758363679908}
-  - component: {fileID: 7347677044702026524}
   - component: {fileID: 5984081291942192135}
+  - component: {fileID: 2279816626103940068}
+  - component: {fileID: 9088584131944985189}
+  - component: {fileID: 6656139950365060022}
   m_Layer: 10
   m_Name: RockthrowerWeapon
   m_TagString: Rock Weapon
@@ -165,38 +167,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8559084178653178530}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7347677044702026524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2541843827581800012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 983578e944d8aa541a2bb760474a5789, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponName: Rocks
-  bullet: {fileID: 3278076545063331158, guid: d82cf9f2fcc36bf4d928302cd1a9b1a5, type: 3}
-  projectileLayerMask:
-    serializedVersion: 2
-    m_Bits: 247
-  shootForce: 50
-  upwardForce: 0
-  fireRate: 0.2
-  spread: 0
-  reloadRate: 2
-  magazineSize: 100
-  shotsInMagazine: 100
-  noOfShots: 1
-  reloading: 0
-  isShooting: 0
-  shootPoint: {fileID: 4341893722224803566}
-  tectonicAreasInside: []
-  weaponBaseRockDamage: 10
-  weaponTectonicValue: 0
-  tectonicReductionRate: 1
 --- !u!114 &5984081291942192135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,6 +180,69 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tectonicAreaPrefab: {fileID: 7745300391996498484, guid: 2a2cc75593ffdaa4d8f42d5744510eee, type: 3}
+--- !u!114 &2279816626103940068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2541843827581800012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a346a71e2a457954987ca8f017214015, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponName: Rocks
+  fireRate: 0.2
+  spread: 0
+  reloadRate: 2
+  magazineSize: 100
+  shotsInMagazine: 100
+  noOfShots: 1
+  reloading: 0
+  isShooting: 0
+  shootBehaviour: {fileID: 9088584131944985189}
+--- !u!114 &9088584131944985189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2541843827581800012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c7a7a14f7051af4dbad5b1c6b3f8a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 0}
+  projectileLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  shootForce: 0
+  shootPoint: {fileID: 0}
+  tectonicAreasInside: []
+  weaponBaseRockDamage: 10
+  weaponTectonicValue: 0
+  tectonicReductionRate: 1
+  shootBehaviour: {fileID: 6656139950365060022}
+--- !u!114 &6656139950365060022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2541843827581800012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f8a2319f5f30ee44bd648add81ee293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 3278076545063331158, guid: d82cf9f2fcc36bf4d928302cd1a9b1a5, type: 3}
+  projectileLayerMask:
+    serializedVersion: 2
+    m_Bits: 193
+  shootForce: 40
+  shootPoint: {fileID: 4341893722224803566}
 --- !u!1 &3102791877151477794
 GameObject:
   m_ObjectHideFlags: 0

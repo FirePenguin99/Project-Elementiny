@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 4054830481279665707}
   - component: {fileID: 285530377905566437}
   - component: {fileID: 3659416672213150639}
-  - component: {fileID: 6604825047197504386}
+  - component: {fileID: 7120735900849264408}
+  - component: {fileID: -5085971904543435669}
+  - component: {fileID: -393452684072877501}
   m_Layer: 11
   m_Name: RockBullet
   m_TagString: Untagged
@@ -101,7 +103,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -134,7 +136,7 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &6604825047197504386
+--- !u!114 &7120735900849264408
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,8 +145,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 3278076545063331158}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b50144b990e4c024b8a760f972b35cfd, type: 3}
+  m_Script: {fileID: 11500000, guid: 93c0784e0df0980469d5bc6f85ff0116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseRockDamage: 0
-  tectonicValue: 0
+  damage: 10
+  collisionLayers:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!114 &-5085971904543435669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3278076545063331158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4738d9eaa8b898a47b9e8e52be210457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionLayers:
+    serializedVersion: 2
+    m_Bits: 192
+--- !u!114 &-393452684072877501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3278076545063331158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6610d08042ab8c744bf1c6a528905d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileLifetime: 10
+  countdownStartsOnStart: 1
