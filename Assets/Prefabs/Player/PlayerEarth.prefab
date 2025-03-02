@@ -145,6 +145,7 @@ GameObject:
   - component: {fileID: 2279816626103940068}
   - component: {fileID: 9088584131944985189}
   - component: {fileID: 6656139950365060022}
+  - component: {fileID: 1793568074191092509}
   m_Layer: 10
   m_Name: RockthrowerWeapon
   m_TagString: Rock Weapon
@@ -215,11 +216,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 0}
-  projectileLayerMask:
-    serializedVersion: 2
-    m_Bits: 0
   shootForce: 0
   shootPoint: {fileID: 0}
+  straightAimDirection: {fileID: 0}
   tectonicAreasInside: []
   weaponBaseRockDamage: 10
   weaponTectonicValue: 0
@@ -238,11 +237,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 3278076545063331158, guid: d82cf9f2fcc36bf4d928302cd1a9b1a5, type: 3}
+  shootForce: 40
+  shootPoint: {fileID: 4341893722224803566}
+  straightAimDirection: {fileID: 1793568074191092509}
+--- !u!114 &1793568074191092509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2541843827581800012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3afbc9069492424faf5411c91709d48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   projectileLayerMask:
     serializedVersion: 2
     m_Bits: 193
-  shootForce: 40
-  shootPoint: {fileID: 4341893722224803566}
 --- !u!1 &3102791877151477794
 GameObject:
   m_ObjectHideFlags: 0

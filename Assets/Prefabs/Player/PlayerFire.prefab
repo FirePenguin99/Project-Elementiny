@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5956804818352883147}
   - component: {fileID: 761090272252624180}
   - component: {fileID: 5513836128323561148}
+  - component: {fileID: 1888337012949786091}
   m_Layer: 0
   m_Name: SpearWeapon
   m_TagString: Untagged
@@ -73,8 +74,24 @@ MonoBehaviour:
     m_Bits: 193
   shootForce: 50
   shootPoint: {fileID: 1746601797095282018}
+  straightAimDirection: {fileID: 1888337012949786091}
   shotsInBurst: 3
   timeBetweenShots: 0.2
+--- !u!114 &1888337012949786091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2921313857113503323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3afbc9069492424faf5411c91709d48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileLayerMask:
+    serializedVersion: 2
+    m_Bits: 193
 --- !u!1 &3193128669851330321
 GameObject:
   m_ObjectHideFlags: 0
@@ -86,6 +103,7 @@ GameObject:
   - component: {fileID: 6837290206206149497}
   - component: {fileID: 9191940401977393483}
   - component: {fileID: 6845605708422605040}
+  - component: {fileID: 9180034914024690881}
   m_Layer: 0
   m_Name: FireBallWeapon
   m_TagString: Untagged
@@ -148,6 +166,22 @@ MonoBehaviour:
     m_Bits: 193
   shootForce: 25
   shootPoint: {fileID: 1746601797095282018}
+  straightAimDirection: {fileID: 9180034914024690881}
+--- !u!114 &9180034914024690881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3193128669851330321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3afbc9069492424faf5411c91709d48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileLayerMask:
+    serializedVersion: 2
+    m_Bits: 193
 --- !u!1 &3519494632002405205
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,6 +224,7 @@ GameObject:
   - component: {fileID: 2107862584358778848}
   - component: {fileID: 1460757367025930669}
   - component: {fileID: 3996862612704290792}
+  - component: {fileID: 3580800477053232810}
   m_Layer: 0
   m_Name: BounceBallWeapon
   m_TagString: Untagged
@@ -252,6 +287,22 @@ MonoBehaviour:
     m_Bits: 193
   shootForce: 7.5
   shootPoint: {fileID: 1746601797095282018}
+  straightAimDirection: {fileID: 3580800477053232810}
+--- !u!114 &3580800477053232810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3622982775822353087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3afbc9069492424faf5411c91709d48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileLayerMask:
+    serializedVersion: 2
+    m_Bits: 193
 --- !u!1 &4010985237283037511
 GameObject:
   m_ObjectHideFlags: 0
@@ -572,6 +623,7 @@ GameObject:
   - component: {fileID: 2772190059209892547}
   - component: {fileID: 439653861409889307}
   - component: {fileID: 4129074605070726065}
+  - component: {fileID: 3947138646801109810}
   m_Layer: 0
   m_Name: RicochetWeapon
   m_TagString: Untagged
@@ -634,6 +686,22 @@ MonoBehaviour:
     m_Bits: 193
   shootForce: 35
   shootPoint: {fileID: 1746601797095282018}
+  straightAimDirection: {fileID: 3947138646801109810}
+--- !u!114 &3947138646801109810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4779999850495194518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3afbc9069492424faf5411c91709d48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileLayerMask:
+    serializedVersion: 2
+    m_Bits: 193
 --- !u!1 &4879249060250257421
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,6 +713,7 @@ GameObject:
   - component: {fileID: 8992494041717652183}
   - component: {fileID: 2011372707864306981}
   - component: {fileID: 9188800665621147586}
+  - component: {fileID: 2685659317965819571}
   m_Layer: 0
   m_Name: SkullWeapon
   m_TagString: Untagged
@@ -707,6 +776,22 @@ MonoBehaviour:
     m_Bits: 193
   shootForce: 0
   shootPoint: {fileID: 1746601797095282018}
+  straightAimDirection: {fileID: 2685659317965819571}
+--- !u!114 &2685659317965819571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4879249060250257421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3afbc9069492424faf5411c91709d48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileLayerMask:
+    serializedVersion: 2
+    m_Bits: 193
 --- !u!1 &5053127054145061217
 GameObject:
   m_ObjectHideFlags: 0
@@ -801,6 +886,7 @@ GameObject:
   - component: {fileID: 344178858423310481}
   - component: {fileID: 3318582720400192514}
   - component: {fileID: 7988617074573723271}
+  - component: {fileID: 5577076347797176067}
   m_Layer: 0
   m_Name: FlamethrowerWeapon
   m_TagString: Untagged
@@ -863,6 +949,22 @@ MonoBehaviour:
     m_Bits: 193
   shootForce: 50
   shootPoint: {fileID: 1746601797095282018}
+  straightAimDirection: {fileID: 5577076347797176067}
+--- !u!114 &5577076347797176067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5180195720129996550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3afbc9069492424faf5411c91709d48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileLayerMask:
+    serializedVersion: 2
+    m_Bits: 193
 --- !u!1 &5493080492471326514
 GameObject:
   m_ObjectHideFlags: 0
@@ -874,6 +976,7 @@ GameObject:
   - component: {fileID: 18164495068725746}
   - component: {fileID: 1421440292132245122}
   - component: {fileID: 423209283734240296}
+  - component: {fileID: 6666366566557158730}
   m_Layer: 0
   m_Name: CandleWeapon
   m_TagString: Untagged
@@ -940,6 +1043,22 @@ MonoBehaviour:
     m_Bits: 193
   shootForce: 50
   shootPoint: {fileID: 1746601797095282018}
+  straightAimDirection: {fileID: 6666366566557158730}
+--- !u!114 &6666366566557158730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5493080492471326514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3afbc9069492424faf5411c91709d48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileLayerMask:
+    serializedVersion: 2
+    m_Bits: 193
 --- !u!1 &6855751317041543723
 GameObject:
   m_ObjectHideFlags: 0
@@ -951,6 +1070,7 @@ GameObject:
   - component: {fileID: 288047964220828611}
   - component: {fileID: 3273010403343313716}
   - component: {fileID: 6988951109471791086}
+  - component: {fileID: 6404969985774301771}
   m_Layer: 0
   m_Name: ChargeFireBallWeapon
   m_TagString: Untagged
@@ -1017,6 +1137,22 @@ MonoBehaviour:
     m_Bits: 193
   shootForce: 25
   shootPoint: {fileID: 1746601797095282018}
+  straightAimDirection: {fileID: 6404969985774301771}
+--- !u!114 &6404969985774301771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6855751317041543723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3afbc9069492424faf5411c91709d48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileLayerMask:
+    serializedVersion: 2
+    m_Bits: 193
 --- !u!1 &7219536926822233896
 GameObject:
   m_ObjectHideFlags: 0
@@ -1108,6 +1244,7 @@ GameObject:
   - component: {fileID: 5738262891116245811}
   - component: {fileID: 396104914080250506}
   - component: {fileID: 7364459176294096643}
+  - component: {fileID: 6235608511201208593}
   m_Layer: 0
   m_Name: FireHelixWeapon
   m_TagString: Untagged
@@ -1170,4 +1307,20 @@ MonoBehaviour:
     m_Bits: 193
   shootForce: 30
   shootPoint: {fileID: 1746601797095282018}
+  straightAimDirection: {fileID: 6235608511201208593}
   noOfShots: 2
+--- !u!114 &6235608511201208593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8939053507412454181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3afbc9069492424faf5411c91709d48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileLayerMask:
+    serializedVersion: 2
+    m_Bits: 193

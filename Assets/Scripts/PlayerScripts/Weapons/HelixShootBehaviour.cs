@@ -8,7 +8,7 @@ public class HelixShootBehaviour : ShootBehaviour
 
     public override void Fire() {
         for (int i = 0; i < noOfShots; i++) {
-            Vector3 aimDirection = CalculateAimDirection() - shootPoint.position;
+            Vector3 aimDirection = straightAimDirection.CalculateAimDirection() - shootPoint.position;
             GameObject currentBullet = Instantiate(bulletPrefab, shootPoint.position, Quaternion.LookRotation(aimDirection));
             currentBullet.GetComponent<Rigidbody>().AddForce(currentBullet.transform.forward * shootForce, ForceMode.Impulse);
 

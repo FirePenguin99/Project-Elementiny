@@ -55,7 +55,7 @@ public class EnemyTrackingBehaviour : MonoBehaviour
             Vector3 EnemyToProjectileDirection = Vector3.Normalize(transform.position - enemy.transform.position);
             float dotValue = Vector3.Dot(EnemyToProjectileDirection, transform.forward);
 
-            print(dotValue);
+            // print(dotValue);
             
             if (dotValue < bestFacingEnemyDotValue) { // if its less than the previous smallest, it means the enemy and projectile are looking at each other more
                 bestFacingEnemy = enemy.gameObject;

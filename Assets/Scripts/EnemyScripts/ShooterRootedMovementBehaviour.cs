@@ -2,15 +2,19 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(EnemyShooterWeapon))]
+
 public class ShooterRootedMovementBehaviour : EnemyMovementBehaviour
 {
-    private ShooterWeapon weapon;
+    private EnemyShooterWeapon weapon;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
-        weapon = GetComponent<ShooterWeapon>();
+        weapon = GetComponent<EnemyShooterWeapon>();
 
         defaultSpeed = agent.speed;
         defaultAngularSpeed = agent.angularSpeed;
@@ -22,7 +26,7 @@ public class ShooterRootedMovementBehaviour : EnemyMovementBehaviour
         if (!weapon.isShooting && !weapon.reloading){
                 // if in range for lunge. Range is defined as stoppingDistance in the NavMeshAgent Component. the isLunging flag is to prevent calling the Coroutine more than once
                 if (Vector3.Distance(transform.position, playerTransform.position) <= agent.stoppingDistance) {
-                StartCoroutine("enemyShoot");
+                StartCoroutine(enemyShoot());
             } else {
                 MoveToPlayer();
             }

@@ -6,9 +6,10 @@ public class WeaponClass : MonoBehaviour
 {
     public string weaponName = "weapon";
 
-    [SerializeField] protected float fireRate, spread, reloadRate; 
-                     public int magazineSize, shotsInMagazine;
-    [SerializeField] protected int noOfShots = 1;
+    [SerializeField]    protected float fireRate, spread, reloadRate; 
+                        public int magazineSize;
+    [HideInInspector]   public int shotsInMagazine;
+    [SerializeField]    protected int noOfShots = 1;
 
     public bool reloading, isShooting = false;
     
@@ -27,7 +28,7 @@ public class WeaponClass : MonoBehaviour
         PlayerInput();
     }
 
-    protected void PlayerInput() {
+    protected virtual void PlayerInput() {
         if (Input.GetKeyDown(KeyCode.Mouse0)) {
             isShooting = true;
         } else if (Input.GetKeyUp(KeyCode.Mouse0)) {

@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(Rigidbody))]
+
 public class EnemyMovementBehaviour : MonoBehaviour
 {
     protected Transform playerTransform;

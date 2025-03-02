@@ -239,8 +239,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6278809314722999324}
-  - component: {fileID: 7892306886144339687}
   - component: {fileID: 3398243179118789433}
+  - component: {fileID: 7892306886144339687}
+  - component: {fileID: 7208853239212240639}
+  - component: {fileID: 6853290289574902591}
   m_Layer: 0
   m_Name: LightningThrowerWeapon
   m_TagString: Untagged
@@ -263,34 +265,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8950920483384025966}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7892306886144339687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6677456138622326240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1ea675d081fe9d45adef8995c44124c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponName: Lightning
-  bullet: {fileID: 3278076545063331158, guid: 812ebe06317c9b14282ccf8397dc0b9d, type: 3}
-  projectileLayerMask:
-    serializedVersion: 2
-    m_Bits: 247
-  shootForce: 50
-  upwardForce: 0
-  fireRate: 0.1
-  spread: 0
-  reloadRate: 2
-  magazineSize: 100
-  shotsInMagazine: 100
-  noOfShots: 1
-  reloading: 0
-  isShooting: 0
-  shootPoint: {fileID: 2726565219102236208}
 --- !u!114 &3398243179118789433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,6 +278,59 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highestChargeStackComponent: {fileID: 0}
+--- !u!114 &7892306886144339687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6677456138622326240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a346a71e2a457954987ca8f017214015, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponName: Lightning
+  fireRate: 0.1
+  spread: 0
+  reloadRate: 1
+  magazineSize: 30
+  shotsInMagazine: 30
+  noOfShots: 1
+  reloading: 0
+  isShooting: 0
+  shootBehaviour: {fileID: 7208853239212240639}
+--- !u!114 &7208853239212240639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6677456138622326240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f8a2319f5f30ee44bd648add81ee293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 3278076545063331158, guid: 812ebe06317c9b14282ccf8397dc0b9d, type: 3}
+  shootForce: 50
+  shootPoint: {fileID: 2726565219102236208}
+  straightAimDirection: {fileID: 6853290289574902591}
+--- !u!114 &6853290289574902591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6677456138622326240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3afbc9069492424faf5411c91709d48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileLayerMask:
+    serializedVersion: 2
+    m_Bits: 193
 --- !u!1 &8072119424928688173
 GameObject:
   m_ObjectHideFlags: 0

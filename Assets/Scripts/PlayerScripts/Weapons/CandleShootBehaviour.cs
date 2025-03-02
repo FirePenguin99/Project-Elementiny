@@ -16,7 +16,7 @@ public class CandleShootBehaviour : ShootBehaviour
         print("bruhh");
         foreach (GameObject candle in candlesSpawned) {
             if (candle != null) {
-                Vector3 aimDirection = CalculateAimDirection() - candle.transform.position;
+                Vector3 aimDirection = straightAimDirection.CalculateAimDirection() - candle.transform.position;
 
                 candle.transform.forward = aimDirection.normalized; // point the projectile at the Aim Position
                 candle.GetComponent<CandleShootingBehaviour>().StartFlying(aimDirection.normalized, shootForce);

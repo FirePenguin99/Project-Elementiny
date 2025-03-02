@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShooterWeapon : WeaponClass
+public class EnemyShooterWeapon : WeaponClass
 {
     // Update is called once per frame
     void Update()
@@ -12,19 +12,5 @@ public class ShooterWeapon : WeaponClass
         } else if (readyToShoot && !reloading && shotsInMagazine <= 0) {
             Reload();
         }
-    }
-
-    public void EnemyInput() {
-
-    }
-
-    public override Vector3 CalculateAimDirection() {
-        print("shooter shootin");
-
-        Vector3 aimPosition;
-
-        aimPosition = GameStateHandler.instance.player.transform.position;
-
-        return aimPosition;
     }
 }
