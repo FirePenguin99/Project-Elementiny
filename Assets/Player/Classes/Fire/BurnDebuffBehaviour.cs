@@ -31,7 +31,7 @@ public class BurnDebuffBehaviour : FireElementClass
         entityHealth = GetComponent<HealthBehaviour>();
         spreadLayerMask = LayerMask.GetMask("Enemy");
 
-        fireParticlesPrefab = Instantiate( AssetDatabase.LoadAssetAtPath("Assets/Prefabs/BurningObj.prefab", typeof(GameObject)) ) as GameObject;
+        fireParticlesPrefab = Instantiate( AssetDatabase.LoadAssetAtPath("Assets/Player/Classes/Fire/BurningObj.prefab", typeof(GameObject)) ) as GameObject;
         fireParticlesPrefab.transform.SetParent(this.gameObject.transform);
         fireParticlesPrefab.transform.position = this.gameObject.transform.position;
     }
