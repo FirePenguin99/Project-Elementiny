@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd0f592b4e72d944c889ebef53432239, type: 3}
+  m_Name: ChargeFireballObject
+  m_EditorClassIdentifier: 
+  spellName: Charged Fireball
+  description: Charge to release a large fireball
+  spellType: []
+  element: fire
+  weaponPrefab: {fileID: 729794168866269958, guid: 018a93c29d5f07d4fa6df5787a3b6984, type: 3}
+  sprite: {fileID: 0}
