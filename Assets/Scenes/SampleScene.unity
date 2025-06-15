@@ -273,7 +273,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 89907725}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 099639082b140be4c826565b910a0db2, type: 3}
   m_Name: 
@@ -3039,22 +3039,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1ea675d081fe9d45adef8995c44124c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponName: Flame
-  bullet: {fileID: 0}
-  projectileLayerMask:
-    serializedVersion: 2
-    m_Bits: 193
-  shootForce: 50
-  upwardForce: 0
-  fireRate: 0.1
-  spread: 0
-  reloadRate: 2
-  magazineSize: 100
-  shotsInMagazine: 10
-  noOfShots: 1
-  reloading: 0
-  isShooting: 0
-  shootPoint: {fileID: 247581102942582934}
 --- !u!1 &1096993431
 GameObject:
   m_ObjectHideFlags: 0
@@ -5619,26 +5603,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 983578e944d8aa541a2bb760474a5789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponName: Rocks
-  bullet: {fileID: 3278076545063331158, guid: d82cf9f2fcc36bf4d928302cd1a9b1a5, type: 3}
-  projectileLayerMask:
-    serializedVersion: 2
-    m_Bits: 247
-  shootForce: 50
-  upwardForce: 0
-  fireRate: 0.2
-  spread: 0
-  reloadRate: 2
-  magazineSize: 100
-  shotsInMagazine: 100
-  noOfShots: 1
-  reloading: 0
-  isShooting: 0
-  shootPoint: {fileID: 247581102942582934}
-  tectonicAreasInside: []
-  weaponBaseRockDamage: 10
-  weaponTectonicValue: 0
-  tectonicReductionRate: 1
 --- !u!54 &2259187956439479718
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5786,24 +5750,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a12299c5db07e4fb45b95ca2cac94d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponName: Candles
-  bullet: {fileID: 5797075515827239827, guid: 1da72c280ca9e534aac6827e518601ef, type: 3}
-  projectileLayerMask:
-    serializedVersion: 2
-    m_Bits: 193
-  shootForce: 50
-  upwardForce: 0
-  fireRate: 0.5
-  spread: 0
-  reloadRate: 2
-  magazineSize: 5
-  shotsInMagazine: 0
-  noOfShots: 1
-  reloading: 0
-  isShooting: 0
-  shootPoint: {fileID: 247581102942582934}
-  isCharging: 0
-  isReadyToSpawnNext: 1
 --- !u!114 &2642158728045316983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5816,22 +5762,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1ea675d081fe9d45adef8995c44124c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponName: Fireball
-  bullet: {fileID: 3278076545063331158, guid: 33323398b59074d49a33b7c715586b20, type: 3}
-  projectileLayerMask:
-    serializedVersion: 2
-    m_Bits: 247
-  shootForce: 25
-  upwardForce: 0
-  fireRate: 0.5
-  spread: 0
-  reloadRate: 2
-  magazineSize: 5
-  shotsInMagazine: 5
-  noOfShots: 1
-  reloading: 0
-  isShooting: 0
-  shootPoint: {fileID: 247581102942582934}
 --- !u!114 &2765577168090476358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6000,22 +5930,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1ea675d081fe9d45adef8995c44124c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponName: Lightning
-  bullet: {fileID: 3278076545063331158, guid: 812ebe06317c9b14282ccf8397dc0b9d, type: 3}
-  projectileLayerMask:
-    serializedVersion: 2
-    m_Bits: 247
-  shootForce: 50
-  upwardForce: 0
-  fireRate: 0.1
-  spread: 0
-  reloadRate: 2
-  magazineSize: 100
-  shotsInMagazine: 100
-  noOfShots: 1
-  reloading: 0
-  isShooting: 0
-  shootPoint: {fileID: 247581102942582934}
 --- !u!4 &3306258579984585320
 Transform:
   m_ObjectHideFlags: 0
@@ -6149,12 +6063,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: shooter
-  bullet: {fileID: 2472242778103478734, guid: 81a38eeae50030a43bb927f569d7309f, type: 3}
-  projectileLayerMask:
-    serializedVersion: 2
-    m_Bits: 1024
-  shootForce: 20
-  upwardForce: 0
   fireRate: 0.25
   spread: 0
   reloadRate: 2.5
@@ -6163,7 +6071,7 @@ MonoBehaviour:
   noOfShots: 1
   reloading: 0
   isShooting: 0
-  shootPoint: {fileID: 2901159996606117202}
+  shootBehaviour: {fileID: 0}
 --- !u!114 &4062756520288911841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6177,12 +6085,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: shooter
-  bullet: {fileID: 2472242778103478734, guid: 81a38eeae50030a43bb927f569d7309f, type: 3}
-  projectileLayerMask:
-    serializedVersion: 2
-    m_Bits: 1024
-  shootForce: 20
-  upwardForce: 0
   fireRate: 0.25
   spread: 0
   reloadRate: 2.5
@@ -6191,7 +6093,7 @@ MonoBehaviour:
   noOfShots: 1
   reloading: 0
   isShooting: 0
-  shootPoint: {fileID: 2901159996959428505}
+  shootBehaviour: {fileID: 0}
 --- !u!114 &4062756520591643723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6205,12 +6107,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: shooter
-  bullet: {fileID: 2472242778103478734, guid: 81a38eeae50030a43bb927f569d7309f, type: 3}
-  projectileLayerMask:
-    serializedVersion: 2
-    m_Bits: 1024
-  shootForce: 20
-  upwardForce: 0
   fireRate: 0.25
   spread: 0
   reloadRate: 2.5
@@ -6219,7 +6115,7 @@ MonoBehaviour:
   noOfShots: 1
   reloading: 0
   isShooting: 0
-  shootPoint: {fileID: 2901159997191379507}
+  shootBehaviour: {fileID: 0}
 --- !u!1 &4733874481074825779
 GameObject:
   m_ObjectHideFlags: 0
@@ -6493,22 +6389,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1ea675d081fe9d45adef8995c44124c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponName: Ice
-  bullet: {fileID: 3278076545063331158, guid: 073c6d7055067c6468a03cf59d05e507, type: 3}
-  projectileLayerMask:
-    serializedVersion: 2
-    m_Bits: 193
-  shootForce: 50
-  upwardForce: 0
-  fireRate: 0.1
-  spread: 0
-  reloadRate: 2
-  magazineSize: 100
-  shotsInMagazine: 10
-  noOfShots: 1
-  reloading: 0
-  isShooting: 0
-  shootPoint: {fileID: 247581102942582934}
 --- !u!4 &5674394577449451118
 Transform:
   m_ObjectHideFlags: 0
@@ -6617,7 +6497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f726743479abd0244a99b2a5cd41c24d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10000
+  health: 100000
 --- !u!114 &6764257619034839324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7143,22 +7023,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1ea675d081fe9d45adef8995c44124c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponName: Helix
-  bullet: {fileID: 3672142364823681576, guid: 9c51af35c83f6754b8e86e1b52df3417, type: 3}
-  projectileLayerMask:
-    serializedVersion: 2
-    m_Bits: 247
-  shootForce: 40
-  upwardForce: 0
-  fireRate: 0.25
-  spread: 0
-  reloadRate: 2
-  magazineSize: 15
-  shotsInMagazine: 15
-  noOfShots: 1
-  reloading: 0
-  isShooting: 0
-  shootPoint: {fileID: 247581102942582934}
 --- !u!114 &7333020977411442180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7376,7 +7240,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!33 &7768434427737019129
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -7568,22 +7432,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1ea675d081fe9d45adef8995c44124c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponName: Flame
-  bullet: {fileID: 3278076545063331158, guid: dd61c6813ec123647957357589253c10, type: 3}
-  projectileLayerMask:
-    serializedVersion: 2
-    m_Bits: 193
-  shootForce: 50
-  upwardForce: 0
-  fireRate: 0.1
-  spread: 0
-  reloadRate: 2
-  magazineSize: 100
-  shotsInMagazine: 10
-  noOfShots: 1
-  reloading: 0
-  isShooting: 0
-  shootPoint: {fileID: 247581102942582934}
 --- !u!4 &8071376773423998179
 Transform:
   m_ObjectHideFlags: 0
