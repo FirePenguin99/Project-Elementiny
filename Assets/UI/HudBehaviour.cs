@@ -13,8 +13,8 @@ public class HudBehaviour : MonoBehaviour
     [SerializeField] private TMP_Text WeaponCounter;
     [SerializeField] private TMP_Text HealthCounter;
 
-    private PlayerHealthBehaviour playerHealth;
-    private WeaponSwapBehaviour weaponSwap;
+    [SerializeField] private PlayerHealthBehaviour playerHealth;
+    [SerializeField] private WeaponSwapBehaviour weaponSwap;
     
     // Start is called before the first frame update
     void Awake()

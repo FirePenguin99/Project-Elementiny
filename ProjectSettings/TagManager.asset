@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Rock Weapon
+  - Interactable
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - PlayerTrigger
   - EnemyHitbox
   - EnemyProjectile
-  - 
+  - Interactable
   - 
   - 
   - 
