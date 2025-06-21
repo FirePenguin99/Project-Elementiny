@@ -6,7 +6,8 @@ public class AddSpellToInventoryBehaviour : MonoBehaviour
 {
     public SpellScriptableObject spellSO;
 
-    public void AddToInventory() {
+    public void AddToInventory()
+    {
         SpellInventoryBehaviour inventory = GameStateHandler.instance.player.GetComponent<SpellInventoryBehaviour>();
         if (inventory)
         {

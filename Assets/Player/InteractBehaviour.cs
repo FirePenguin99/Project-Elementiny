@@ -4,43 +4,57 @@ using UnityEngine;
 
 public class InteractBehaviour : MonoBehaviour
 {
-    [SerializeField] private GameObject cameraPos;
-    private LayerMask detectionLayerMask;
+    [SerializeField] private InteractBoxBehaviour interactBox;
+    private InteractableBehaviour closestInteractable;
 
-
-    // Start is called before the first frame update
-    void Awake()
-    {
-        detectionLayerMask = LayerMask.GetMask("Interactable");
-    }
+    // public int idk;
+    // public int bruh
+    // {
+    //     get { return idk; }
+    //     set
+    //     {
+    //         // idk = value;
+    //         idk = value < 0 ? 0 : value;
+    //     }
+    // }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            print("E");
-            CastInteractBox();
+            Interact();
         }
+
+        if (closestInteractable) // turn off the old closest
+        {
+            closestInteractable.isUiActive = false;
+        }
+
+        closestInteractable = null;
+        float closestInteractDistance = Mathf.Infinity;
+        foreach (InteractableBehaviour interactable in interactBox.interactablesInRange)
+        {
+            float distance = Vector3.Distance(interactable.gameObject.transform.position, interactBox.gameObject.transform.position);
+            if (distance < closestInteractDistance)
+            {
+                closestInteractable = interactable;
+                closestInteractDistance = distance;
+            }
+        }
+
+        if (closestInteractable)
+        {
+            closestInteractable.isUiActive = true;
+        }
+
     }
 
-    void CastInteractBox()
+    void Interact()
     {
-        Vector3 boxInfrontOfFace = cameraPos.transform.position + cameraPos.transform.forward * 1.25f;
-
-        Collider[] interactablesInRange = Physics.OverlapBox(boxInfrontOfFace, new Vector3(1.25f, 1.25f, 1.25f), cameraPos.transform.rotation, detectionLayerMask);
-        if (interactablesInRange.Length == 0) {
-            return;
+        if (closestInteractable)
+        {
+            interactBox.interactablesInRange.Remove(closestInteractable);
+            closestInteractable.onInteract();
         }
-
-        InteractableBehaviour firstInteractedBehaviour = interactablesInRange[0].GetComponent<InteractableBehaviour>();
-        if (firstInteractedBehaviour) {
-            firstInteractedBehaviour.onInteract();
-        }
-    }
-    
-    void OnDrawGizmos() {
-        Gizmos.color = new Color(1f, 0f, 0f, 0.1f);
-
-        Gizmos.DrawCube(cameraPos.transform.position + cameraPos.transform.forward * 1.25f, new Vector3(1.25f, 1.25f, 1.25f));
     }
 }

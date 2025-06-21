@@ -6,27 +6,32 @@ using UnityEditor;
 public class HealthBehaviour : MonoBehaviour
 {
     public float health;
-    
+
     // Update is called once per frame
     void Update()
     {
-        if (health <= 0) {
+        if (health <= 0)
+        {
             Death();
         }
     }
 
-    private void Death() {
-        if (GetComponent<BurnDebuffBehaviour>() != null) {
+    private void Death()
+    {
+        if (GetComponent<BurnDebuffBehaviour>() != null)
+        {
             print("burned to death");
-            GameObject smoulderingCorpse = Instantiate( AssetDatabase.LoadAssetAtPath("Assets/Prefabs/SmoulderingCorpse.prefab", typeof(GameObject)) ) as GameObject;
+            GameObject smoulderingCorpse = Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Player/Classes/Fire/SmoulderingCorpse.prefab", typeof(GameObject))) as GameObject;
 
             smoulderingCorpse.transform.position = new Vector3(transform.position.x, 0.25f, transform.position.z);
             smoulderingCorpse.GetComponent<SmoulderingCorpseBehaviour>().burnStackCount = GetComponent<BurnDebuffBehaviour>().burnStackCount;
             smoulderingCorpse.GetComponent<SmoulderingCorpseBehaviour>().burnTimer = GetComponent<BurnDebuffBehaviour>().burnTimer;
-            
+
             RemoveFromWaveList();
             Destroy(this.gameObject);
-        } else {
+        }
+        else
+        {
             print("i dead a hell");
 
             RemoveFromWaveList();
@@ -34,9 +39,11 @@ public class HealthBehaviour : MonoBehaviour
         }
     }
 
-    private void RemoveFromWaveList() {
+    private void RemoveFromWaveList()
+    {
         EnemyWaveLink ewl = this.GetComponent<EnemyWaveLink>();
-        if (ewl != null) {
+        if (ewl != null)
+        {
             ewl.RemoveFromWave();
         }
     }

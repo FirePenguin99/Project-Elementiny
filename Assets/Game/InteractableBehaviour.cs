@@ -6,6 +6,24 @@ using UnityEngine.Events;
 public class InteractableBehaviour : MonoBehaviour
 {
     public UnityEvent interactMethods;
+    public bool isUiActive = false;
+    [SerializeField] GameObject uiObject;
+
+    void Update()
+    {
+        if (uiObject)
+        {
+            if (isUiActive)
+            {
+                uiObject.SetActive(true);
+            }
+            else
+            {
+                uiObject.SetActive(false);
+            }
+
+        }
+    }
 
     public void onInteract()
     {
