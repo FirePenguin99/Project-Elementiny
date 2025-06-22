@@ -20,6 +20,10 @@ public class InstantiateSpellPickup : MonoBehaviour
 
         header.text = spell.spellName;
         description.text = spell.description;
+        if (spell.sprite != null)
+        {
+            image.sprite = spell.sprite;
+        }
     }
 
 }

@@ -12,5 +12,5 @@ public class SpellScriptableObject : ScriptableObject
     public string element;
     public GameObject weaponPrefab;
 
-    public Image sprite;
+    public Sprite sprite;
 }

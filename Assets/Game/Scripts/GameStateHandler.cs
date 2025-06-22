@@ -16,7 +16,8 @@ public class GameStateHandler : MonoBehaviour
     [SerializeField] private GameObject playerLightningPrefab;
     [SerializeField] private GameObject playerIcePrefab;
     [SerializeField] private GameObject playerEarthPrefab;
-    public enum classes {
+    public enum classes
+    {
         Fire,
         Lightning,
         Ice,
@@ -25,29 +26,40 @@ public class GameStateHandler : MonoBehaviour
 
     public GameObject StartMenuCanvas;
     public GameObject HudCanvas;
+    public GameObject InventoryCanvas;
 
     public delegate void OnPlayerSpawn(); // here is the delegate, a collection of functions (like an array of functions)
     public static event OnPlayerSpawn onPlayerSpawn; // here is the event, which uses the delegate of functions "OnplayerSpawn"
-    
+
     // Start is called before the first frame update
     void Start()
     {
-        if (instance != null && instance != this) { 
-            Destroy(this); 
-        } 
-        else { 
-            instance = this; 
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
         }
-    }
-    
-    void Update() {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            OpenCharacterSelect();
+        else
+        {
+            instance = this;
         }
     }
 
-    public void SpawnPlayerAsClass(classes classEnum) {
-        if (player) {Destroy(player);}
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ToggleCharacterSelect();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            ToggleSpellInventory();
+        }
+    }
+
+    public void SpawnPlayerAsClass(classes classEnum)
+    {
+        if (player) { Destroy(player); }
 
         // what an overcomplication compared to four if statements, but its cool as fuck.
         Dictionary<classes, GameObject> classToPrefabDict = new Dictionary<classes, GameObject>
@@ -65,7 +77,7 @@ public class GameStateHandler : MonoBehaviour
         Transform playerOrientation = player.transform.Find("Orientation");
         if (cameraPos == null) { print("GameObject by the name of CameraPos not found!"); }
         if (playerOrientation == null) { print("GameObject by the name of Orientation not found!"); }
-        
+
 
         CameraFollowPlayer followCamBehaviour = playerCamera.gameObject.GetComponent<CameraFollowPlayer>();
         followCamBehaviour.cameraPosition = cameraPos;
@@ -84,18 +96,27 @@ public class GameStateHandler : MonoBehaviour
         onPlayerSpawn?.Invoke();
     }
 
-    public void OpenCharacterSelect() {
-        if (player) {
-            if (StartMenuCanvas.activeSelf) {
-                Cursor.lockState = CursorLockMode.Locked;
-                StartMenuCanvas.SetActive(false);
-                HudCanvas.SetActive(true);
-            } else {
-                Cursor.lockState = CursorLockMode.None;
-                StartMenuCanvas.SetActive(true);
-                HudCanvas.SetActive(false);
-            }
+    public void ToggleCharacterSelect()
+    {
+        if (player)
+        {
+            Cursor.lockState = StartMenuCanvas.activeSelf ? CursorLockMode.Locked : CursorLockMode.None;
+            StartMenuCanvas.SetActive(!StartMenuCanvas.activeSelf);
+            HudCanvas.SetActive(StartMenuCanvas.activeSelf);
+
+            InventoryCanvas.SetActive(false);
         }
-        
+    }
+
+    public void ToggleSpellInventory()
+    {
+        if (player)
+        {
+            Cursor.lockState = InventoryCanvas.activeSelf ? CursorLockMode.Locked : CursorLockMode.None;
+            InventoryCanvas.SetActive(!InventoryCanvas.activeSelf);
+            HudCanvas.SetActive(InventoryCanvas.activeSelf);
+
+            StartMenuCanvas.SetActive(false);
+        }
     }
 }

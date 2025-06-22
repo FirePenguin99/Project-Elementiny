@@ -17,4 +17,4 @@ MonoBehaviour:
   spellType: []
   element: fire
   weaponPrefab: {fileID: 2956793641906187954, guid: 80d946e2517565f49a136269168a8fe6, type: 3}
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 15cb4a44a7bea5347b3c5ccc05dc0e09, type: 3}
