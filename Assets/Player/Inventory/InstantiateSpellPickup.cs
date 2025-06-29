@@ -12,7 +12,12 @@ public class InstantiateSpellPickup : MonoBehaviour
 
     void Awake()
     {
-        spell = GetComponent<AddSpellToInventoryBehaviour>().spellSO;
+        InstantiateUI();
+    }
+
+    public void InstantiateUI()
+    {
+        spell = GetComponent<SpellItemSOReference>().spellObject;
         if (spell == null)
         {
             return;

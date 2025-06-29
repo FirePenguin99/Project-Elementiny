@@ -285,17 +285,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 940a60593b0148a4eb54d35dfc9b34bc, type: 3}
---- !u!114 &60776420 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3144221458169624510, guid: 940a60593b0148a4eb54d35dfc9b34bc, type: 3}
-  m_PrefabInstance: {fileID: 150082296148457458}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &89907725
 GameObject:
   m_ObjectHideFlags: 0
@@ -5646,7 +5635,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1171751309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5872,7 +5861,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hotbarList:
   - {fileID: 11400000, guid: be8a31298bcafbe499e5ce5a0ab34038, type: 2}
-  maxHotbarSize: 1
   itemPrefab: {fileID: 2022745106487870944, guid: 2582d4553b08c874b82c932f286ebd59, type: 3}
 --- !u!1 &1187666926
 GameObject:
@@ -6645,7 +6633,6 @@ MonoBehaviour:
   hotbarList:
   - {fileID: 11400000, guid: be8a31298bcafbe499e5ce5a0ab34038, type: 2}
   - {fileID: 11400000, guid: f7acb9047e3414948a0ad71c7b990b8a, type: 2}
-  maxHotbarSize: 5
   itemPrefab: {fileID: 2022745106487870944, guid: 2582d4553b08c874b82c932f286ebd59, type: 3}
 --- !u!1 &1332812094
 GameObject:
@@ -6799,7 +6786,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: be8a31298bcafbe499e5ce5a0ab34038, type: 2}
   - {fileID: 11400000, guid: dc2552bcb6bddd74fb9f73546f7c6fc0, type: 2}
   - {fileID: 11400000, guid: b6d2f4388ff2be94c82d88e26c3c3c0e, type: 2}
-  maxHotbarSize: 0
   itemPrefab: {fileID: 2022745106487870944, guid: 2582d4553b08c874b82c932f286ebd59, type: 3}
 --- !u!1 &1336583854
 GameObject:
@@ -6922,7 +6908,6 @@ MonoBehaviour:
   hotbarList:
   - {fileID: 11400000, guid: aca747821b41e2b45b137def1536e1c0, type: 2}
   - {fileID: 11400000, guid: 94c602986d234fb42ac1a821e3980c79, type: 2}
-  maxHotbarSize: 5
   itemPrefab: {fileID: 2022745106487870944, guid: 2582d4553b08c874b82c932f286ebd59, type: 3}
 --- !u!4 &1338010730 stripped
 Transform:
@@ -9108,7 +9093,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hotbarList:
   - {fileID: 11400000, guid: 0575e9f7162ba7b4289dce75bbc2f634, type: 2}
-  maxHotbarSize: 1
   itemPrefab: {fileID: 2022745106487870944, guid: 2582d4553b08c874b82c932f286ebd59, type: 3}
 --- !u!1 &1872371926
 GameObject:
@@ -9525,6 +9509,7 @@ GameObject:
   - component: {fileID: 1972887433}
   - component: {fileID: 1972887432}
   - component: {fileID: 1972887431}
+  - component: {fileID: 1972887434}
   m_Layer: 0
   m_Name: Spell Inventory Canvas
   m_TagString: Untagged
@@ -9610,11 +9595,28 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1972887434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972887429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5abe3d1fdaa1abf44af91e0cfa2389a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryHotbar: {fileID: 1332812099}
+  rightHandHotbar: {fileID: 1336583859}
+  leftHandHotbar: {fileID: 1317719696}
+  movementHotbar: {fileID: 1179613547}
+  ultimateHotbar: {fileID: 1870173009}
 --- !u!1 &1973749118
 GameObject:
   m_ObjectHideFlags: 0
@@ -10497,10 +10499,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 459256584}
     m_Modifications:
-    - target: {fileID: 3144221458169624510, guid: 940a60593b0148a4eb54d35dfc9b34bc, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: adbacb4f58d3d9e459defb478bfc0cd7, type: 3}
     - target: {fileID: 5133628358612009017, guid: 940a60593b0148a4eb54d35dfc9b34bc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.1346407
@@ -10541,10 +10539,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5265491594855977464, guid: 940a60593b0148a4eb54d35dfc9b34bc, type: 3}
-      propertyPath: image
-      value: 
-      objectReference: {fileID: 60776420}
     - target: {fileID: 8416236349741953502, guid: 940a60593b0148a4eb54d35dfc9b34bc, type: 3}
       propertyPath: m_Name
       value: Spell
@@ -13220,6 +13214,8 @@ MonoBehaviour:
   spellInventory: []
   rightSpellInventory: []
   leftSpellInventory: []
+  movementSpellInventory: []
+  ultimateSpellInventory: []
 --- !u!114 &9012559190126323330
 MonoBehaviour:
   m_ObjectHideFlags: 0

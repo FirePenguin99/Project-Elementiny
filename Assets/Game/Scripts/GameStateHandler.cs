@@ -61,8 +61,7 @@ public class GameStateHandler : MonoBehaviour
     {
         if (player) { Destroy(player); }
 
-        // what an overcomplication compared to four if statements, but its cool as fuck.
-        Dictionary<classes, GameObject> classToPrefabDict = new Dictionary<classes, GameObject>
+        Dictionary<classes, GameObject> classToPrefabDict = new Dictionary<classes, GameObject> // what an overcomplication compared to four if statements, but its cool as fuck.
         {
             { classes.Fire, playerFirePrefab },
             { classes.Lightning, playerLightningPrefab },
@@ -72,12 +71,12 @@ public class GameStateHandler : MonoBehaviour
 
         player = Instantiate(classToPrefabDict[classEnum], spawnPoint.position, spawnPoint.rotation);
 
+        // Camera
         // not the happiest about this use of Find and strings. All object names are subject to change and since there is no reference by object or class, I'd have to *remember* to update these strings
         Transform cameraPos = player.transform.Find("CameraPos");
         Transform playerOrientation = player.transform.Find("Orientation");
         if (cameraPos == null) { print("GameObject by the name of CameraPos not found!"); }
         if (playerOrientation == null) { print("GameObject by the name of Orientation not found!"); }
-
 
         CameraFollowPlayer followCamBehaviour = playerCamera.gameObject.GetComponent<CameraFollowPlayer>();
         followCamBehaviour.cameraPosition = cameraPos;
@@ -89,9 +88,15 @@ public class GameStateHandler : MonoBehaviour
 
         playerCamBehaviour.resetRotation();
 
+        // Inventory
+        // SpellInventoryBehaviour playerInventory = player.GetComponent<SpellInventoryBehaviour>();
+        // SpellInventoryUiBehaviour inventoryUiHotbars = InventoryCanvas.GetComponent<SpellInventoryUiBehaviour>();
+        // if (inventoryUiHotbars) {inventoryUiHotbars.pla}
 
-        StartMenuCanvas.SetActive(false);
+        // UI
         HudCanvas.SetActive(true);
+        StartMenuCanvas.SetActive(false);
+        InventoryCanvas.SetActive(false);
 
         onPlayerSpawn?.Invoke();
     }

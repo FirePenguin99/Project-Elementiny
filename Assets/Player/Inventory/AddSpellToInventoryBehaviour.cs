@@ -1,18 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AddSpellToInventoryBehaviour : MonoBehaviour
 {
-    public SpellScriptableObject spellSO;
+    public delegate void OnInventoryChange();
+    public static event OnInventoryChange onInventoryChange;
 
     public void AddToInventory()
     {
         SpellInventoryBehaviour inventory = GameStateHandler.instance.player.GetComponent<SpellInventoryBehaviour>();
-        if (inventory)
+        SpellScriptableObject spell = GetComponent<SpellItemSOReference>().spellObject;
+        if (inventory && spell)
         {
-            print("HOLY MOLY");
-            inventory.spellInventory.Add(spellSO);
+            inventory.spellInventory.Add(spell);
+
+            onInventoryChange?.Invoke();
         }
         else
         {
