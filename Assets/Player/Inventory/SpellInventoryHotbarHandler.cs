@@ -30,10 +30,10 @@ public class SpellInventoryHotbarHandler : MonoBehaviour
         movementHotbar.hotbarList = playerInventory.movementSpellInventory;
         ultimateHotbar.hotbarList = playerInventory.ultimateSpellInventory;
 
-        inventoryHotbar.hotbarType = Hotbars.Inventory;
-        rightHandHotbar.hotbarType = Hotbars.RightHand;
-        leftHandHotbar.hotbarType = Hotbars.LeftHand;
-        movementHotbar.hotbarType = Hotbars.Movement;
-        ultimateHotbar.hotbarType = Hotbars.Ulitmate;
+        // inventoryHotbar.hotbarType = Hotbars.Inventory;
+        // rightHandHotbar.hotbarType = Hotbars.RightHand;
+        // leftHandHotbar.hotbarType = Hotbars.LeftHand;
+        // movementHotbar.hotbarType = Hotbars.Movement;
+        // ultimateHotbar.hotbarType = Hotbars.Ulitmate;
     }
 }
