@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -24,14 +22,12 @@ public class HoverInventoryItemBehaviour : MonoBehaviour, IPointerEnterHandler, 
 
     public void DisablePopUp()
     {
-        icon.color = new Color(255, 255, 255);
         spellPopup.SetActive(false);
         spellPopup.transform.SetParent(transform);
     }
     void EnablePopUp()
     {
         spellPopup.SetActive(true);
-        icon.color = new Color(255, 0, 0);
         spellPopup.transform.SetParent(transform.parent.parent);
         spellPopup.transform.SetAsLastSibling();
     }

@@ -5,6 +5,8 @@ using UnityEngine.UI;
 public class InventoryHotbarBehaviour : MonoBehaviour
 {
     public List<SpellScriptableObject> hotbarList;
+    public SpellInventoryHotbarHandler.Hotbars hotbarType;
+
     [SerializeField] private GameObject itemPrefab;
 
     void OnEnable()
@@ -24,8 +26,10 @@ public class InventoryHotbarBehaviour : MonoBehaviour
             Destroy(gameObject.transform.GetChild(i).gameObject);
         }
 
-        foreach (SpellScriptableObject spell in hotbarList)
+        for (int i = 0; i < hotbarList.Count; i++)
         {
+            SpellScriptableObject spell = hotbarList[i];
+
             GameObject newItem = Instantiate(itemPrefab);
             newItem.transform.SetParent(this.gameObject.transform);
 
@@ -45,6 +49,13 @@ public class InventoryHotbarBehaviour : MonoBehaviour
             if (spellReference != null)
             {
                 spellReference.spellObject = spell;
+            }
+
+            InventoryItemPickupAndPlaceBehaviour itemMovement = newItem.GetComponent<InventoryItemPickupAndPlaceBehaviour>();
+            if (itemMovement != null || hotbarType != SpellInventoryHotbarHandler.Hotbars.None)
+            {
+                itemMovement.currentHotbarPlacement = hotbarType;
+                itemMovement.id = i; // not an index, but instead a unique ID
             }
         }
     }

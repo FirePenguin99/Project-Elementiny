@@ -9,16 +9,4 @@ public class SpellInventoryBehaviour : MonoBehaviour
     public List<SpellScriptableObject> leftSpellInventory = new List<SpellScriptableObject>();
     public List<SpellScriptableObject> movementSpellInventory = new List<SpellScriptableObject>();
     public List<SpellScriptableObject> ultimateSpellInventory = new List<SpellScriptableObject>();
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

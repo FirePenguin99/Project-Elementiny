@@ -2,6 +2,16 @@ using UnityEngine;
 
 public class SpellInventoryHotbarHandler : MonoBehaviour
 {
+    public enum Hotbars
+    {
+        None,
+        Inventory,
+        RightHand,
+        LeftHand,
+        Movement,
+        Ulitmate
+    }
+
     public InventoryHotbarBehaviour inventoryHotbar;
     public InventoryHotbarBehaviour rightHandHotbar;
     public InventoryHotbarBehaviour leftHandHotbar;
@@ -19,11 +29,11 @@ public class SpellInventoryHotbarHandler : MonoBehaviour
         leftHandHotbar.hotbarList = playerInventory.leftSpellInventory;
         movementHotbar.hotbarList = playerInventory.movementSpellInventory;
         ultimateHotbar.hotbarList = playerInventory.ultimateSpellInventory;
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-
+        inventoryHotbar.hotbarType = Hotbars.Inventory;
+        rightHandHotbar.hotbarType = Hotbars.RightHand;
+        leftHandHotbar.hotbarType = Hotbars.LeftHand;
+        movementHotbar.hotbarType = Hotbars.Movement;
+        ultimateHotbar.hotbarType = Hotbars.Ulitmate;
     }
 }

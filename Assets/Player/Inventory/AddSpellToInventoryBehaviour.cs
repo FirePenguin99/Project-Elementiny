@@ -20,4 +20,9 @@ public class AddSpellToInventoryBehaviour : MonoBehaviour
             print("inventory is null");
         }
     }
+
+    public static void InvokeInventoryChange()
+    {
+        onInventoryChange?.Invoke();
+    }
 }

@@ -21,7 +21,6 @@ public class InteractableBehaviour : MonoBehaviour
             {
                 uiObject.SetActive(false);
             }
-
         }
     }
 
