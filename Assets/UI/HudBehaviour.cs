@@ -15,31 +15,35 @@ public class HudBehaviour : MonoBehaviour
 
     [SerializeField] private PlayerHealthBehaviour playerHealth;
     [SerializeField] private WeaponSwapBehaviour weaponSwap;
-    
+
     // Start is called before the first frame update
     void Awake()
     {
     }
 
-    void OnEnable() {
+    void OnEnable()
+    {
         GameStateHandler.onPlayerSpawn += SetPlayerObject;
     }
-    void OnDisable() {
+    void OnDisable()
+    {
         GameStateHandler.onPlayerSpawn -= SetPlayerObject;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (weaponSwap.weaponObjects[weaponSwap.weaponArrayPointer]) {
+        if (weaponSwap.weaponObjects[weaponSwap.weaponArrayPointer] != null)
+        {
             AmmoCounter.text = weaponSwap.weaponObjects[weaponSwap.weaponArrayPointer].GetComponent<WeaponClass>().shotsInMagazine.ToString();
             WeaponCounter.text = weaponSwap.weaponObjects[weaponSwap.weaponArrayPointer].GetComponent<WeaponClass>().weaponName.ToString();
         }
-        
+
         HealthCounter.text = playerHealth.health.ToString() + "/100";
     }
 
-    private void SetPlayerObject() {
+    private void SetPlayerObject()
+    {
         player = GameStateHandler.instance.player;
         playerHealth = player.GetComponent<PlayerHealthBehaviour>();
         weaponSwap = player.GetComponent<WeaponSwapBehaviour>();
