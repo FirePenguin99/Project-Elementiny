@@ -8,11 +8,13 @@ public class WeaponSwapBehaviour : MonoBehaviour
     public List<GameObject> weaponObjects;
     public int weaponArrayPointer = 0;
 
+    [SerializeField] private KeyCode fowardIterate;
+    [SerializeField] private KeyCode backwardIterate;
     [SerializeField] private SpellInventoryHotbarHandler.Hotbars hotbar;
+
     [SerializeField] private Transform weaponContainerObject;
     [SerializeField] private Transform shootPosition;
-
-    private SpellInventoryBehaviour playerInventory;
+    [SerializeField] private SpellInventoryBehaviour playerInventory;
 
     void Start()
     {
@@ -21,8 +23,10 @@ public class WeaponSwapBehaviour : MonoBehaviour
 
     void Update()
     {
-        if (Input.mouseScrollDelta.y > 0) IterateWeaponPointer(1);
-        else if (Input.mouseScrollDelta.y < 0) IterateWeaponPointer(-1);
+        // if (Input.mouseScrollDelta.y > 0) IterateWeaponPointer(1);
+        // else if (Input.mouseScrollDelta.y < 0) IterateWeaponPointer(-1);
+        if (Input.GetKeyDown(fowardIterate)) IterateWeaponPointer(1);
+        else if (Input.GetKeyDown(backwardIterate)) IterateWeaponPointer(-1);
     }
 
     public void IterateWeaponPointer(int diff)
@@ -40,12 +44,16 @@ public class WeaponSwapBehaviour : MonoBehaviour
         {
             if (weapon != null) weapon.SetActive(false);
         }
+        if (weaponObjects.Count <= weaponArrayPointer)
+        {
+            return;
+        }
         weaponObjects[weaponArrayPointer].SetActive(true);
     }
 
     void RefreshWeapons()
     {
-        playerInventory = GameStateHandler.instance.player.GetComponent<SpellInventoryBehaviour>();
+        // playerInventory = GameStateHandler.instance.player.GetComponent<SpellInventoryBehaviour>();
         if (playerInventory == null) return;
 
         switch (hotbar)

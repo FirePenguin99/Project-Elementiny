@@ -11222,9 +11222,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponObjects: []
   weaponArrayPointer: 0
+  fowardIterate: 101
+  backwardIterate: 0
   hotbar: 2
   weaponContainerObject: {fileID: 5251209018729725558}
   shootPosition: {fileID: 4641882086789561683}
+  playerInventory: {fileID: 8702774204700988201}
 --- !u!1 &4352333950538391321
 GameObject:
   m_ObjectHideFlags: 0
@@ -12144,9 +12147,12 @@ GameObject:
   - component: {fileID: 3272258832757211882}
   - component: {fileID: 2100947017680388486}
   - component: {fileID: 5228608246350054825}
-  - component: {fileID: 4336661547191832758}
   - component: {fileID: 8702774204700988200}
   - component: {fileID: 8702774204700988201}
+  - component: {fileID: 4336661547191832758}
+  - component: {fileID: 8702774204700988204}
+  - component: {fileID: 8702774204700988203}
+  - component: {fileID: 8702774204700988202}
   m_Layer: 10
   m_Name: PlayerFire
   m_TagString: Untagged
@@ -12488,6 +12494,66 @@ MonoBehaviour:
   leftSpellInventory: []
   movementSpellInventory: []
   ultimateSpellInventory: []
+--- !u!114 &8702774204700988202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7456205239266733018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50fa73d3d130adc42a8af66d732fb9db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponObjects: []
+  weaponArrayPointer: 0
+  fowardIterate: 51
+  backwardIterate: 0
+  hotbar: 5
+  weaponContainerObject: {fileID: 5251209018729725558}
+  shootPosition: {fileID: 4641882086789561683}
+  playerInventory: {fileID: 8702774204700988201}
+--- !u!114 &8702774204700988203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7456205239266733018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50fa73d3d130adc42a8af66d732fb9db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponObjects: []
+  weaponArrayPointer: 0
+  fowardIterate: 49
+  backwardIterate: 0
+  hotbar: 4
+  weaponContainerObject: {fileID: 5251209018729725558}
+  shootPosition: {fileID: 4641882086789561683}
+  playerInventory: {fileID: 8702774204700988201}
+--- !u!114 &8702774204700988204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7456205239266733018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50fa73d3d130adc42a8af66d732fb9db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponObjects: []
+  weaponArrayPointer: 0
+  fowardIterate: 113
+  backwardIterate: 0
+  hotbar: 3
+  weaponContainerObject: {fileID: 5251209018729725558}
+  shootPosition: {fileID: 4641882086789561683}
+  playerInventory: {fileID: 8702774204700988201}
 --- !u!54 &9048018135310708497
 Rigidbody:
   m_ObjectHideFlags: 0

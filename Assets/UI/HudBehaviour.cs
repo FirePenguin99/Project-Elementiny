@@ -33,6 +33,7 @@ public class HudBehaviour : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (weaponSwap.weaponObjects.Count <= weaponSwap.weaponArrayPointer) return;
         if (weaponSwap.weaponObjects[weaponSwap.weaponArrayPointer] != null)
         {
             AmmoCounter.text = weaponSwap.weaponObjects[weaponSwap.weaponArrayPointer].GetComponent<WeaponClass>().shotsInMagazine.ToString();

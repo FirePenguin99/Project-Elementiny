@@ -106,10 +106,10 @@ public class GameStateHandler : MonoBehaviour
         if (player)
         {
             Cursor.lockState = StartMenuCanvas.activeSelf ? CursorLockMode.Locked : CursorLockMode.None;
-            StartMenuCanvas.SetActive(!StartMenuCanvas.activeSelf);
             HudCanvas.SetActive(StartMenuCanvas.activeSelf);
-
             InventoryCanvas.SetActive(false);
+
+            StartMenuCanvas.SetActive(!StartMenuCanvas.activeSelf);
         }
     }
 
@@ -118,10 +118,10 @@ public class GameStateHandler : MonoBehaviour
         if (player)
         {
             Cursor.lockState = InventoryCanvas.activeSelf ? CursorLockMode.Locked : CursorLockMode.None;
-            InventoryCanvas.SetActive(!InventoryCanvas.activeSelf);
             HudCanvas.SetActive(InventoryCanvas.activeSelf);
-
             StartMenuCanvas.SetActive(false);
+
+            InventoryCanvas.SetActive(!InventoryCanvas.activeSelf);
         }
     }
 }
