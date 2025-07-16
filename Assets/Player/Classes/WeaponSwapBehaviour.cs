@@ -31,6 +31,7 @@ public class WeaponSwapBehaviour : MonoBehaviour
 
     public void IterateWeaponPointer(int diff)
     {
+        if (weaponObjects.Count == 0) return;
         weaponArrayPointer += diff;
         weaponArrayPointer = weaponArrayPointer % weaponObjects.Count;
         weaponArrayPointer = weaponArrayPointer < 0 ? weaponArrayPointer + weaponObjects.Count : weaponArrayPointer;
@@ -44,16 +45,13 @@ public class WeaponSwapBehaviour : MonoBehaviour
         {
             if (weapon != null) weapon.SetActive(false);
         }
-        if (weaponObjects.Count <= weaponArrayPointer)
-        {
-            return;
-        }
+        if (weaponObjects.Count <= weaponArrayPointer) return;
+
         weaponObjects[weaponArrayPointer].SetActive(true);
     }
 
     void RefreshWeapons()
     {
-        // playerInventory = GameStateHandler.instance.player.GetComponent<SpellInventoryBehaviour>();
         if (playerInventory == null) return;
 
         switch (hotbar)
@@ -100,9 +98,6 @@ public class WeaponSwapBehaviour : MonoBehaviour
 
         foreach (SpellScriptableObject spell in inventoryList)
         {
-            print("instantiated that shi");
-
-            // SpellScriptableObject spell = inventoryList[i];
             GameObject newWeapon = Instantiate(spell.weaponPrefab);
             newWeapon.transform.SetParent(weaponContainerObject);
 
