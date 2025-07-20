@@ -9,12 +9,15 @@ public class HudBehaviour : MonoBehaviour
     [SerializeField] private GameObject player;
     // private PlayerHealthBehaviour playerHealth;
 
-    [SerializeField] private TMP_Text AmmoCounter;
-    [SerializeField] private TMP_Text WeaponCounter;
+    [SerializeField] private TMP_Text R_AmmoCounter;
+    [SerializeField] private TMP_Text R_WeaponCounter;
+    [SerializeField] private TMP_Text L_AmmoCounter;
+    [SerializeField] private TMP_Text L_WeaponCounter;
     [SerializeField] private TMP_Text HealthCounter;
 
     [SerializeField] private PlayerHealthBehaviour playerHealth;
-    [SerializeField] private WeaponSwapBehaviour weaponSwap;
+    [SerializeField] private WeaponSwapBehaviour R_weaponSwap;
+    [SerializeField] private WeaponSwapBehaviour L_weaponSwap;
 
     // Start is called before the first frame update
     void Awake()
@@ -33,12 +36,8 @@ public class HudBehaviour : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (weaponSwap.weaponObjects.Count <= weaponSwap.weaponArrayPointer) return;
-        if (weaponSwap.weaponObjects[weaponSwap.weaponArrayPointer] != null)
-        {
-            AmmoCounter.text = weaponSwap.weaponObjects[weaponSwap.weaponArrayPointer].GetComponent<WeaponClass>().shotsInMagazine.ToString();
-            WeaponCounter.text = weaponSwap.weaponObjects[weaponSwap.weaponArrayPointer].GetComponent<WeaponClass>().weaponName.ToString();
-        }
+        UpdateRightHUD(R_weaponSwap, R_AmmoCounter, R_WeaponCounter);
+        UpdateRightHUD(L_weaponSwap, L_AmmoCounter, L_WeaponCounter);
 
         HealthCounter.text = playerHealth.health.ToString() + "/100";
     }
@@ -47,6 +46,17 @@ public class HudBehaviour : MonoBehaviour
     {
         player = GameStateHandler.instance.player;
         playerHealth = player.GetComponent<PlayerHealthBehaviour>();
-        weaponSwap = player.GetComponent<WeaponSwapBehaviour>();
+        R_weaponSwap = player.GetComponent<WeaponSwapBehaviour>();
+        // L_weaponSwap;
+    }
+
+    void UpdateRightHUD(WeaponSwapBehaviour swapBehaviour, TMP_Text ammoCounter, TMP_Text weaponCounter)
+    {
+        if (swapBehaviour.weaponObjects.Count <= swapBehaviour.weaponArrayPointer) return;
+        if (swapBehaviour.weaponObjects[swapBehaviour.weaponArrayPointer] != null)
+        {
+            ammoCounter.text = swapBehaviour.weaponObjects[swapBehaviour.weaponArrayPointer].GetComponent<WeaponClass>().shotsInMagazine.ToString();
+            weaponCounter.text = swapBehaviour.weaponObjects[swapBehaviour.weaponArrayPointer].GetComponent<WeaponClass>().weaponName.ToString();
+        }
     }
 }

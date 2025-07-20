@@ -1,12 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class WeaponSwapBehaviour : MonoBehaviour
 {
     public List<GameObject> weaponObjects;
     public int weaponArrayPointer = 0;
+
+    [SerializeField] private KeyCode attackKeycode;
 
     [SerializeField] private KeyCode fowardIterate;
     [SerializeField] private KeyCode backwardIterate;
@@ -102,6 +105,7 @@ public class WeaponSwapBehaviour : MonoBehaviour
             newWeapon.transform.SetParent(weaponContainerObject);
 
             newWeapon.GetComponent<ShootBehaviour>().shootPoint = shootPosition;
+            newWeapon.GetComponent<WeaponClass>().attackKeycode = attackKeycode;
 
             weaponObjects.Add(newWeapon);
         }
