@@ -10,6 +10,6 @@ public class SpellScriptableObject : ScriptableObject
     public string description;
     public GameStateHandler.classes element;
     public GameObject weaponPrefab;
-
     public Sprite sprite;
+    public SpellTypeScriptableObject spellTypeSO;
 }

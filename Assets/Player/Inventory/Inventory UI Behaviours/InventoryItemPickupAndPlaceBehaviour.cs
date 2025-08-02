@@ -67,61 +67,61 @@ public class InventoryItemPickupAndPlaceBehaviour : MonoBehaviour, IPointerClick
                 case SpellInventoryHotbarHandler.Hotbars.Inventory:
                     if (endPlacementIndex == -1)
                     {
-                        playerInventory.spellInventory.Add(movingSpell);
+                        playerInventory.spellInventory.Add(movingSpell.spellTypeSO.inventorySpell);
                     }
                     else
                     {
                         playerInventory.spellInventory.Insert(
                         endPlacementIndex,
-                        movingSpell);
+                        movingSpell.spellTypeSO.inventorySpell);
                     }
                     break;
                 case SpellInventoryHotbarHandler.Hotbars.RightHand:
                     if (endPlacementIndex == -1)
                     {
-                        playerInventory.rightSpellInventory.Add(movingSpell);
+                        playerInventory.rightSpellInventory.Add(movingSpell.spellTypeSO.weaponSpell);
                     }
                     else
                     {
                         playerInventory.rightSpellInventory.Insert(
                         endPlacementIndex,
-                        movingSpell);
+                        movingSpell.spellTypeSO.weaponSpell);
                     }
                     break;
                 case SpellInventoryHotbarHandler.Hotbars.LeftHand:
                     if (endPlacementIndex == -1)
                     {
-                        playerInventory.leftSpellInventory.Add(movingSpell);
+                        playerInventory.leftSpellInventory.Add(movingSpell.spellTypeSO.weaponSpell);
                     }
                     else
                     {
                         playerInventory.leftSpellInventory.Insert(
                         endPlacementIndex,
-                        movingSpell);
+                        movingSpell.spellTypeSO.weaponSpell);
                     }
                     break;
                 case SpellInventoryHotbarHandler.Hotbars.Movement:
                     if (endPlacementIndex == -1)
                     {
-                        playerInventory.movementSpellInventory.Add(movingSpell);
+                        playerInventory.movementSpellInventory.Add(movingSpell.spellTypeSO.movementSpell);
                     }
                     else
                     {
                         playerInventory.movementSpellInventory.Insert(
                         endPlacementIndex,
-                        movingSpell);
+                        movingSpell.spellTypeSO.movementSpell);
                     }
                     break;
                 case SpellInventoryHotbarHandler.Hotbars.Ulitmate:
                     if (endPlacementIndex == -1)
                     {
-                        playerInventory.ultimateSpellInventory.Add(movingSpell);
+                        playerInventory.ultimateSpellInventory.Add(movingSpell.spellTypeSO.ultimateSpell);
                     }
                     else
                     {
                         playerInventory.ultimateSpellInventory.Insert(
                         endPlacementIndex,
-                        movingSpell);
+                        movingSpell.spellTypeSO.ultimateSpell);
                     }
                     break;
             }

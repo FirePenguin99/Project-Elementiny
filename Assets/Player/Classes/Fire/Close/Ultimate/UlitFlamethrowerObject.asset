@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd0f592b4e72d944c889ebef53432239, type: 3}
-  m_Name: FlamethrowerObject
+  m_Name: UlitFlamethrowerObject
   m_EditorClassIdentifier: 
   spellName: Flames
   description: Release a spew of hot flames
-  spellType: []
-  element: fire
+  element: 0
   weaponPrefab: {fileID: 2956793641906187954, guid: 80d946e2517565f49a136269168a8fe6, type: 3}
   sprite: {fileID: 21300000, guid: 15cb4a44a7bea5347b3c5ccc05dc0e09, type: 3}
+  spellTypeSO: {fileID: 11400000, guid: e07b73e6d4dc17c40aff838a8c7c68fd, type: 2}
