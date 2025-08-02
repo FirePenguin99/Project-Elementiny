@@ -32,7 +32,7 @@ public class GameStateHandler : MonoBehaviour
     public static event OnPlayerSpawn onPlayerSpawn; // here is the event, which uses the delegate of functions "OnplayerSpawn"
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (instance != null && instance != this)
         {

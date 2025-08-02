@@ -8,8 +8,7 @@ public class SpellScriptableObject : ScriptableObject
 {
     public string spellName;
     public string description;
-    public string[] spellType; // close, far, etc...
-    public string element;
+    public GameStateHandler.classes element;
     public GameObject weaponPrefab;
 
     public Sprite sprite;

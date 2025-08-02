@@ -19,8 +19,8 @@ public class ExplosionMovementBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerMov = GetComponent<PlayerMovement>();
-        rb = GetComponent<Rigidbody>();
+        playerMov = GameStateHandler.instance.player.GetComponent<PlayerMovement>();
+        rb = GameStateHandler.instance.player.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -29,7 +29,8 @@ public class ExplosionMovementBehaviour : MonoBehaviour
         xInput = Input.GetAxisRaw("Horizontal");
         yInput = Input.GetAxisRaw("Vertical");
 
-        if(Input.GetKeyDown(KeyCode.LeftAlt)){
+        if (Input.GetKeyDown(KeyCode.LeftAlt))
+        {
             playerMov.movementSpeedMax = dashMaxSpeed;
 
             moveDirection = orientation.forward * yInput + orientation.right * xInput;
