@@ -104,7 +104,7 @@ public class WeaponSwapBehaviour : MonoBehaviour
             GameObject newWeapon;
             if (spell.weaponPrefab)
             {
-                newWeapon = Instantiate(spell.weaponPrefab);
+                newWeapon = Instantiate(spell.weaponPrefab, transform);
 
                 newWeapon.GetComponent<ShootBehaviour>().shootPoint = shootPosition;
                 newWeapon.GetComponent<WeaponClass>().attackKeycode = attackKeycode;
