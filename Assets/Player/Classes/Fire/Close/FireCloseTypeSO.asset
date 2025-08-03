@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da26c17511774894da0ab0bede0ddc06, type: 3}
   m_Name: FireCloseTypeSO
   m_EditorClassIdentifier: 
+  spellName: 
   spellType:
   - close
   description: Close :D
   element: 0
-  sprite: {fileID: 0}
+  inventorySpell: {fileID: 11400000, guid: eff891320464f0a4c83fbae7862e4ed9, type: 2}
   weaponSpell: {fileID: 11400000, guid: ec335b9ce32cd4e4c8f998865509e08d, type: 2}
   movementSpell: {fileID: 11400000, guid: 69955b79e6a672d4ebd615f56684fcab, type: 2}
   ultimateSpell: {fileID: 11400000, guid: 312dfdf1018671b4394886bff229a1da, type: 2}

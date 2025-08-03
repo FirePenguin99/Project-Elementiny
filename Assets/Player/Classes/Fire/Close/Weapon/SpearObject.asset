@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellName: Spear
   description: Release 3 jabs of close-ranged flame
-  spellType: []
-  element: fire
+  element: 0
   weaponPrefab: {fileID: 3432711708964524984, guid: d975a932aa70c5e48a490a5ef2e742ae, type: 3}
   sprite: {fileID: 21300000, guid: a3e905a5783bab543a4ab91c752b2bab, type: 3}
+  spellTypeSO: {fileID: 11400000, guid: e07b73e6d4dc17c40aff838a8c7c68fd, type: 2}

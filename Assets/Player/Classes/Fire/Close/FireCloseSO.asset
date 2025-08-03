@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd0f592b4e72d944c889ebef53432239, type: 3}
   m_Name: FireCloseSO
   m_EditorClassIdentifier: 
-  spellName: 
+  spellName: Close
   description: 
   element: 0
   weaponPrefab: {fileID: 0}
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 5428a382310469244af386d8fc050d2c, type: 3}
+  spellTypeSO: {fileID: 11400000, guid: e07b73e6d4dc17c40aff838a8c7c68fd, type: 2}

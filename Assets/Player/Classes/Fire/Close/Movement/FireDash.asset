@@ -17,3 +17,4 @@ MonoBehaviour:
   element: 0
   weaponPrefab: {fileID: 7879121671370235024, guid: 4d7774150bf9e9e44b8625ca29312777, type: 3}
   sprite: {fileID: 21300000, guid: 78def88d69d7787409e79fdb4d464746, type: 3}
+  spellTypeSO: {fileID: 11400000, guid: e07b73e6d4dc17c40aff838a8c7c68fd, type: 2}
