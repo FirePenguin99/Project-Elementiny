@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd0f592b4e72d944c889ebef53432239, type: 3}
-  m_Name: FireBallObject
+  m_Name: FireAerialSO
   m_EditorClassIdentifier: 
-  spellName: Fireball
-  description: Release a large fireball
-  spellType: []
-  element: fire
-  weaponPrefab: {fileID: 5700010486972639992, guid: 06d11260a99e77a4db067af659fa0347, type: 3}
-  sprite: {fileID: 21300000, guid: 80f3705b638707a4ca59097be4d4684e, type: 3}
+  spellName: Aerial
+  description: 
+  element: 0
+  weaponPrefab: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 5428a382310469244af386d8fc050d2c, type: 3}
+  spellTypeSO: {fileID: 11400000, guid: 98a69b0b5b49dd54ea0ebd3dc8299c99, type: 2}

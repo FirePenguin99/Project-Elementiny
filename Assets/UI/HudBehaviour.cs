@@ -53,7 +53,7 @@ public class HudBehaviour : MonoBehaviour
     void UpdateRightHUD(WeaponSwapBehaviour swapBehaviour, TMP_Text ammoCounter, TMP_Text weaponCounter)
     {
         if (swapBehaviour.weaponObjects.Count <= swapBehaviour.weaponArrayPointer) return;
-        if (swapBehaviour.weaponObjects[swapBehaviour.weaponArrayPointer] != null)
+        if (swapBehaviour.weaponObjects[swapBehaviour.weaponArrayPointer])
         {
             ammoCounter.text = swapBehaviour.weaponObjects[swapBehaviour.weaponArrayPointer].GetComponent<WeaponClass>().shotsInMagazine.ToString();
             weaponCounter.text = swapBehaviour.weaponObjects[swapBehaviour.weaponArrayPointer].GetComponent<WeaponClass>().weaponName.ToString();

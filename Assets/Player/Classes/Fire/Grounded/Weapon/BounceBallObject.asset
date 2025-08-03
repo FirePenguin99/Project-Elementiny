@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellName: Bounce
   description: Bouncy balls lol
-  spellType: []
-  element: fire
+  element: 0
   weaponPrefab: {fileID: 1337408582625052921, guid: c5f4561d399e6174f927169d4f10a9bd, type: 3}
   sprite: {fileID: 21300000, guid: adbacb4f58d3d9e459defb478bfc0cd7, type: 3}
+  spellTypeSO: {fileID: 11400000, guid: 48caa177b1eb12c40b93faa3a27e28b5, type: 2}

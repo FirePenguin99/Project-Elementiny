@@ -101,11 +101,19 @@ public class WeaponSwapBehaviour : MonoBehaviour
 
         foreach (SpellScriptableObject spell in inventoryList)
         {
-            GameObject newWeapon = Instantiate(spell.weaponPrefab);
-            newWeapon.transform.SetParent(weaponContainerObject);
+            GameObject newWeapon;
+            if (spell.weaponPrefab)
+            {
+                newWeapon = Instantiate(spell.weaponPrefab);
 
-            newWeapon.GetComponent<ShootBehaviour>().shootPoint = shootPosition;
-            newWeapon.GetComponent<WeaponClass>().attackKeycode = attackKeycode;
+                newWeapon.GetComponent<ShootBehaviour>().shootPoint = shootPosition;
+                newWeapon.GetComponent<WeaponClass>().attackKeycode = attackKeycode;
+            }
+            else
+            {
+                newWeapon = new GameObject("Empty Weapon: No weapon prefab specified");
+            }
+            newWeapon.transform.SetParent(weaponContainerObject);
 
             weaponObjects.Add(newWeapon);
         }
