@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     // -- speed stats --
     public float movementSpeedMax;
+    public float verticalSpeedMax;
     public float defaultMovementSpeed; // constant
     [SerializeField] private float speedDropOffRate = 15;
 
@@ -77,11 +78,17 @@ public class PlayerMovement : MonoBehaviour
     private void LimitSpeed()
     {
         Vector3 playerVelocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        float verticalVelocity = rb.velocity.y;
 
         if (playerVelocity.magnitude > movementSpeedMax)
         {
             Vector3 limitedVelocity = playerVelocity.normalized * movementSpeedMax;
             rb.velocity = new Vector3(limitedVelocity.x, rb.velocity.y, limitedVelocity.z);
+        }
+
+        if (verticalVelocity > verticalSpeedMax)
+        {
+            rb.velocity = new Vector3(rb.velocity.x, verticalSpeedMax, rb.velocity.z);
         }
 
         if (movementSpeedMax > defaultMovementSpeed)

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3275970526554728155}
   - component: {fileID: 3819434320777981328}
   - component: {fileID: 7577627998952152862}
-  - component: {fileID: -3615104943666007350}
+  - component: {fileID: 8662236384484287704}
   m_Layer: 0
-  m_Name: FireTeleportWeapon
+  m_Name: FireFlightWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7879121671370235024}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.004042487, y: 0.08080075, z: -0.00032771018, w: 0.99672204}
+  m_LocalPosition: {x: -3.9765701, y: 2.0174503, z: -16.289925}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -46,17 +46,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a346a71e2a457954987ca8f017214015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponName: Teleport
+  weaponName: Jet
   attackKeycode: 308
   fireRate: 0.1
   spread: 0
   reloadRate: 5
-  magazineSize: 9999
+  magazineSize: 50
   shotsInMagazine: 30
   noOfShots: 1
   reloading: 0
   isShooting: 0
-  shootBehaviour: {fileID: -3615104943666007350}
+  shootBehaviour: {fileID: 8662236384484287704}
 --- !u!114 &7577627998952152862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
   projectileLayerMask:
     serializedVersion: 2
     m_Bits: 193
---- !u!114 &-3615104943666007350
+--- !u!114 &8662236384484287704
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -81,15 +81,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7879121671370235024}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 620611dc8fce29c45b9844cc73a4825b, type: 3}
+  m_Script: {fileID: 11500000, guid: 463a034de6c9e5748a66f20d9bea7c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 189868296283109422, guid: 0c0626eb62f97ca42a9873179811c8d7, type: 3}
+  bulletPrefab: {fileID: 0}
   shootForce: 0
   shootPoint: {fileID: 0}
   straightAimDirection: {fileID: 0}
-  maxTeleportDistance: 25
-  projectileLayerMask:
-    serializedVersion: 2
-    m_Bits: 193
-  playerHeight: 1.45
+  orientation: {fileID: 0}
+  dashMaxSpeed: 15
+  dashHorizontalForce: 0
+  dashVerticalForce: 3
+  disableGravityOnFire: 0
