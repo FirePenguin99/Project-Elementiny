@@ -88,8 +88,8 @@ MonoBehaviour:
   shootForce: 0
   shootPoint: {fileID: 0}
   straightAimDirection: {fileID: 0}
-  movement: {fileID: 0}
   orientation: {fileID: 0}
   dashMaxSpeed: 15
   dashHorizontalForce: 15
   dashVerticalForce: 2
+  disableGravityOnFire: 1

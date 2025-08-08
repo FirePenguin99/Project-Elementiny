@@ -51,7 +51,7 @@ MonoBehaviour:
   fireRate: 0.1
   spread: 0
   reloadRate: 5
-  magazineSize: 50
+  magazineSize: 25
   shotsInMagazine: 30
   noOfShots: 1
   reloading: 0
