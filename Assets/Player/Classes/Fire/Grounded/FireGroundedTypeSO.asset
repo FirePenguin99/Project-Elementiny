@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da26c17511774894da0ab0bede0ddc06, type: 3}
   m_Name: FireGroundedTypeSO
   m_EditorClassIdentifier: 
-  spellName: fast
+  spellName: grounded
   spellType:
-  - fast
-  description: fast
+  - grounded
+  description: grounded
   element: 0
   inventorySpell: {fileID: 11400000, guid: 7ae0e1a9ec5837b4d8901a3d9e798396, type: 2}
   weaponSpell: {fileID: 11400000, guid: a2a4baba630701a4b85ce4b3a3462d95, type: 2}
-  movementSpell: {fileID: 11400000, guid: 7ae0e1a9ec5837b4d8901a3d9e798396, type: 2}
+  movementSpell: {fileID: 11400000, guid: 3fe0f7354a8e99a42aeb20bda9158dcd, type: 2}
   ultimateSpell: {fileID: 11400000, guid: 7ae0e1a9ec5837b4d8901a3d9e798396, type: 2}

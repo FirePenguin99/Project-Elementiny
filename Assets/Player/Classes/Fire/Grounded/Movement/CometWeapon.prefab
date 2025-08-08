@@ -1,0 +1,132 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7879121671370235024
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3275970526554728155}
+  - component: {fileID: 3819434320777981328}
+  - component: {fileID: 7577627998952152862}
+  - component: {fileID: 3191916844467809570}
+  - component: {fileID: 8749515542839056767}
+  - component: {fileID: -119650764176048872}
+  m_Layer: 11
+  m_Name: CometWeapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3275970526554728155
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7879121671370235024}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3819434320777981328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7879121671370235024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a346a71e2a457954987ca8f017214015, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponName: Comet
+  attackKeycode: 308
+  fireRate: 0.1
+  spread: 0
+  reloadRate: 3
+  magazineSize: 999
+  shotsInMagazine: 30
+  noOfShots: 1
+  reloading: 0
+  isShooting: 0
+  shootBehaviour: {fileID: 3191916844467809570}
+--- !u!114 &7577627998952152862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7879121671370235024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3afbc9069492424faf5411c91709d48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileLayerMask:
+    serializedVersion: 2
+    m_Bits: 193
+--- !u!114 &3191916844467809570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7879121671370235024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08a9390686a01134893b7131ea152240, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 0}
+  shootForce: 0
+  shootPoint: {fileID: 0}
+  straightAimDirection: {fileID: 7577627998952152862}
+  cometForce: 6.5
+  cometForceTimeout: 2
+--- !u!135 &8749515542839056767
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7879121671370235024}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1.1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-119650764176048872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7879121671370235024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c321c96b6770114883a7d95f6a1451d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionRadius: 10
+  addStackAmount: 30
+  explosionLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
