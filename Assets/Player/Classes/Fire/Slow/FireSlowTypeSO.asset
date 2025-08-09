@@ -19,5 +19,5 @@ MonoBehaviour:
   element: 0
   inventorySpell: {fileID: 11400000, guid: 7fc21e6c24d288a4e8a8891b4c9cfbce, type: 2}
   weaponSpell: {fileID: 11400000, guid: aca747821b41e2b45b137def1536e1c0, type: 2}
-  movementSpell: {fileID: 11400000, guid: 7fc21e6c24d288a4e8a8891b4c9cfbce, type: 2}
+  movementSpell: {fileID: 11400000, guid: fb33c3578a57a3b4f891d4f244b59e9f, type: 2}
   ultimateSpell: {fileID: 11400000, guid: 7fc21e6c24d288a4e8a8891b4c9cfbce, type: 2}

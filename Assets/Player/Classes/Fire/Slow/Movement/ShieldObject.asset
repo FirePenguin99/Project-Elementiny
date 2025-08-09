@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd0f592b4e72d944c889ebef53432239, type: 3}
   m_Name: ShieldObject
   m_EditorClassIdentifier: 
-  spellName: Comet
-  description: Slam to the ground and explode
+  spellName: Shield
+  description: Use a shield to block projectiles or burn enemies
   element: 0
-  weaponPrefab: {fileID: 7879121671370235024, guid: 1aca28252c87af2458d2d76ccec6f3ff, type: 3}
-  sprite: {fileID: 21300000, guid: b7b9a2cc9c2d4184394fe79414e0673c, type: 3}
-  spellTypeSO: {fileID: 11400000, guid: 48caa177b1eb12c40b93faa3a27e28b5, type: 2}
+  weaponPrefab: {fileID: 7879121671370235024, guid: 9b837497925512c44b69e3934f7a3f9a, type: 3}
+  sprite: {fileID: 21300000, guid: de9d9ced18622b348a06553ece93deae, type: 3}
+  spellTypeSO: {fileID: 11400000, guid: 0e00c10bb727f274d9ad24b47e00e2f9, type: 2}
