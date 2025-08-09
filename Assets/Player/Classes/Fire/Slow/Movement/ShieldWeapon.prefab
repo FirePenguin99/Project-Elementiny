@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3275970526554728155}
   - component: {fileID: 3819434320777981328}
   - component: {fileID: 7577627998952152862}
-  - component: {fileID: 3457645396375497630}
-  m_Layer: 0
-  m_Name: TrailblazeWeapon
+  - component: {fileID: 1992695111830842250}
+  m_Layer: 11
+  m_Name: ShieldWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,17 +46,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a346a71e2a457954987ca8f017214015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponName: Trailblaze
+  weaponName: Shield
   attackKeycode: 308
-  fireRate: 5
+  fireRate: 0.05
   spread: 0
   reloadRate: 3
-  magazineSize: 1
+  magazineSize: 50
   shotsInMagazine: 30
   noOfShots: 1
   reloading: 0
   isShooting: 0
-  shootBehaviour: {fileID: 3457645396375497630}
+  shootBehaviour: {fileID: 1992695111830842250}
 --- !u!114 &7577627998952152862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
   projectileLayerMask:
     serializedVersion: 2
     m_Bits: 193
---- !u!114 &3457645396375497630
+--- !u!114 &1992695111830842250
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -81,16 +81,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7879121671370235024}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0086f83e3205f543aaa77f5d173f86d, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f8a2319f5f30ee44bd648add81ee293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 3077993711427911841, guid: e76e67367447b154c90f74333d9c84c0, type: 3}
   shootForce: 0
   shootPoint: {fileID: 0}
   straightAimDirection: {fileID: 0}
-  movement: {fileID: 0}
-  firePoolPrefab: {fileID: 3532618932291632221, guid: a6033360dc9c4fd42aaf118b02131298, type: 3}
-  runningMaxSpeed: 15
-  dashTimer: 5
-  firePoolInterval: 0.1
-  playerHeight: 1
