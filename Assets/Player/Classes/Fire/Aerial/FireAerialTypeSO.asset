@@ -18,6 +18,6 @@ MonoBehaviour:
   description: Aerial
   element: 0
   inventorySpell: {fileID: 11400000, guid: 2debd941924a69b42a98bd23905331c5, type: 2}
-  weaponSpell: {fileID: 11400000, guid: 2debd941924a69b42a98bd23905331c5, type: 2}
+  weaponSpell: {fileID: 11400000, guid: 49f0399363aee2d419b515643598a35d, type: 2}
   movementSpell: {fileID: 11400000, guid: 54610b183a4477d488d9099a853e7c96, type: 2}
   ultimateSpell: {fileID: 11400000, guid: 2debd941924a69b42a98bd23905331c5, type: 2}
