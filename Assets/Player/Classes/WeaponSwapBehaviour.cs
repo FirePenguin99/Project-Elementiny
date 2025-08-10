@@ -46,11 +46,11 @@ public class WeaponSwapBehaviour : MonoBehaviour
     {
         foreach (var weapon in weaponObjects)
         {
-            if (weapon != null) weapon.SetActive(false);
+            if (weapon != null) weapon.GetComponent<WeaponClass>().enabled = false;
         }
         if (weaponObjects.Count <= weaponArrayPointer) return;
 
-        weaponObjects[weaponArrayPointer].SetActive(true);
+        weaponObjects[weaponArrayPointer].GetComponent<WeaponClass>().enabled = true;
     }
 
     void RefreshWeapons()

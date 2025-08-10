@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5453000274572100447}
   - component: {fileID: 2097937348436342792}
   m_Layer: 0
-  m_Name: SpearWeapon
+  m_Name: SpearWeaponOld
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,14 +46,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a346a71e2a457954987ca8f017214015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponName: Spear
+  weaponName: Spear Old
+  attackKeycode: 0
   fireRate: 1
   spread: 0
   reloadRate: 2
   magazineSize: 30
   shotsInMagazine: 30
   noOfShots: 1
-  reloading: 0
   isShooting: 0
   shootBehaviour: {fileID: 5453000274572100447}
 --- !u!114 &5453000274572100447

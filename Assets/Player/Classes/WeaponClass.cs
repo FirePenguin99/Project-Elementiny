@@ -10,21 +10,22 @@ public class WeaponClass : MonoBehaviour
 
     public float fireRate, spread, reloadRate;
     public int magazineSize;
-    [HideInInspector] public int shotsInMagazine;
+    public int shotsInMagazine;
     [SerializeField] protected int noOfShots = 1;
 
-    public bool reloading, isShooting = false;
+    public bool isShooting = false; // is needed as scripts that inherit from this one find other ways to start shooting, other than player input. Therefore a bool must be used as a flag
 
     protected bool readyToShoot;
-    protected bool allowInvoke = true; //this stops multiple Invokes from being played at the same time
+    protected bool allowInvoke = true; // this stops multiple Invokes from being played at the same time
 
     [SerializeField] protected ShootBehaviour shootBehaviour;
+
+    private Coroutine reloadCoroutine;
 
     void Awake()
     {
         shotsInMagazine = magazineSize;
         readyToShoot = true;
-        reloading = false;
     }
 
     void Update()
@@ -34,6 +35,8 @@ public class WeaponClass : MonoBehaviour
 
     protected virtual void PlayerInput()
     {
+        StartReload();
+
         if (Input.GetKeyDown(attackKeycode))
         {
             isShooting = true;
@@ -44,13 +47,14 @@ public class WeaponClass : MonoBehaviour
             StopShoot();
         }
 
-        if (readyToShoot && isShooting && !reloading && shotsInMagazine > 0)
+        if (readyToShoot && isShooting && shotsInMagazine > 0)
         {
+            if (reloadCoroutine != null)
+            {
+                StopCoroutine(reloadCoroutine);
+                reloadCoroutine = null;
+            }
             Shoot();
-        }
-        else if (readyToShoot && !reloading && shotsInMagazine <= 0)
-        {
-            Reload();
         }
     }
 
@@ -82,15 +86,21 @@ public class WeaponClass : MonoBehaviour
         allowInvoke = true;
     }
 
-    protected void Reload()
+    protected void StartReload()
     {
-        reloading = true;
-        Invoke(nameof(ReloadFinished), reloadRate);
+        if (reloadCoroutine == null) reloadCoroutine = StartCoroutine(nameof(Reload));
     }
-    protected void ReloadFinished()
+
+    IEnumerator Reload()
     {
+        yield return new WaitForSeconds(reloadRate);
         shotsInMagazine = magazineSize;
-        reloading = false;
+        reloadCoroutine = null;
+    }
+
+    void OnDisable()
+    {
+        isShooting = false;
     }
 }
 

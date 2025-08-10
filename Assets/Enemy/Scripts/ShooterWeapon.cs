@@ -7,10 +7,13 @@ public class EnemyShooterWeapon : WeaponClass
     // Update is called once per frame
     void Update()
     {
-        if (readyToShoot && isShooting && !reloading && shotsInMagazine > 0) {
+        if (readyToShoot && isShooting && shotsInMagazine > 0)
+        {
             Shoot();
-        } else if (readyToShoot && !reloading && shotsInMagazine <= 0) {
-            Reload();
+        }
+        else if (readyToShoot && shotsInMagazine <= 0)
+        {
+            StartReload();
         }
     }
 }

@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &9017205821816590020
 Transform:
   m_ObjectHideFlags: 0
@@ -47,13 +47,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Skull
+  attackKeycode: 0
   fireRate: 0.25
   spread: 0
   reloadRate: 2
   magazineSize: 10
   shotsInMagazine: 10
   noOfShots: 1
-  reloading: 0
   isShooting: 0
   shootBehaviour: {fileID: 9110044006920444881}
 --- !u!114 &9110044006920444881
