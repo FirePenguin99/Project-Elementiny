@@ -18,6 +18,6 @@ MonoBehaviour:
   description: grounded
   element: 0
   inventorySpell: {fileID: 11400000, guid: 7ae0e1a9ec5837b4d8901a3d9e798396, type: 2}
-  weaponSpell: {fileID: 11400000, guid: a2a4baba630701a4b85ce4b3a3462d95, type: 2}
+  weaponSpell: {fileID: 11400000, guid: e4672eddce0728241b7bc408c5f43459, type: 2}
   movementSpell: {fileID: 11400000, guid: 3fe0f7354a8e99a42aeb20bda9158dcd, type: 2}
   ultimateSpell: {fileID: 11400000, guid: 7ae0e1a9ec5837b4d8901a3d9e798396, type: 2}
