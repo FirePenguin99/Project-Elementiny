@@ -9,7 +9,7 @@ public class BurnWhilstCollideBehaviour : FireElementClass
     [SerializeField] private LayerMask collisionLayers;
     [SerializeField] private float burnInterval = 0.5f;
 
-    List<Collider> enemiesInRange = new List<Collider>();
+    List<HealthBehaviour> enemiesInRange = new List<HealthBehaviour>();
 
     private float timeSinceLastBurn = 0;
 
@@ -17,9 +17,21 @@ public class BurnWhilstCollideBehaviour : FireElementClass
     {
         if ((collisionLayers.value & (1 << col.transform.gameObject.layer)) > 0)
         {
-            if (col.gameObject.GetComponent<HealthBehaviour>() != null)
+            HealthBehaviour enemyHealth = col.gameObject.GetComponent<HealthBehaviour>();
+            if (enemyHealth != null)
             {
-                enemiesInRange.Add(col);
+                enemiesInRange.Add(enemyHealth);
+            }
+        }
+    }
+    void OnCollisionEnter(Collision col)
+    {
+        if ((collisionLayers.value & (1 << col.transform.gameObject.layer)) > 0)
+        {
+            HealthBehaviour enemyHealth = col.gameObject.GetComponent<HealthBehaviour>();
+            if (enemyHealth != null)
+            {
+                enemiesInRange.Add(enemyHealth);
             }
         }
     }
@@ -27,9 +39,21 @@ public class BurnWhilstCollideBehaviour : FireElementClass
     {
         if ((collisionLayers.value & (1 << col.transform.gameObject.layer)) > 0)
         {
-            if (col.gameObject.GetComponent<HealthBehaviour>() != null)
+            HealthBehaviour enemyHealth = col.gameObject.GetComponent<HealthBehaviour>();
+            if (enemyHealth != null)
             {
-                enemiesInRange.Remove(col);
+                enemiesInRange.Remove(enemyHealth);
+            }
+        }
+    }
+    void OnCollisionExit(Collision col)
+    {
+        if ((collisionLayers.value & (1 << col.transform.gameObject.layer)) > 0)
+        {
+            HealthBehaviour enemyHealth = col.gameObject.GetComponent<HealthBehaviour>();
+            if (enemyHealth != null)
+            {
+                enemiesInRange.Remove(enemyHealth);
             }
         }
     }
@@ -41,7 +65,7 @@ public class BurnWhilstCollideBehaviour : FireElementClass
         {
             enemiesInRange = enemiesInRange.Where(enemy => enemy != null).ToList();
 
-            foreach (Collider enemy in enemiesInRange)
+            foreach (HealthBehaviour enemy in enemiesInRange)
             {
                 ApplyBurn(enemy.gameObject, addedBurnStack);
             }
