@@ -41,7 +41,6 @@ public class ShooterRootedMovementBehaviour : EnemyMovementBehaviour
     IEnumerator enemyShoot()
     {
         agent.enabled = false;
-        print("started to shoot");
 
         //start shooting until run out of ammo
         weapon.isShooting = true;

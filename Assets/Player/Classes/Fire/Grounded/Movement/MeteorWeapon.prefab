@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8749515542839056767}
   - component: {fileID: -119650764176048872}
   m_Layer: 11
-  m_Name: CometWeapon
+  m_Name: MeteorWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -12,7 +12,7 @@ public class BurnDebuffBehaviour : FireElementClass
     public float burnTimer;
     [SerializeField] private float tickRate = 1f;
     bool allowTickInvoke = true; //this stops multiple Invokes from being played at the same time
-    
+
     [SerializeField] private Collider[] enemiesInRange;
     [SerializeField] private float spreadRadius = 10f;
     LayerMask spreadLayerMask;
@@ -20,9 +20,10 @@ public class BurnDebuffBehaviour : FireElementClass
     HealthBehaviour entityHealth;
     GameObject fireParticlesPrefab;
 
-    void OnDrawGizmos() {
-        Gizmos.color = new Color(1f,0f,0f,0.1f);
-        
+    void OnDrawGizmos()
+    {
+        Gizmos.color = new Color(1f, 0f, 0f, 0.1f);
+
         Gizmos.DrawSphere(transform.position, spreadRadius);
     }
 
@@ -31,7 +32,7 @@ public class BurnDebuffBehaviour : FireElementClass
         entityHealth = GetComponent<HealthBehaviour>();
         spreadLayerMask = LayerMask.GetMask("Enemy");
 
-        fireParticlesPrefab = Instantiate( AssetDatabase.LoadAssetAtPath("Assets/Player/Classes/Fire/BurningObj.prefab", typeof(GameObject)) ) as GameObject;
+        fireParticlesPrefab = Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Player/Classes/Fire/BurningObj.prefab", typeof(GameObject))) as GameObject;
         fireParticlesPrefab.transform.SetParent(this.gameObject.transform);
         fireParticlesPrefab.transform.position = this.gameObject.transform.position;
     }
@@ -39,32 +40,37 @@ public class BurnDebuffBehaviour : FireElementClass
     // Update is called once per frame
     void Update()
     {
-        if (allowTickInvoke) {
+        if (allowTickInvoke)
+        {
             Invoke(nameof(BurnDamageTick), tickRate);
-        
-            if (burnTimer <= 0) {
+
+            if (burnTimer <= 0 || burnStackCount <= 0)
+            {
                 ExtinguishBurn();
             }
             burnTimer -= tickRate;
-        
+
             allowTickInvoke = false;
         }
     }
 
-    private void BurnDamageTick() {
+    private void BurnDamageTick()
+    {
         entityHealth.health -= burnStackDamage * burnStackCount;
-        print("burned for " + (burnStackDamage * burnStackCount) + " damage");
-        
+        // print("burned for " + (burnStackDamage * burnStackCount) + " damage");
+
         Invoke(nameof(InvokeSpreadBurn), tickRate);
 
         allowTickInvoke = true;
     }
 
-    private void InvokeSpreadBurn() {
+    private void InvokeSpreadBurn()
+    {
         SpreadBurn(spreadRadius, spreadLayerMask);
     }
 
-    public void ExtinguishBurn() {
+    public void ExtinguishBurn()
+    {
         fireParticlesPrefab.GetComponent<FlameParticleBehaviour>().EndFlame();
         Destroy(this);
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 // [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(SphereCollider))]
 
-public class CometMovementShootBehaviour : ShootBehaviour
+public class MeteorMovementShootBehaviour : ShootBehaviour
 {
     private Rigidbody playerRb;
     private SphereCollider cometCollider;
