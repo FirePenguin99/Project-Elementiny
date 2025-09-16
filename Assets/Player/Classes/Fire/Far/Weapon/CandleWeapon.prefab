@@ -60,6 +60,7 @@ MonoBehaviour:
   decayRate: 0.25
   isCharging: 0
   timeCharged: 0
+  partialCharge: 0
 --- !u!114 &2433929837720487064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,6 +77,8 @@ MonoBehaviour:
   shootForce: 50
   shootPoint: {fileID: 0}
   straightAimDirection: {fileID: 8690599012493145594}
+  chargeMultiplier: 0
+  maxCandles: 5
 --- !u!114 &8690599012493145594
 MonoBehaviour:
   m_ObjectHideFlags: 0

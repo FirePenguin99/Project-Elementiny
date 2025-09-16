@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ExplodeOnCollideBehaviour : FireElementClass
@@ -14,7 +11,7 @@ public class ExplodeOnCollideBehaviour : FireElementClass
         Explode();
     }
 
-    public virtual void Explode()
+    public void Explode()
     {
         Collider[] enemiesInRange = Physics.OverlapSphere(transform.position, explosionRadius, explosionLayerMask);
 

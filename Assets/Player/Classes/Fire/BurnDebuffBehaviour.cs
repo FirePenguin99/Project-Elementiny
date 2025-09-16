@@ -57,7 +57,6 @@ public class BurnDebuffBehaviour : FireElementClass
     private void BurnDamageTick()
     {
         entityHealth.health -= burnStackDamage * burnStackCount;
-        // print("burned for " + (burnStackDamage * burnStackCount) + " damage");
 
         Invoke(nameof(InvokeSpreadBurn), tickRate);
 
