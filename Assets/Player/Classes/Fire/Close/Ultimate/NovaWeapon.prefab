@@ -76,7 +76,7 @@ MonoBehaviour:
   shootPoint: {fileID: 0}
   straightAimDirection: {fileID: 0}
   chargeMultiplier: 0
-  explosionRadius: 15
+  explosionRadius: 10
   explodeDamage: 25
   explosionLayerMask:
     serializedVersion: 2
