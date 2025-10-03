@@ -1349,7 +1349,7 @@ MonoBehaviour:
   backwardIterate: 0
   hotbar: 5
   weaponContainerObject: {fileID: 352819912}
-  shootPosition: {fileID: 352819912}
+  shootPosition: {fileID: 7152528880488294546}
   playerInventory: {fileID: 8702774204700988201}
 --- !u!1 &406225688
 GameObject:
@@ -14103,7 +14103,7 @@ MonoBehaviour:
   leftSpellInventory: []
   movementSpellInventory: []
   ultimateSpellInventory:
-  - {fileID: 11400000, guid: 59470e2360cb21e4ba82e96dc7688cd2, type: 2}
+  - {fileID: 11400000, guid: fe058d6568c550c41aa8aa8d8c462d53, type: 2}
 --- !u!54 &9048018135310708497
 Rigidbody:
   m_ObjectHideFlags: 0
