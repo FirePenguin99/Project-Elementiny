@@ -14103,7 +14103,7 @@ MonoBehaviour:
   leftSpellInventory: []
   movementSpellInventory: []
   ultimateSpellInventory:
-  - {fileID: 11400000, guid: fe058d6568c550c41aa8aa8d8c462d53, type: 2}
+  - {fileID: 11400000, guid: 1d730030ea4f03145b9ac42ae0a1af5d, type: 2}
 --- !u!54 &9048018135310708497
 Rigidbody:
   m_ObjectHideFlags: 0

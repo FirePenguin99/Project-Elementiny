@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class BurnWhilstCollideBehaviour : FireElementClass
+public class BurnWhilstCollideBehaviour : MonoBehaviour
 {
     [SerializeField] private int addedBurnStack = 2;
     [SerializeField] private LayerMask collisionLayers;
@@ -67,7 +67,7 @@ public class BurnWhilstCollideBehaviour : FireElementClass
 
             foreach (HealthBehaviour enemy in enemiesInRange)
             {
-                ApplyBurn(enemy.gameObject, addedBurnStack);
+                FireElementClass.ApplyBurn(enemy.gameObject, addedBurnStack);
             }
 
             timeSinceLastBurn = 0;

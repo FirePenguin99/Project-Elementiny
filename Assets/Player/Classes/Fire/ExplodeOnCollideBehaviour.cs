@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ExplodeOnCollideBehaviour : FireElementClass
+public class ExplodeOnCollideBehaviour : MonoBehaviour
 {
     [SerializeField] private float explosionRadius;
     [SerializeField] private int addStackAmount = 25;
@@ -19,7 +19,7 @@ public class ExplodeOnCollideBehaviour : FireElementClass
         {
             if (enemy.gameObject.name != this.gameObject.name)
             {
-                ApplyBurn(enemy.gameObject, addStackAmount);
+                FireElementClass.ApplyBurn(enemy.gameObject, addStackAmount);
             }
         }
     }

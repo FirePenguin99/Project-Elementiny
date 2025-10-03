@@ -4,7 +4,7 @@ using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEditor;
 using UnityEngine;
 
-public class BurnDebuffBehaviour : FireElementClass
+public class BurnDebuffBehaviour : MonoBehaviour
 {
     public int burnStackCount = 0;
     public float burnStackDamage = 5f;
@@ -65,7 +65,7 @@ public class BurnDebuffBehaviour : FireElementClass
 
     private void InvokeSpreadBurn()
     {
-        SpreadBurn(spreadRadius, spreadLayerMask);
+        FireElementClass.SpreadBurn(this.gameObject, spreadRadius, spreadLayerMask);
     }
 
     public void ExtinguishBurn()

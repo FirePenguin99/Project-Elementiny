@@ -16,10 +16,9 @@ public class FireBrainBlastShootBehaviour : ShootBehaviour
 
     private WeaponClass weapon;
 
-    private FireElementClass fireClass;
 
-    void Start() {
-        fireClass = gameObject.AddComponent<FireElementClass>();
+    void Start()
+    {
         weapon = GetComponent<WeaponClass>();
 
         timeToMaxHeat = weapon.magazineSize * weapon.fireRate;
@@ -27,41 +26,50 @@ public class FireBrainBlastShootBehaviour : ShootBehaviour
         exponentialHeatCoefficient = Math.Sqrt((timeToMaxHeat * timeToMaxHeat) / maxHeatDamage);
     }
 
-    public override void Fire() {
-        if (!targetEnemy) {
+    public override void Fire()
+    {
+        if (!targetEnemy)
+        {
             FireRayForTargetEnemy();
-        } else {
+        }
+        else
+        {
             BurnTargetEnemy();
         }
     }
 
 
-    public override void StopFire() {
+    public override void StopFire()
+    {
         targetEnemy = null;
         heatingTime = 0;
     }
 
-    void FireRayForTargetEnemy() {
+    void FireRayForTargetEnemy()
+    {
         weapon.shotsInMagazine += 1; // refund missed shot
 
         Vector3 aimDirection = straightAimDirection.CalculateAimDirection() - shootPoint.position;
         Debug.DrawRay(transform.position, aimDirection, Color.red, 0.1f);
 
         RaycastHit hit;
-        if (Physics.Raycast(shootPoint.position, aimDirection, out hit, Mathf.Infinity, rayLayerMask)) {
+        if (Physics.Raycast(shootPoint.position, aimDirection, out hit, Mathf.Infinity, rayLayerMask))
+        {
             targetEnemy = hit.collider.gameObject;
         }
     }
 
-    void BurnTargetEnemy() {
+    void BurnTargetEnemy()
+    {
         heatingTime += Time.deltaTime;
 
-        if (heatingTime >= timeToMaxHeat) {
+        if (heatingTime >= timeToMaxHeat)
+        {
             StopFire();
             return;
         }
-        double burnStacks = Math.Pow((heatingTime/exponentialHeatCoefficient), 2); // exponential expression: y = (x/a)^2
+        double burnStacks = Math.Pow((heatingTime / exponentialHeatCoefficient), 2); // exponential expression: y = (x/a)^2
         int roundedBurnStacks = (int)Math.Round(burnStacks);
-        fireClass.ApplyBurn(targetEnemy, roundedBurnStacks);
+        FireElementClass.ApplyBurn(targetEnemy, roundedBurnStacks);
     }
 }

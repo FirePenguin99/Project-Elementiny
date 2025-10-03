@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.Callbacks;
 using UnityEngine;
 
-public class FlamethrowerBulletBehaviour : FireElementClass
+public class FlamethrowerBulletBehaviour : MonoBehaviour
 {
     public float projectileLifetime;
 
@@ -11,7 +11,7 @@ public class FlamethrowerBulletBehaviour : FireElementClass
     public float antiGravity;
 
     private Rigidbody rb;
-    
+
     void Start()
     {
         Invoke(nameof(DestroyProjectile), projectileLifetime);
@@ -20,21 +20,26 @@ public class FlamethrowerBulletBehaviour : FireElementClass
 
     void FixedUpdate()
     {
-        if (rb) {rb.AddForce(Vector3.up * antiGravity, ForceMode.Acceleration);} // no idea why antiGravity doesn't have to be negated, it just works?
+        if (rb) { rb.AddForce(Vector3.up * antiGravity, ForceMode.Acceleration); } // no idea why antiGravity doesn't have to be negated, it just works?
     }
 
-    void OnTriggerEnter(Collider col) {
+    void OnTriggerEnter(Collider col)
+    {
         // print("collided with " + col.gameObject.name);
-        if (col.gameObject.GetComponent<HealthBehaviour>() != null) {
+        if (col.gameObject.GetComponent<HealthBehaviour>() != null)
+        {
             // print("burned");
             // col.gameObject.GetComponent<HealthBehaviour>().health += -10;
-            ApplyBurn(col.gameObject, addedBurnStack);
-        } else {
+            FireElementClass.ApplyBurn(col.gameObject, addedBurnStack);
+        }
+        else
+        {
             // print("no health script");
         }
     }
 
-    private void DestroyProjectile() {
+    private void DestroyProjectile()
+    {
         Destroy(this.gameObject);
     }
 }

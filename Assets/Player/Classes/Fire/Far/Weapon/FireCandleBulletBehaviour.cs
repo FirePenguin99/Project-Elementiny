@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireCandleBulletBehaviour : FireElementClass
+public class FireCandleBulletBehaviour : MonoBehaviour
 {
     public float projectileLifetime;
 
     public int addedBurnStack = 15;
 
     private Rigidbody rb;
-    
-    void Awake() {
+
+    void Awake()
+    {
         rb = GetComponent<Rigidbody>();
     }
 
@@ -22,24 +23,30 @@ public class FireCandleBulletBehaviour : FireElementClass
     {
     }
 
-    void OnCollisionEnter(Collision col) {
+    void OnCollisionEnter(Collision col)
+    {
         // print("collided with " + col.gameObject.name);
-        if (col.gameObject.GetComponent<HealthBehaviour>() != null) {
+        if (col.gameObject.GetComponent<HealthBehaviour>() != null)
+        {
             // print("burned");
             // col.gameObject.GetComponent<HealthBehaviour>().health += -10;
-            ApplyBurn(col.gameObject, addedBurnStack);
-        } else {
+            FireElementClass.ApplyBurn(col.gameObject, addedBurnStack);
+        }
+        else
+        {
             // print("no health script");
         }
 
         DestroyProjectile();
     }
 
-    private void DestroyProjectile() {
+    private void DestroyProjectile()
+    {
         Destroy(this.gameObject);
     }
 
-    public void StartFlying(Vector3 direction, float force) {
+    public void StartFlying(Vector3 direction, float force)
+    {
         rb.AddForce(direction * force, ForceMode.Impulse);
         Invoke(nameof(DestroyProjectile), projectileLifetime);
     }

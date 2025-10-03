@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class SmoulderingCorpseBehaviour : FireElementClass
+public class SmoulderingCorpseBehaviour : MonoBehaviour
 {
     public int burnStackCount = 0;
     public float tickRate = 1f;
@@ -16,13 +16,14 @@ public class SmoulderingCorpseBehaviour : FireElementClass
     LayerMask spreadLayerMask;
 
     public Collider[] enemiesInRange;
-    
-    void OnDrawGizmos() {
-        Gizmos.color = new Color(1f,0f,0f,0.1f);
-        
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = new Color(1f, 0f, 0f, 0.1f);
+
         Gizmos.DrawSphere(transform.position, spreadRadius);
     }
-    
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -33,22 +34,25 @@ public class SmoulderingCorpseBehaviour : FireElementClass
     // Update is called once per frame
     void Update()
     {
-        if (allowSpreadInvoke) {
+        if (allowSpreadInvoke)
+        {
             Invoke(nameof(InvokeSpreadBurn), tickRate);
-        
-            if (burnTimer <= 0) {
+
+            if (burnTimer <= 0)
+            {
                 // spreadParticlesPrefab.GetComponent<FlameParticleBehaviour>().EndFlame();
                 Destroy(this.gameObject);
             }
             burnTimer -= 1;
-        
+
             allowSpreadInvoke = false;
         }
     }
 
-    private void InvokeSpreadBurn() {
-        SpreadBurn(spreadRadius, spreadLayerMask);
-        
+    private void InvokeSpreadBurn()
+    {
+        FireElementClass.SpreadBurn(this.gameObject, spreadRadius, spreadLayerMask);
+
         allowSpreadInvoke = true;
     }
 }
