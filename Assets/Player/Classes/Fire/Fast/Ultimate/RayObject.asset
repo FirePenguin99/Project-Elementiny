@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd0f592b4e72d944c889ebef53432239, type: 3}
+  m_Name: RayObject
+  m_EditorClassIdentifier: 
+  spellName: Ray
+  description: Fire a beam of heat that travels instantly
+  element: 0
+  weaponPrefab: {fileID: 729794168866269958, guid: 5239139641eb4d247b442aab421aab07, type: 3}
+  sprite: {fileID: 21300000, guid: 60c0ca194e6158e46ae822cc3781e10a, type: 3}
+  spellTypeSO: {fileID: 11400000, guid: c5e60012c7c2bc249859548225269579, type: 2}
