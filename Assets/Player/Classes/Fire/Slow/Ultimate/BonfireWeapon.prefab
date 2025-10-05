@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &729794168866269958
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6267709448402877166}
+  - component: {fileID: 4905732225656498163}
+  - component: {fileID: 3376603962755244896}
+  - component: {fileID: 1001836330555810662}
+  m_Layer: 0
+  m_Name: BonfireWeapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6267709448402877166
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729794168866269958}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.7116585, y: -6.2, z: -8.511998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4905732225656498163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729794168866269958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8cca89afd325944d9299dfff40cf7e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponName: Bonfire
+  attackKeycode: 0
+  fireRate: 0.1
+  spread: 0
+  reloadRate: 5
+  magazineSize: 1
+  shotsInMagazine: 1
+  noOfShots: 1
+  isShooting: 0
+  shootBehaviour: {fileID: 3376603962755244896}
+  burnAbsorbTick: 0.2
+  burnAbsorbIncrement: 100
+  shootAtStart: 0
+--- !u!114 &3376603962755244896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729794168866269958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2289fac5c004fa04981b62166aecbbb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 6016854193628635979, guid: 889578667e5341d4b8e9b4fd3bab54f9, type: 3}
+  shootForce: 0
+  shootPoint: {fileID: 0}
+  straightAimDirection: {fileID: 0}
+  chargeMultiplier: 0
+  prefabToSpawn: {fileID: 0}
+  damage: 10
+  rayLayerMask:
+    serializedVersion: 2
+    m_Bits: 129
+--- !u!114 &1001836330555810662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729794168866269958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3afbc9069492424faf5411c91709d48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileLayerMask:
+    serializedVersion: 2
+    m_Bits: 193

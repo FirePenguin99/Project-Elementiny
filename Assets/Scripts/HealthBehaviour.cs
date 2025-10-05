@@ -47,4 +47,9 @@ public class HealthBehaviour : MonoBehaviour
             ewl.RemoveFromWave();
         }
     }
+
+    public void DamageHealth(float damageTaken)
+    {
+        health -= damageTaken;
+    }
 }
